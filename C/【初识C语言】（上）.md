@@ -1,4 +1,4 @@
-﻿# 2021-10-25-
+﻿﻿# 2021-10-25-
 
 作者：Nico
 
@@ -31,19 +31,7 @@
 
 ### 选择语句
 
-```mermaid
-flowchat
-st=>start: start
-e=>end: 成为大牛，走向巅峰！
-op=>operation: 碌碌无为，老实种地！
-cond=>condition: 你会努力学习编程吗？
-
-st->cond
-cond(yes)->e
-cond(no)->op
-```
-
-这是不是这与我们生活中很相似呢！
+这与我们生活中很相似呢！
 
 接着我们来代码实现：
 
@@ -93,19 +81,7 @@ else
 有些事必须一直做，比如我们日复一日地干饭。
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182037108.png)
 
-还比如：
 
-```mermaid
-flowchat
-st=>start: 小白
-e=>end: 好offer
-op=>operation: 学习
-cond=>condition: 你是大牛吗？
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
 
 那么C语言如何实现循环呢？
 

@@ -11,7 +11,7 @@
 
 * **字符串是什么**
 
-> 例：<font color=red>”hello world！“
+> 例：”hello world！“
 
  这种被双引号<font color=red>” “</font>引起来的一串字符叫做字符串字面值，简称字符串。
 
@@ -44,7 +44,7 @@ int main()
 
 
 
-可以看到arr1和arr3的输出结果是相同的，但是arr2的结果就让人看不懂了，虽然 ==<font color=purple>"hehe"==</font>仍在屏幕上打印出来了，但后面跟了”烫烫烫烫hehe“的乱码。
+可以看到arr1和arr3的输出结果是相同的，但是arr2的结果就让人看不懂了，虽然 =="hehe"==仍在屏幕上打印出来了，但后面跟了”烫烫烫烫hehe“的乱码。
 
 **思考**：**出现这种情况的原因是什么呢？**
 我们来调试一下代码，如下：
@@ -74,11 +74,16 @@ int main()
 ```
 
 接下来看看运行结果：
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182049287.png)
+
+![image-20220319085557567](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203190856665.png)
+
+
 这似乎与我们想要的不太一样，我们来看看少了哪些东西。
-![在这里插入图片描述](E:\C语言笔记\assets\【初识C语言】转义字符\watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAaWhlYWw=,size_20,color_FFFFFF,t_70,g_se,x_16.png)
+
 **思考**：这里红色框框内就是没有打印出来分别的是<font color=purple>'\\'和'\t'</font>,这似乎两者都带着一个 =='\\ '== 字符，那这究竟是什么呢？
 这就不得不提到转义字符，顾名思义就是转变含义。
+
+
 
 | 转义字符                   | 释义                                                         |
 | -------------------------- | :----------------------------------------------------------- |
@@ -102,7 +107,16 @@ int main()
 >问题二：如何在屏幕上打印一个字符串，字符串内容是<font color =purple>一个双引号 "</font>
 
 通常在不了解转义字符的情况下，我们会写出如下代码：
-![在这里插入图片描述](E:\C语言笔记\assets\【初识C语言】转义字符\watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAaWhlYWw=,size_20,color_FFFFFF,t_70,g_se,x_16.png)
+
+```c
+int main()
+{
+	printf("%c", "'");
+	print("%c", """);
+	return 0;
+}
+```
+
 可以看到已经报错了这里已经报错了，错误如下图：
 
 
@@ -114,21 +128,21 @@ int main()
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050249.png)
 
-成功在屏幕上打印出了 ==<font color=red>\'</font> <font color=red>和 \"==。
+成功在屏幕上打印出了 ==\'和 \"==。
 回到刚刚打印路径的问题：
 
 >**例**：打印出 c:\code-c++\test.cpp
 
 **分析**：根据上面的表格
 
-
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050889.png)
 我们可以看到这里的<font color=purple> '\\t' 和 '\\\\' </font>都是转义字符'\'，因此我们如果想要在屏幕上打印出<font color=purple> '\\t' 和 '\\\' </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>'\\'</font>.
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
 如下图：
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050888.png)
-运行结果：
-![在这里插入图片描述](E:\C语言笔记\assets\【初识C语言】转义字符\1d25982ff48e441d95c3af8c9caded34.png)
+
+
+
 显然，我们达成了目的，与我们想要的结果一致。
 为了巩固这一重要却容易被忽视的知识点，我们再来做一个题：
 
