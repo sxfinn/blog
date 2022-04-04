@@ -24,9 +24,12 @@
 
  这种被双引号<font color=red>” “</font>引起来的一串字符叫做字符串字面值，简称字符串。
 
-* **注意**：在我的上一篇文章已经讲过，字符串的结束标志是一个‘\0'的转义字符，在字符串的末尾被省略了。
 
+
+* **注意**：在我的上一篇文章已经讲过，字符串的结束标志是一个‘\0'的转义字符，在字符串的末尾被省略了。
 * **字符串的存储方式**
+
+
 
 >我们都知道，一个字符是储存在变量中的。
 >那字符串储存在哪里呢？
@@ -58,13 +61,21 @@ int main()
 **思考**：**出现这种情况的原因是什么呢？**
 我们来调试一下代码，如下：
 ![调试](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182048109)
+
+
+
 **分析**：似乎他们的不同之处也就只有arr1的末尾比arr2多了一个‘\0'，而我们也联想到了另一个函数那就是strlen函数，在使用strlen函数时也出现了这样一个问题，strlen函数在返回arr2这样的数组的字符串长度时，总是返回的随机值。
+
+
 
 这里就与printf打印字符串的方式有关了，printf在以%s的形式打印arr2时，不断的向后打印每一个字符在标准输出上，直到遇到'\0'才会停止操作。
 这里附上一条详细介绍printf函数的链接。如下：
+
 [**printf函数详解**](http://cplusplus.com/reference/cstdio/printf/?kw=printf)
 
 >**牢记:字符串的结束标志是一个'\0'转义字符，一定不能忽略。**
+
+
 
 ### 💦转义字符
 
@@ -128,16 +139,17 @@ int main()
 
 可以看到已经报错了这里已经报错了，错误如下图：
 
-
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050225.png)
 既然这样不行，我们结合一下上面的转义字符表再来尝试
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050221.png)
 接着我们修改一下代码，如下：
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050240)
+
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050249.png)
 
 成功在屏幕上打印出了 ==\'和 \"==。
+
 回到刚刚打印路径的问题：
 
 >**例**：打印出 c:\code-c++\test.cpp
@@ -146,6 +158,7 @@ int main()
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050889.png)
 我们可以看到这里的<font color=purple> '\\t' 和 '\\\\' </font>都是转义字符'\'，因此我们如果想要在屏幕上打印出<font color=purple> '\\t' 和 '\\\' </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>'\\'</font>.
+
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
 如下图：
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050888.png)
@@ -167,10 +180,11 @@ int main()
 >先来回顾strlen的功能：strlen求得的是字符串的字符个数。
 
 答案是多少呢？
+
 先让我们来分析分析，除了转义字符外，其他字符都是单独存在的。
 <font color=blue>"c\768code-c++\test" </font>这个字符串中有两个<font color=purple> '\\' </font>，我们来重点看看这两个地方：
+
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050900.png)
-![在这里插入图片描述](E:\C语言笔记\assets\【初识C语言】转义字符\180fe06bb3014b53808383f88f74f858.png)
 
 >结合转义字符表：
 
@@ -179,10 +193,13 @@ int main()
 显然，我们可以看到 =='\t' 和'\76'== 是两个转义字符。
 到了这里又有一个新的疑问：
 
+
+
 **思考：'\768'是不是转义字符呢？**
 ![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182051723.png)
 
 >注意哦，这里的8不是八进制数字，所以'\768'不是一个转义字符
+
 
 
 这里的\ddd中的d只能是八进制的数字，这也是一个大家非常容易忽略的地方。
@@ -195,6 +212,8 @@ int main()
 >
 >大家数对了吗？
 >**小结：转义字符也是字符，大小为1个byte。**
+
+
 
 ### 💦注释
 
