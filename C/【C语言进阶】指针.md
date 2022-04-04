@@ -269,38 +269,39 @@ int main()
 #include <stdio.h>
 void print_arr1(int arr[3][5], int row, int col)
 {
-  	int i = 0;
-  	for(i=0; i<row; i++)
-	{
-    	for(j=0; j<col; j++)
+    int i = 0;
+    for (i = 0; i < row; i++)
+    {
+        int j = 0;
+        for (j = 0; j < col; j++)
         {
-      		printf("%d ", arr[i][j]);
+            printf("%d ", arr[i][j]);
         }
-   		printf("\n");
-	}
+        printf("\n");
+    }
 }
-void print_arr2(int (*arr)[5], int row, int col)
+void print_arr2(int(*arr)[5], int row, int col)
 {
-  	int i = 0;
-  	for(i=0; i<row; i++)
- 	{
-    	for(j=0; j<col; j++)
+    int i = 0;
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
         {
-      		printf("%d ", arr[i][j]);
+            printf("%d ", arr[i][j]);
         }
-    	printf("\n");
- 	}
+        printf("\n");
+    }
 }
 int main()
 {
-  	int arr[3][5] = {1,2,3,4,5,6,7,8,9,10};
- 	print_arr1(arr, 3, 5);
-  	//数组名arr，表示首元素的地址
-  	//但是二维数组的首元素是二维数组的第一行
-  	//所以这里传递的arr，其实相当于第一行的地址，是一维数组的地址
-  	//可以数组指针来接收
-  	print_arr2(arr, 3, 5);
-  	return 0;
+    int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10 };
+    print_arr1(arr, 3, 5);
+    //数组名arr，表示首元素的地址
+    //但是二维数组的首元素是二维数组的第一行
+    //所以这里传递的arr，其实相当于第一行的地址，是一维数组的地址
+    //可以数组指针来接收
+    print_arr2(arr, 3, 5);
+    return 0;
 }
 ```
 
@@ -388,22 +389,22 @@ int main()
 
 ```c
 #include <stdio.h>
-void print(int *p, int sz)
+void print(int* p, int sz)
 {
-	int i = 0;
-	for(i=0; i<sz; i++)
-	{
-		printf("%d\n", *(p+i));
-	}
+    int i = 0;
+    for (i = 0; i < sz; i++)
+    {
+        printf("%d\n", *(p + i));
+    }
 }
 int main()
 {
-	int arr[10] = {1,2,3,4,5,6,7,8,9};
-	int *p = arr;
-	int sz = sizeof(arr)/sizeof(arr[0]);
-	//一级指针p，传给函数
-	print(p, sz);
-	return 0;
+    int arr[10] = { 1,2,3,4,5,6,7,8,9 };
+    int* p = arr;
+    int sz = sizeof(arr) / sizeof(arr[0]);
+    //一级指针p，传给函数
+    print(p, sz);
+    return 0;
 }
 ```
 
@@ -436,35 +437,35 @@ test2可以接收常量字符串， 字符数组的数组名，`char*`的指针
 #include <stdio.h>
 void test(int** ptr)
 {
-	printf("num = %d\n", **ptr);
+    printf("num = %d\n", **ptr);
 }
 int main()
 {
-	int n = 10;
-	int*p = &n;
-	int **pp = &p;
-	test(pp);
-	test(&p);
-	return 0;
+    int n = 10;
+    int* p = &n;
+    int** pp = &p;
+    test(pp);
+    test(&p);
+    return 0;
 }
 ```
 
 来想象二级指针可以接收哪些类型的参数呢？
 
 ```c
-void test(char **p)
+void test(char** p)
 {
 }
 int main()
 {
-	char c = 'b';
-	char*pc = &c;
-	char**ppc = &pc;
-	char* arr[10];
-	test(&pc);//这是指向char的指针
-	test(ppc);//可以
-	test(arr);//可以，arr为首元素地址，首元素为char*类型，那么它的类型就是char**
-	return 0;
+    char c = 'b';
+    char* pc = &c;
+    char** ppc = &pc;
+    char* arr[10];
+    test(&pc);//这是指向char的指针
+    test(ppc);//可以
+    test(arr);//可以，arr为首元素地址，首元素为char*类型，那么它的类型就是char**
+    return 0;
 }
 ```
 
@@ -536,13 +537,13 @@ int* p[10];
 #include <stdio.h>
 void test()
 {
-	printf("hehe\n");
+    printf("hehe\n");
 }
 int main()
 {
-	printf("%p\n", test);
-	printf("%p\n", &test);
-	return 0;
+    printf("%p\n", test);
+    printf("%p\n", &test);
+    return 0;
 }
 ```
 
@@ -568,11 +569,11 @@ test(x,y);
 ```c
 void test()
 {
-	printf("hehe\n");
+    printf("hehe\n");
 }
 //下面pfun1和pfun2哪个有能力存放test函数的地址？
 void (*pfun1)();
-void *pfun2();
+void* pfun2();
 ```
 
 分析分析：
@@ -660,69 +661,69 @@ pfun_t signal(int, pfun_t);
 #include <stdio.h>
 int add(int a, int b)
 {
-	return a + b;
+    return a + b;
 }
 int sub(int a, int b)
 {
-	return a - b;
+    return a - b;
 }
 int mul(int a, int b)
 {
-	return a*b;
+    return a * b;
 }
 int div(int a, int b)
 {
-	return a / b;
+    return a / b;
 }
 int main()
 {
-	int x, y;
-	int input = 1;
-  	int ret = 0;
- 	 do
- 	{
-    	printf( "*************************\n" );
-    	printf( " 1:add      2:sub \n" );
-    	printf( " 3:mul      4:div \n" );
-    	printf( "*************************\n" );
-    	printf( "请选择：" );
-    	scanf( "%d", &input);
-    	switch (input)
-   		{
-   		case 1:
-       		printf( "输入操作数：" );
-       		scanf( "%d %d", &x, &y);
-       		ret = add(x, y);
-       		printf( "ret = %d\n", ret);
-       		break;
-    	case 2:
-       		printf( "输入操作数：" );
-       		scanf( "%d %d", &x, &y);
-       		ret = sub(x, y);
-       		printf( "ret = %d\n", ret);
-       		break;
-    	case 3:
-       		printf( "输入操作数：" );
-       		scanf( "%d %d", &x, &y);
-       		ret = mul(x, y);
-       		printf( "ret = %d\n", ret);
-       		break;
-    	case 4:
-       		printf( "输入操作数：" );
-       		scanf( "%d %d", &x, &y);
-       		ret = div(x, y);
-       		printf( "ret = %d\n", ret);
-       		break;
-    	case 0:
-        	printf("退出程序\n");
-			breark;
-    	default:
-       		printf( "选择错误\n" );
-       		break;
-   		}
-} while (input);
- 
-  	return 0;
+    int x, y;
+    int input = 1;
+    int ret = 0;
+    do
+    {
+        printf("*************************\n");
+        printf(" 1:add      2:sub \n");
+        printf(" 3:mul      4:div \n");
+        printf("*************************\n");
+        printf("请选择：");
+        scanf("%d", &input);
+        switch (input)
+        {
+        case 1:
+            printf("输入操作数：");
+            scanf("%d %d", &x, &y);
+            ret = add(x, y);
+            printf("ret = %d\n", ret);
+            break;
+        case 2:
+            printf("输入操作数：");
+            scanf("%d %d", &x, &y);
+            ret = sub(x, y);
+            printf("ret = %d\n", ret);
+            break;
+        case 3:
+            printf("输入操作数：");
+            scanf("%d %d", &x, &y);
+            ret = mul(x, y);
+            printf("ret = %d\n", ret);
+            break;
+        case 4:
+            printf("输入操作数：");
+            scanf("%d %d", &x, &y);
+            ret = div(x, y);
+            printf("ret = %d\n", ret);
+            break;
+        case 0:
+            printf("退出程序\n");
+            breark;
+        default:
+            printf("选择错误\n");
+            break;
+        }
+    } while (input);
+
+    return 0;
 }
 ```
 
@@ -802,20 +803,21 @@ int(*p[n])[3];
 如何定义？
 
 ```c
+#include <stdio.h>
 void test(const char* str)
 {
-	printf("%s\n", str);
+    printf("%s\n", str);
 }
 int main()
 {
-	//函数指针pfun
-	void (*pfun)(const char*) = test;
-	//函数指针的数组pfunArr
-	void (*pfunArr[5])(const char* str);
-	pfunArr[0] = test;
-	//指向函数指针数组pfunArr的指针ppfunArr
-	void (*(*ppfunArr)[5])(const char*) = &pfunArr;
-	return 0;
+    //函数指针pfun
+    void (*pfun)(const char*) = test;
+    //函数指针的数组pfunArr
+    void (*pfunArr[5])(const char* str);
+    pfunArr[0] = test;
+    //指向函数指针数组pfunArr的指针ppfunArr
+    void (*(*ppfunArr)[5])(const char*) = &pfunArr;
+    return 0;
 }
 ```
 
@@ -836,22 +838,22 @@ int main()
 ```c
 #include <stdio.h>
 //qosrt函数的使用者得实现一个比较函数
-int int_cmp(const void * p1, const void * p2)
+int int_cmp(const void* p1, const void* p2)
 {
- 	return (*( int *)p1 - *(int *) p2);
+    return (*(int*)p1 - *(int*)p2);
 }
 int main()
 {
-  	int arr[] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 0 };
-  	int i = 0;
- 
-  	qsort(arr, sizeof(arr) / sizeof(arr[0]), sizeof (int), int_cmp);
-  	for (i = 0; i< sizeof(arr) / sizeof(arr[0]); i++)
- 	{
-   		printf( "%d ", arr[i]);
- 	}
-  	printf("\n");
-  	return 0;
+    int arr[] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 0 };
+    int i = 0;
+
+    qsort(arr, sizeof(arr) / sizeof(arr[0]), sizeof(int), int_cmp);
+    for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
 }
 ```
 

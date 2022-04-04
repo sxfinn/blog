@@ -36,7 +36,7 @@
 
 ### 头文件`contact.h`
 
-```
+```c
 //文件保存版
 #include<stdio.h>
 #include<string.h>

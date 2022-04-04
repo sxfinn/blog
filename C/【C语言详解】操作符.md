@@ -258,13 +258,13 @@ void swap(int* n1, int* n2)
 ```c
 int main()
 {
-int a = 10;
-int b = 20;
-a = a ^ b;(1)
-b = a ^ b;(2)
-a = a ^ b;(3)
-printf("a = %d b = %d\n", a, b);
-return 0;
+	int a = 10;
+	int b = 20;
+	a = a ^ b; //(1)
+	b = a ^ b; //(2)
+	a = a ^ b; //(3)
+		printf("a = %d b = %d\n", a, b);
+	return 0;
 }
 ```
 
@@ -349,7 +349,6 @@ sizeof    操作数的类型长度（以字节为单位）
 ```
 
 ```c
-
 int main()
 {
 	int a = 10;
@@ -358,7 +357,6 @@ int main()
 	printf("%d", ++a);
 	return 0;
 }
-
 ```
 
 #### 前置和后置++
@@ -554,11 +552,11 @@ int main()
 {
 	int a = 0, b = 2, c = 3;
 	int i = 0;
-	i = a++ && b++ && ++c;（1）
-	printf("i==%d a==%d c==%d d==%d\n", i,a,b,c);
+	i = a++ && b++ && ++c; （1）
+	printf("i==%d a==%d c==%d d==%d\n", i, a, b, c);
 	a = 0, b = 2, c = 3;
-	i = a++ || b++ || ++c;（2）
-	printf("i==%d a==%d c==%d d==%d\n",i,a,b,c);
+	i = a++ || b++ || ++c; （2）
+	printf("i==%d a==%d c==%d d==%d\n", i, a, b, c);
 	return 0;
 }
 ```
@@ -594,7 +592,7 @@ int main()
 int main()
 {
 	int a = 0;
-	if(a == 0)
+	if (a == 0)
 		ret = 10;
 	else
 		ret = 100;
@@ -617,10 +615,10 @@ exp1, exp2, exp3, …expN
 ```c
 int main()
 {
-    int a = 1;
+	int a = 1;
 	int b = 2;
-	int c = (a>b, a=b+10, a, b=a+1);//逗号表达式
-    return 0;
+	int c = (a > b, a = b + 10, a, b = a + 1);//逗号表达式
+	return 0;
 }
 ```
 
@@ -638,8 +636,8 @@ int main()
 ```c
 int main()
 {
-	int arr[10] = {0};
-    arr[9];
+	int arr[10] = { 0 };
+	arr[9];
 	return 0;
 }
 ```
@@ -654,7 +652,7 @@ arr[9] ==  *(arr+9)== *(9 + arr) == 9[arr];
 ```c
 int Add(int n1, int n2)
 {
-    return n1 + n2;
+	return n1 + n2;
 }
 int main()
 {
@@ -677,7 +675,7 @@ struct Stu
 	int age;
 	char sex[5];
 	double score;
-}；
+};
 void set_age1(struct Stu stu)
 {
 	stu.age = 18;
@@ -874,7 +872,7 @@ int main()
 {
 	size_t a = 0;
 	int b = -1;
-	if(b < a)
+	if (b < a)
 	{
 		printf("<");
 	}
@@ -954,7 +952,7 @@ c + --c;
 int main()
 {
 	int i = 10;
-	i = i-- - --i * ( i = -3 ) * i++ + ++i;
+	i = i-- - --i * (i = -3) * i++ + ++i;
 	printf("i = %d\n", i);
 	return 0;
 }
@@ -966,15 +964,15 @@ int main()
 //代码4
 int fun()
 {
-  static int count = 1;
-  return ++count;
+	static int count = 1;
+	return ++count;
 }
 int main()
 {
-  int answer;
-  answer = fun() - fun() * fun();
-  printf( "%d\n", answer);//输出多少？
-  return 0;
+	int answer;
+	answer = fun() - fun() * fun();
+	printf("%d\n", answer);//输出多少？
+	return 0;
 }
 ```
 

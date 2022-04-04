@@ -61,7 +61,8 @@ struct
 	int i;
 	double d;
 	char c;
-}arr[10], *px,x1;
+}arr[10], * px, x1;
+
 ```
 
 注意到上面两个结构体的声明并没有标签
@@ -180,7 +181,7 @@ struct Node n2 = { 20, {5, 6}, NULL };//结构体嵌套初始化
 
 ```c
 //练习1
-struct S1 
+struct S1
 {
 	char c1;
 	int i;
@@ -232,7 +233,7 @@ printf("%d\n", sizeof(struct S4));
 > 3. 结构体总大小为最大对齐数（每个成员变量都有一个对齐数）的整数倍。
 >
 > 4. 如果嵌套了结构体的情况，嵌套的结构体对齐到自己的最大对齐数的整数倍处，结构体的整
->   体大小就是所有最大对齐数（含嵌套结构体的对齐数）的整数倍。
+>     体大小就是所有最大对齐数（含嵌套结构体的对齐数）的整数倍。
 
 
 
@@ -312,7 +313,7 @@ int main()
 {
 	//输出的结果是什么？
 	printf("%d\n", sizeof(struct S1));
-	printf("%d\n", sizeof(struct S2)); 
+	printf("%d\n", sizeof(struct S2));
 	return 0;
 }
 ```
@@ -390,10 +391,10 @@ int main()
 ```c
 struct A
 {
-	int _a:2;//占2个bit
-	int _b:5;//占5个bit
-	int _c:10;//占10个bit
-	int _d:30;//占30个bit，_d会全部放入新空间与否，这是不确定的。
+	int _a : 2;//占2个bit
+	int _b : 5;//占5个bit
+	int _c : 10;//占10个bit
+	int _d : 30;//占30个bit，_d会全部放入新空间与否，这是不确定的。
 };
 printf("%d", sizeof(struct A));
 ```
@@ -537,9 +538,9 @@ enum Color//颜色
 ```c
 enum Color//颜色
 {
-	RED=1,
-	GREEN=2,
-	BLUE=4
+	RED = 1,
+	GREEN = 2,
+	BLUE = 4
 };
 ```
 
@@ -561,12 +562,12 @@ enum Color//颜色
 ```c
 enum Color//颜色
 {
-	RED=1,
-	GREEN=2,
-	BLUE=4
+	RED = 1,
+	GREEN = 2,
+	BLUE = 4
 };
 enum Color clr = GREEN;//只能拿枚举常量给枚举变量赋值，才不会出现类型的差异。
-clr = 5; 
+clr = 5;
 ```
 
 **总结：枚举类型和`#define` 有相似之处，枚举变量的取值只能在枚举常量中去取，但是由于认为常量是整形，所以其大小也是一个整形，硬要给枚举变量赋值一个int的值，也不会出什么问题， 因此 `int` 的变量也是可以被枚举常量赋值的。**
@@ -637,8 +638,8 @@ i 和 c的地址是一样的，那就意味成它们的首地址是一样的。
 int main()
 {
 	int a = 1;
-	char*pc = (char*)&a;
-	if(*pc == 1)
+	char* pc = (char*)&a;
+	if (*pc == 1)
 		printf("小端\n");
 	else
 		printf("大端\n");
