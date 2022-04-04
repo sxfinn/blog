@@ -273,9 +273,9 @@ void print_arr1(int arr[3][5], int row, int col)
   	for(i=0; i<row; i++)
 	{
     	for(j=0; j<col; j++)
-   		{
+        {
       		printf("%d ", arr[i][j]);
-   		}
+        }
    		printf("\n");
 	}
 }
@@ -285,9 +285,9 @@ void print_arr2(int (*arr)[5], int row, int col)
   	for(i=0; i<row; i++)
  	{
     	for(j=0; j<col; j++)
-   		{
+        {
       		printf("%d ", arr[i][j]);
-   		}
+        }
     	printf("\n");
  	}
 }
