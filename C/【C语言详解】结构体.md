@@ -46,10 +46,10 @@ C语言提供给我们的基础类型中，都是只能描述某一个方面。
 ```c
 typedef struct Stu
 {
-char name[20];//名字
-int age;//年龄
-char sex[5];//性别
-char id[20];//学号
+	char name[20];//名字
+	int age;//年龄
+	char sex[5];//性别
+	char id[20];//学号
 }Stu；
 ```
 
