@@ -15,7 +15,7 @@
 
 #### 1、查看Python版本
 
-```apl
+```shell
 python -V
 ```
 
@@ -23,7 +23,7 @@ python -V
 
 #### 2、更新[yum](https://so.csdn.net/so/search?q=yum&spm=1001.2101.3001.7020)源
 
-```apl
+```shell
 yum update
 ```
 
@@ -31,7 +31,7 @@ yum update
 
 #### 3、安装依赖
 
-```apl
+```shell
 yum install yum-utils
 
 yum-builddep python
@@ -41,7 +41,7 @@ yum-builddep python
 
 #### 4、下载python
 
-```apl
+```shell
 wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 ```
 
@@ -49,7 +49,7 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 
 #### 5、安装Python相关依赖
 
-```apl
+```shell
 yum -y install zlib-devel bzip2-devel openssl-devel ncursesdevelsqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
 ```
 
@@ -57,7 +57,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncursesdevelsqlite-devel rea
 
 #### 6、安装c，c++
 
-```apl
+```shell
 yum -y install gcc g++
 ```
 
@@ -65,7 +65,7 @@ yum -y install gcc g++
 
 #### 7、创建安装目录
 
-```apl
+```shell
 mkdir /usr/local/python3
 ```
 
@@ -73,7 +73,7 @@ mkdir /usr/local/python3
 
 #### 8、解压
 
-```apl
+```shell
 tar xf Python-3.7.5.tgz
 ```
 
@@ -81,7 +81,7 @@ tar xf Python-3.7.5.tgz
 
 #### 9、编译
 
-```apl
+```shell
 # 指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便
 cd Python-3.7.5/
 # 配置安装目录
@@ -94,7 +94,7 @@ make
 
 #### 10、安装
 
-```apl
+```shell
 make install
 ```
 
@@ -102,7 +102,7 @@ make install
 
 #### 11、创建软链接
 
-```apl
+```shell
 ln -s /usr/local/python3/bin/python3 /usr/bin/python3
 
 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
@@ -112,7 +112,7 @@ ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 
 #### 12、完成
 
-```apl
+```shell
 python3 -V
 
 pip3 -V
@@ -128,8 +128,8 @@ pip3 -V
 
 ```shell
 vim /usr/bin/yum 
-把 #! /usr/bin/python 修改为 #! /usr/bin/python2.x 
+把 #! /usr/bin/python 修改为 #! /usr/bin/python2
 vim /usr/libexec/urlgrabber-ext-down 
-把 #! /usr/bin/python 修改为 #! /usr/bin/python2.x
+把 #! /usr/bin/python 修改为 #! /usr/bin/python2
 ```
 

@@ -66,7 +66,7 @@ ln: failed to create symbolic link '/usr/bin/python3': File exists
 ln -sf 即参数多加个f即可
 
 ```shell
-ln -sf /usr/local/python3/bin/python3.10 /usr/bin/python3
+ln -sf /usr/local/python3/bin/python3.7 /usr/bin/python3
 ```
 
 
