@@ -1,6 +1,10 @@
+### Centos7.6安装python3.9
+
+---
+
 #### 1.安装相应的编译工具
 
-建议在root下操作，会方便很多
+建议在root下操作，会方便很多，一定要安装，否则编译安装会报错。
 
 ```shell
 yum -y groupinstall "Development tools"
@@ -12,13 +16,13 @@ yum install zlib* -y
 #### 2.下载安装包
 
 ```shell
-wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
+wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tar.xz
 ```
 
 #### 3.解压
 
 ```shell
-tar -xvJf  Python-3.7.2.tar.xz
+tar -xvJf  Python-3.9.12.tar.xz
 ```
 
 #### 4.创建编译安装目录
@@ -30,7 +34,7 @@ mkdir /usr/local/python3
 #### 5.安装
 
 ```shell
-cd Python-3.7.2
+cd Python-3.9.12
 # 进入解压缩的文件
 
 ./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl 
@@ -46,12 +50,12 @@ make && make install
 
 #### 6.创建软链接
 
-相当于windows环境变量
+相当于windows环境变量，如下写不会默认还是Python2.7，不需要修改yum配置。
 
 ```shell
-ln -s /usr/local/python3/bin/python3.7 /usr/local/bin/python3
+ln -s /usr/local/python3/bin/python3.9 /usr/local/bin/python3
 # 软链接至/bin/python3方便写脚本
-ln -s /usr/local/python3/bin/python3.7 /bin/python3
+ln -s /usr/local/python3/bin/python3.9 /bin/python3
 ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3
 ```
 
@@ -69,16 +73,12 @@ ln -sf 即参数多加个f即可
 ln -sf /usr/local/python3/bin/python3.7 /usr/bin/python3
 ```
 
-
-
 #### 7.验证是否成功
 
-```apl
+```shell
 python3 -V
 pip3 -V
 ```
-
-
 
 #### 8.报错处理
 
@@ -93,8 +93,6 @@ zipimport.ZipImportError: can't decompress data; zlib not available Makefile:109
 ```shell
 yum -y install zlib1g-dev
 ```
-
-
 
 **错误2.**
 
@@ -111,8 +109,6 @@ yum -y install libffi-devel
 这两个错误需要的依赖已经添加到一开始的依赖安装上去了。
 
 [参考文章](https://blog.csdn.net/elija940818/article/details/79238813)
-
-
 
 #### 9.安装pipenv
 
@@ -134,8 +130,6 @@ make && make install
 
 即可正常使用pip安装.
 这个也在安装python的时候指定了.
-
-
 
 #### 10.修改pip安装源
 

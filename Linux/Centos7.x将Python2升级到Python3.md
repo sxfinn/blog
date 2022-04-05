@@ -1,17 +1,6 @@
-# 2022-04-04-
+### Centos7.6安装python3
 
-### 摘要
-> Centos7.x将Python2升级到Python3
-
-### 总结
-
-> 
-
-目录
 ---
-[TOC]
-
-------
 
 #### 1、查看Python版本
 
@@ -19,33 +8,24 @@
 python -V
 ```
 
-
-
 #### 2、更新[yum](https://so.csdn.net/so/search?q=yum&spm=1001.2101.3001.7020)源
 
 ```shell
 yum update
 ```
 
-
-
 #### 3、安装依赖
 
 ```shell
 yum install yum-utils
-
 yum-builddep python
 ```
-
-
 
 #### 4、下载python
 
 ```shell
-wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 ```
-
-
 
 #### 5、安装Python相关依赖
 
@@ -53,15 +33,13 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 yum -y install zlib-devel bzip2-devel openssl-devel ncursesdevelsqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
 ```
 
-
-
 #### 6、安装c，c++
+
+已经安装可跳过此步骤。
 
 ```shell
 yum -y install gcc g++
 ```
-
-
 
 #### 7、创建安装目录
 
@@ -69,28 +47,22 @@ yum -y install gcc g++
 mkdir /usr/local/python3
 ```
 
-
-
 #### 8、解压
 
 ```shell
-tar xf Python-3.7.5.tgz
+tar xf Python-3.8.5.tgz
 ```
-
-
 
 #### 9、编译
 
 ```shell
 # 指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便
-cd Python-3.7.5/
+cd Python-3.8.5/
 # 配置安装目录
 ./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl
 # 编译
 make
 ```
-
-
 
 #### 10、安装
 
@@ -98,27 +70,20 @@ make
 make install
 ```
 
-
-
 #### 11、创建软链接
 
 ```shell
-ln -s /usr/local/python3/bin/python3 /usr/bin/python3
-
-ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+ln -s /usr/local/python3/bin/python3 /usr/bin/python
+# 注意这样是修改Python3为默认，那么这样还需要修改yum配置，后面会提到
+ln -s /usr/local/python3/bin/pip3 /usr/bin/pip
 ```
-
-
 
 #### 12、完成
 
 ```shell
 python3 -V
-
 pip3 -V
 ```
-
-
 
 #### 13、更改yum配置(非必要)
 
