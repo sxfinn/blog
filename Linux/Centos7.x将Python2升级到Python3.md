@@ -56,7 +56,6 @@ tar xf Python-3.8.5.tgz
 #### 9、编译
 
 ```shell
-# 指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便
 cd Python-3.8.5/
 # 配置安装目录
 ./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl

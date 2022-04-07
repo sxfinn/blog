@@ -35,15 +35,11 @@ mkdir /usr/local/python3
 
 ```shell
 cd Python-3.9.12
-# 进入解压缩的文件
-
 ./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl 
-# 第一个指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便.
-# 第二个可以提高python10%-20%代码运行速度.
-# 第三个是为了安装pip需要用到ssl,后面报错会有提到.
-
+#第一个指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便.
+#第二个可以提高python10%-20%代码运行速度.
+#第三个是为了安装pip需要用到ssl,后面报错会有提到.
 make && make install
-#编译并且安装
 ```
 
 参考链接：https://stackoverflow.com/questions/41405728/what-does-enable-optimizations-do-while-compiling-python
@@ -53,10 +49,10 @@ make && make install
 相当于windows环境变量，如下写不会默认还是Python2.7，不需要修改yum配置。
 
 ```shell
-ln -s /usr/local/python3/bin/python3.9 /usr/local/bin/python3
+ln -sf /usr/local/python3/bin/python3.9 /usr/local/bin/python3
 # 软链接至/bin/python3方便写脚本
 ln -s /usr/local/python3/bin/python3.9 /bin/python3
-ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3
+ln -sf /usr/local/python3/bin/pip3 /usr/local/bin/pip3
 ```
 
 如果建立时提示如下报错信息：
