@@ -43,12 +43,6 @@ yum clean all
 yum makecache
 ```
 
-#### 升级所有包
-
-```shell
-yum -y update
-```
-
 #### 查看新 yum 源
 
 ```shell

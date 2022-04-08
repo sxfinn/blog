@@ -42,6 +42,10 @@ cd Python-3.9.12
 make && make install
 ```
 
+enable-optimizations 这个参数在服务器使用的是低版本的gcc时会报错，可以先升级gcc。
+
+不过这好像是个概率事件，偶尔会成功。
+
 参考链接：https://stackoverflow.com/questions/41405728/what-does-enable-optimizations-do-while-compiling-python
 
 #### 6.创建软链接
@@ -66,7 +70,7 @@ ln: failed to create symbolic link '/usr/bin/python3': File exists
 ln -sf 即参数多加个f即可
 
 ```shell
-ln -sf /usr/local/python3/bin/python3.7 /usr/bin/python3
+ln -sf /usr/local/python3/bin/python3.9 /bin/python3
 ```
 
 #### 7.验证是否成功
