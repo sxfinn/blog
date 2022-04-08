@@ -1,4 +1,4 @@
-##  centos升级git版本
+##  Centos升级git版本
 
 本文讲述如何升级 centos 系统的 git 版本。高版本 git 增加了一些好用的功能，比如"git pull 支持指定项目目录"等。本文以 centos7 为例讲解。
 
