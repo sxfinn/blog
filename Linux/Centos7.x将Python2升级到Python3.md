@@ -58,7 +58,7 @@ tar xf Python-3.8.5.tgz
 ```shell
 cd Python-3.8.5/
 # 配置安装目录
-./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl
+./configure --prefix=/usr/local/python3
 # 编译
 make
 ```

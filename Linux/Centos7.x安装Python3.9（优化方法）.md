@@ -9,7 +9,7 @@
 ```shell
 yum -y groupinstall "Development tools"
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-yum install -y libffi-devel zlib1g-dev
+yum install -y libffi-devel
 yum install zlib* -y
 ```
 
