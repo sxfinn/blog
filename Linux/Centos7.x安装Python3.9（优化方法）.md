@@ -11,6 +11,8 @@ yum -y groupinstall "Development tools"
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 yum install -y libffi-devel
 yum install zlib* -y
+yum install yum-utils
+yum-builddep python
 ```
 
 #### 2.下载安装包
@@ -42,9 +44,18 @@ cd Python-3.9.12
 make && make install
 ```
 
-enable-optimizations 这个参数在服务器使用的是低版本的gcc时会报错，可以先升级gcc。
+在python3.8后，使用enable-optimizations 这个参数在服务器使用的是低版本的gcc时会报错，有三个处理方法：
 
-不过这好像是个概率事件，偶尔会成功。
+1. 可以先升级gcc
+2. 不加--enable-optimizations
+3. 使用以下依赖
+
+```shell
+yum install yum-utils
+yum-builddep python
+```
+
+不过方法三好像是个概率事件，不一定会成功。
 
 参考链接：https://stackoverflow.com/questions/41405728/what-does-enable-optimizations-do-while-compiling-python
 
@@ -85,13 +96,14 @@ pip3 -V
 **错误1.**
 
 ```shell
-zipimport.ZipImportError: can't decompress data; zlib not available Makefile:1099: recipe for target 'install' failed make: *** [install] Error 1
+Could not import runpy module
 ```
 
 需要安装依赖
 
 ```shell
-yum -y install zlib1g-dev
+yum install yum-utils
+yum-builddep python
 ```
 
 **错误2.**
