@@ -44,7 +44,7 @@
 ### 详解编译+链接
 
 #### 翻译环境
-![image-20220403143818457](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031438584.png)
+![image-20220412075730871](https://cdn.jsdelivr.net/gh/sxfinn/picgo/img/202204120757984.png)
 
 * 组成一个程序的每个源文件通过编译过程分别转换成目标代码（object code）。
 * 每个目标文件由链接器（linker）捆绑在一起，形成一个单一而完整的可执行程序。
