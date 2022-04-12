@@ -44,7 +44,7 @@
 ### 详解编译+链接
 
 #### 翻译环境
-![image-20220412075730871](https://cdn.jsdelivr.net/gh/sxfinn/picgo/img/202204120757984.png)
+![image-20220412094026313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940392.png)
 
 * 组成一个程序的每个源文件通过编译过程分别转换成目标代码（object code）。
 * 每个目标文件由链接器（linker）捆绑在一起，形成一个单一而完整的可执行程序。
@@ -79,7 +79,7 @@ int main()
 
 
 
-![image-20220403144423216](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031444330.png)
+![image-20220412094041380](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940489.png)
 
 函数只有声明的时候，在test.c中是没有给 _ sum函数分配地址的，在_sum函数中定义的sum.c中才记录有 _ sum 函数的地址，在链接时，会有符号表的合并和符号表的重定位，这也为什么即使我们没有声明函数直接调用定义在另一个源文件中的函数，也仍能够跑起来，并且只是弹出警告的原因。
 
@@ -89,25 +89,25 @@ int main()
 
 **预处理**
 
-![image-20220403145451111](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031454150.png)
+![image-20220412094053164](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940204.png)
 
 运行如上简单程序。
 
-![image-20220403145625590](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031456662.png)
+![image-20220412094102484](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941523.png)
 
 
 
 可以看到当前目录下只有`test.c`文件
 
-![image-20220403145711695](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031457729.png)
+![image-20220412094110010](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941050.png)
 
 使用`gcc -E test.c -o test.i`预处理命令
 
 并将产生的的结果放在`test.i`中，可以看到我们本目录下多了一个`test.i`文件，我们来看看其中的内容。
 
-![image-20220403150031803](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031500952.png)
+![image-20220412094121461](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941613.png)
 
-![image-20220403150058339](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031500477.png)
+![image-20220412094132433](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941565.png)
 
 文件内容略长，我们仅仅看开头和结尾，开头是头文件的包含内容，包括链接库的路径等等。
 
@@ -115,7 +115,7 @@ int main()
 
 **编译**
 
-![image-20220403150403713](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031504755.png)
+![image-20220412094144021](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941069.png)
 
 
 
@@ -125,7 +125,7 @@ int main()
 
 接下来看看这个文件是什么？
 
-![image-20220403150607122](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031506250.png)
+![image-20220412094155675](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941812.png)
 
 嗯~这里已经没有那么多的文件内容了，不懂没关系，大致能看出来这是汇编指令了。
 
@@ -135,7 +135,7 @@ int main()
 
 **汇编**
 
-![image-20220403150912422](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031509457.png)
+![image-20220412094208313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942353.png)
 
 同样的执行`gcc -c test.s -o test.o`汇编指令
 
@@ -143,17 +143,17 @@ int main()
 
 继续进入`test.o`中查看：
 
-![image-20220403151154787](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031511930.png)
+![image-20220412094217448](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942596.png)
 
 这下谁也看不懂了，因为汇编会将汇编语言编程机器二进制语言，而我们使用的是文本编辑器，所以都是乱码。
 
 那么这个`test.o`可以直接运行吗，试一下：
 
-![image-20220403151343484](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031513515.png)
+![image-20220412094229678](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942715.png)
 
 没有权限，并且这被当作是一个普通文件，并不是可执行文件。
 
-![image-20220403151515737](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031515777.png)
+![image-20220412094239745](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942781.png)
 
 
 
@@ -161,7 +161,7 @@ int main()
 
 执行结果：
 
-![image-20220403151640881](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031516915.png)
+![image-20220412094251989](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942027.png)
 
 
 
@@ -204,7 +204,7 @@ __STDC__   //如果编译器遵循ANSI C，其值为1，否则未定义
 printf("file:%s line:%d\n", __FILE__, __LINE__);
 ```
 
-![image-20220403152404786](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031524837.png)
+![image-20220412094306605](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943641.png)
 
 所在的文件，以及文件当前的行号就被打印出来了。
 
@@ -743,7 +743,7 @@ int main()
 如果找不到就提示编译错误。
 **Linux环境的标准头文件的路径：**
 
-![image-20220403190823404](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031908530.png)
+![image-20220412094326518](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943627.png)
 
 **VS环境的标准头文件的路径：**
 
@@ -766,7 +766,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include
 
 如果出现这样的场景：
 
-![image-20220403191923110](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204031919198.png)
+![image-20220412094336429](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943503.png)
 
 `comm.h`和`comm.c`是公共模块。
 `add.h`和`add.c`使用了公共模块。

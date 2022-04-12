@@ -70,7 +70,7 @@ else
 
 如下图：
 
-![image-20220318205717181](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182057222.png)
+![image-20220412095048749](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950791.png)
 
 由图可知：
 
@@ -568,7 +568,7 @@ while(condition)
 
 while循环流程图：
 
-![image-20220318205817454](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182058493.png)
+![image-20220412095110834](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951882.png)
 
 > 如何在屏幕上打印出1~10的数字？
 
@@ -743,7 +743,7 @@ int main()
 
 查阅ASCII码可以看到
 
-![image-20220318205839706](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182058776.png)
+![image-20220412095122492](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951571.png)
 
 10所对应的是换行符，也就是说getchar读到的是我们输入结束时敲入的回车。
 
@@ -839,7 +839,7 @@ int main()
 
 for循环流程图
 
-![img](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182058783.jpg)
+![image-20220412095136664](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951721.png)
 
 **break和continue在for循环中**
 
@@ -1050,7 +1050,7 @@ do
 
 执行流程：
 
-![Java中do while循环的流程图](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182059675.png)
+![image-20220412095149536](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951592.png)
 
 **do while语句的特点**
 
@@ -1155,7 +1155,7 @@ int main()
 
 运行结果：
 
-![image-20220318205959211](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182059258.png)
+![image-20220412095200028](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952102.png)
 
 拥有了循环和判断，我们还可以实现一个猜数小游戏：
 
@@ -1223,7 +1223,7 @@ int main()
 
 运行：
 
-![image-20211030152129216](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182100450.png)
+![image-20220412095213612](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952692.png)
 
 
 
@@ -1235,7 +1235,7 @@ C语言中提供了可以随意滥用的 goto语句和标记跳转的标号。
 
 流程图：
 
-![image-20211030154623595](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182100441.png)
+![image-20220412095229102](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952185.png)
 
 >  例如：一次跳出两层或多层循环。 多层循环这种情况使用break是达不到目的的。它只能从最内层循环退出到上一层的循环。 goto语言真正适合的场景如下：
 

@@ -133,12 +133,12 @@ int main()
 }
 ```
 
-![image-20220401202759772](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012027867.png)
+![image-20220412095310467](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953549.png)
 
 仔细观察输出的结果，我们知道，随着数组下标的增长，元素的地址，也在有规律的递增。
 由此可以得出结论：**数组在内存中是连续存放的**。
 
-![image-20220401203126704](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012031753.png)
+![image-20220412095321066](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953120.png)
 
 
 
@@ -238,11 +238,11 @@ for(i=0; i<3; i++)
 
 输出：
 
-![image-20220401204221091](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012042151.png)
+![image-20220412095337564](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953616.png)
 
 可以看到每个元素的地址都是相差4个字节，即一个整形的大小，很显然虽说逻辑结构叫二维数组，但是其的物理结构仍然是线性的。
 
-![image-20220401204625379](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012046455.png)
+![image-20220412095346808](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953883.png)
 
 
 
@@ -419,7 +419,7 @@ int main()
 
 输出：
 
-![image-20220401211508909](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012115949.png)
+![image-20220412095357749](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953787.png)
 
 
 
@@ -450,7 +450,7 @@ int main()
 
 输出：
 
-![image-20220401214146854](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012143981.png)
+![image-20220412095405896](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954935.png)
 
 
 
@@ -472,7 +472,7 @@ int main()
 
 当然，1 和 3知识数值上的相同，其意义是不一样的，一个是指向整个数组，另一个指向一个整形。
 
-![image-20220401215844461](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204012158509.png)
+![image-20220412095423075](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954119.png)
 
 
 

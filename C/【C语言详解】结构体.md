@@ -95,7 +95,7 @@ struct Node n2 = {20, {5, 6}, NULL};//结构体嵌套初始化
 
 例子：
 
-![image-20220402112904462](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021129507.png)
+![image-20220412095252557](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952589.png)
 
 ```c
 struct Stu

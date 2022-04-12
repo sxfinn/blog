@@ -52,7 +52,7 @@ int main()
 
  输出结果如下：
 
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182048102.png)
+![image-20220412093745451](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120937502.png)
 
 
 
@@ -60,7 +60,7 @@ int main()
 
 **思考**：**出现这种情况的原因是什么呢？**
 我们来调试一下代码，如下：
-![调试](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182048109)
+![image-20220412093802712](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938753.png)
 
 
 
@@ -95,7 +95,7 @@ int main()
 
 接下来看看运行结果：
 
-![image-20220319085557567](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203190856665.png)
+![image-20220412093816592](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938628.png)
 
 
 这似乎与我们想要的不太一样，我们来看看少了哪些东西。
@@ -139,14 +139,14 @@ int main()
 
 可以看到已经报错了这里已经报错了，错误如下图：
 
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050225.png)
+![image-20220412093831048](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938081.png)
 既然这样不行，我们结合一下上面的转义字符表再来尝试
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050221.png)
+![image-20220412093841884](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938929.png)
 接着我们修改一下代码，如下：
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050240)
+![image-20220412093857995](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938037.png)
 
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050249.png)
+![image-20220412093906112](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939143.png)
 
 成功在屏幕上打印出了 ==\'和 \"==。
 
@@ -156,12 +156,12 @@ int main()
 
 **分析**：根据上面的表格
 
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050889.png)
+![image-20220412093918642](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939689.png)
 我们可以看到这里的<font color=purple> '\\t' 和 '\\\\' </font>都是转义字符'\'，因此我们如果想要在屏幕上打印出<font color=purple> '\\t' 和 '\\\' </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>'\\'</font>.
 
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
 如下图：
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182050888.png)
+![image-20220412093932796](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939850.png)
 
 
 
@@ -188,7 +188,7 @@ int main()
 
 >结合转义字符表：
 
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182051714.png)
+![image-20220412093942510](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939564.png)
 这样一对比是不是觉得很清晰了呢？
 显然，我们可以看到 =='\t' 和'\76'== 是两个转义字符。
 到了这里又有一个新的疑问：
@@ -196,9 +196,9 @@ int main()
 
 
 **思考：'\768'是不是转义字符呢？**
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182051723.png)
+![image-20220412093951874](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939908.png)
 
->注意哦，这里的8不是八进制数字，所以'\768'不是一个转义字符
+>注意，这里的8不是八进制数字，所以'\768'不是一个转义字符
 
 
 
@@ -206,7 +206,7 @@ int main()
 分析结束后，我们就可以开始数字符个数啦！
 
 运行结果：
-![在这里插入图片描述](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182051738)
+![image-20220412094003273](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940306.png)
 
 >答案是15
 >

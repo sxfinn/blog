@@ -462,7 +462,7 @@ int main()
 
 
 
-![image-20220402203504264](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204022035322.png)
+![image-20220412094858464](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948525.png)
 
 
 
@@ -479,7 +479,7 @@ int main()
 
 #### 位段的应用
 
-![image-20220402204326390](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204022043459.png)
+![image-20220412094907555](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949614.png)
 
 
 
@@ -622,7 +622,7 @@ printf("%x\n", un.i);
 
 输出：
 
-![image-20220402210939521](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204022109570.png)
+![image-20220412094916101](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949140.png)
 
 i 和 c的地址是一样的，那就意味成它们的首地址是一样的。
 

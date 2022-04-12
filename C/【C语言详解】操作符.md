@@ -63,7 +63,7 @@
 
 规则：高位舍去，低位补零。
 
-![image-20220401144935384](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011449525.png)
+![image-20220412094928520](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949671.png)
 
 > 拓展
 
@@ -386,7 +386,7 @@ int main()
 }
 ```
 
-![](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011640717.png)
+![image-20220412094944345](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949386.png)
 
 
 
@@ -412,7 +412,7 @@ int main()
 }
 ```
 
-![image-20220401164435774](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011644828.png)
+![image-20220412094952553](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949593.png)
 
 
 
@@ -426,7 +426,7 @@ int main()
 }
 ```
 
-![image-20220401164550386](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011645428.png)
+![image-20220412094958923](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949976.png)
 
 可以看到，这里验证了上面所说的情况。
 
@@ -449,7 +449,7 @@ int main()
 
 输出：
 
-![image-20220401165138472](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011651525.png)
+![image-20220412095010343](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950384.png)
 
 输出结果是40，显然不是我们预想的。
 
@@ -509,7 +509,7 @@ int main()
 }
 ```
 
-![image-20220401170658145](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011706190.png)
+![image-20220412095017792](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950834.png)
 
 怎么数组名作为实参传递至函数大小就不同了呢？
 
@@ -561,7 +561,7 @@ int main()
 }
 ```
 
-![image-20220401172150505](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204011721551.png)
+![image-20220412095026213](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950255.png)
 
 两组测试c的值并不同，实际上是因为在（1）中，a++的值为假，就不在继续执行后续表达式。
 

@@ -29,11 +29,11 @@
 
 指针就是地址，指向某一块内存空间。
 
-![虚拟内存系统（二）—— 虚拟内存的结构| ImHuWQ](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204020800664.png)
+![image-20220412095438814](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954854.png)
 
 
 
-![image-20220402080156168](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204020801224.png)
+![image-20220412095446570](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954618.png)
 
 
 
@@ -179,7 +179,7 @@ int main()
 
 输出：
 
-![image-20220402100332839](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021003873.png)
+![image-20220412095458829](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954860.png)
 
 可以看到指针决定了指针加一或者减一时跳过几个字节。
 
@@ -197,17 +197,17 @@ int main()
 }
 ```
 
-![image-20220402101428546](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021014589.png)
+![image-20220412095519707](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955737.png)
 
-![image-20220402101452595](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021014625.png)
+![image-20220412095506518](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955552.png)
 
 上图为(1)被执行
 
 (2)被执行：
 
-![image-20220402101609326](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021016357.png)
+![image-20220412095527804](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955832.png)
 
-![image-20220402101629610](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021016638.png)
+![image-20220412095536496](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955525.png)
 
 指针的类型决定了，对指针解引用的时候有多大的权限（能操作几个字节）。
 比如： char* 的指针解引用就只能访问一个字节，而 int* 的指针的解引用就能访问四个字节。
@@ -319,11 +319,11 @@ int arr[10] = {1,2,3,4,5,6,7,8,9,0};
 }
 ```
 
-![image-20220402103151607](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021031646.png)
+![image-20220412095546828](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955860.png)
 
 数组名和数组首元素的地址是一样的
 
-![image-20220402103244348](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021032384.png)
+![image-20220412095553551](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955595.png)
 
 但是注意类型是不同的，在数值上相等。
 
@@ -347,7 +347,7 @@ int main()
 
 输出：
 
-![image-20220402103648955](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021036005.png)
+![image-20220412095600479](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956527.png)
 
 可以看到&arr[i] == (arr +i)。
 
@@ -439,15 +439,15 @@ int* arr[10];
 
 **整形数组在内存中的存储**
 
-![image-20220402105443702](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021054745.png)
+![image-20220412095614434](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956471.png)
 
-![image-20220402105455895](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021054936.png)
+![image-20220412095623390](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956429.png)
 
 
 
 指针数组呢？
 
-![img](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021058111.png)
+![image-20220412095634615](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956671.png)
 
 可以看到，每个元素都是一个指针，指向一块特定的内存空间。
 

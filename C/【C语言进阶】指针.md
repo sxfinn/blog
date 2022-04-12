@@ -68,7 +68,7 @@ int main()
 
 实际pstr与常量字符串的关系
 
-![image-20220402142003630](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021420687.png)
+![image-20220412094732925](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947967.png)
 
 看一道例题：
 
@@ -94,7 +94,7 @@ int main()
 }
 ```
 
-![image-20220402142156272](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021421307.png)
+![image-20220412094742129](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947165.png)
 
 
 
@@ -216,7 +216,7 @@ int main()
 }
 ```
 
-![image-20220402145558743](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021455779.png)
+![image-20220412094755093](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947130.png)
 
 两者的值是一样的，难道就一样吗？
 
@@ -234,7 +234,7 @@ int main()
 }
 ```
 
-![image-20220402145722021](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021457056.png)
+![image-20220412094803043](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948081.png)
 
 都执行 + 1操作后就不同了，那么说明它们指向的类型长度是有差异的。
 
@@ -547,7 +547,7 @@ int main()
 }
 ```
 
-![image-20220402160244685](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202204021602732.png)
+![image-20220412094823905](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948948.png)
 
 输出的是两个地址，这两个地址是 test 函数的地址。
 

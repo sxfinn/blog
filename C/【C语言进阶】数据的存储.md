@@ -82,7 +82,7 @@ int main()
 }
 ```
 
-![image-20211204193113147](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182052473.png)
+![image-20220412094448131](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120944161.png)
 
 0x010FFC88是a在内存中的地址，在这里我们可以看到:
 
@@ -131,9 +131,9 @@ int main()
 
 也从另一个角度说明了对结构体的访问是不存在宏观对于整个结构的单独访问，而是对它的成员的访问和读取。
 
-![image-20211204193113147](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182052899.png)
-
 再来看这张图：
+
+![image-20220412094528698](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945752.png)
 
 a == 10
 
@@ -191,7 +191,7 @@ int main()
 }
 ```
 
-![image-20220318205304206](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182053237.png)
+![image-20220412094538731](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945763.png)
 
 同样的数据同样的字节数，为什么打印出来却不同呢？
 
@@ -218,11 +218,11 @@ S = 0，M = 1.01，E= 2。
 
 ​	IEEE 754规定：
 
-![image-20211205132058557](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182053731.png)
+![image-20220412094547624](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945679.png)
 
 对于32位的浮点数，最高位的是符号位S，紧接着的8个位是指数E，剩下的23位存放的是数字的有效位。
 
-![image-20211205132252404](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182053739.png)
+![image-20220412094555327](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945393.png)
 
 而对于64位的浮点数，最高位仍然是符号位，不过指数位和有效数字位都所有增加，分别是11位和52位。
 
@@ -306,7 +306,7 @@ int main()
 
 ​	
 
-![image-20211205140513053](https://raw.githubusercontent.com/sxfinn/picgo/master/img/202203182053156.png)
+![image-20220412094606340](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120946386.png)
 
 
 
