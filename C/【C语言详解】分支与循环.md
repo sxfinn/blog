@@ -138,17 +138,17 @@ int main()
 	if (a == 5)
 		if (b == 2)
 			printf("true");
+		else
+			printf("false");
 	else
-		printf("false");
+		printf("NULL");
 	return 0;
 }
 ```
 
 输出结果：
 
-> 
-
-无输出结果。
+![image-20220412101317371](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121013415.png)
 
 所以可以断定else是与第二个if匹配的。
 

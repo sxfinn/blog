@@ -314,8 +314,6 @@ void Save(Contact* addrBook)
 
 ### 主函数源文件`test.c`
 
-
-
 ```c
 #include"contact.h"
 int main()
