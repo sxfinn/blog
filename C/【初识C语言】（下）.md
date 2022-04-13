@@ -1,4 +1,4 @@
-﻿﻿#  2021-10-29-
+﻿﻿﻿#  2021-10-29-
 
 ### 摘要
 
@@ -97,6 +97,7 @@ int main()
 运行结果：
 
 ![image-20220412093220153](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120932186.png)
+
 在屏幕上输出了10个1. 
 
 ```c
@@ -123,6 +124,7 @@ int main()
 运行结果：
 
 ![image-20220412093233880](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120932915.png)
+
 输出了从1~10的数字。
 对比代码1和代码2的效果理解static修饰局部变量的意义。
 
@@ -177,7 +179,9 @@ int main()
 
 
 ![image-20220412093318521](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933552.png)
-	上图是==global.c==源文件创建的全局变量。
+	
+
+上图是==global.c==源文件创建的全局变量。
 
 
 
@@ -198,6 +202,7 @@ int main()
 运行结果：
 
 ![image-20220412093327897](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933931.png)
+
 可见全局变量n已经无法使用。
 
 
@@ -208,6 +213,7 @@ int main()
 也就是static修饰的函数也只能在所在的源文件内部使用。
 
 ![image-20220412093336959](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933000.png)
+
 上图为static修饰的外部函数。
 
 代码：
@@ -228,6 +234,7 @@ int main()
 运行结果：
 
 ![image-20220412093400840](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934874.png)
+
 可以看到这里是已经报错了。
 
 **最后对static的三条作用做一句话总结：首先static的最主要功能是隐藏，其次因为static变量存放在静态存储区，所以它具备持久性和默认值0。**
@@ -267,6 +274,7 @@ int main()
 >
 
 ![image-20220412093420247](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934288.png)
+
 变量是储存在内存中的（在内存中分配空间)，每个内存单元都有地址，所以变量也有地址。
 取出变量地址如下：
 
@@ -332,6 +340,7 @@ int main()
 **p和num在内存中的分布：**
 
 ![image-20220412093503524](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935565.png)
+
 以整型为例子，拓展在其他类型：
 代码：
 
@@ -351,6 +360,7 @@ int main()
 运行结果：
 
 ![image-20220412093515351](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935386.png)
+
 <font color=indigo>**小结：指针指向什么类型的变量，就定义什么类型的指针去接受该变量的地址**。
 
 **指针变量的大小**
@@ -391,6 +401,7 @@ int main()
 
 
 ![image-20220412093531006](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935045.png)
+
 
 
 虽然指针常量的值不能变，可是它指向的对象是可变的，因为我们并没有限制它指向的对象是常量。

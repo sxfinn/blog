@@ -242,6 +242,8 @@ for(i=0; i<3; i++)
 
 ![image-20220412095337564](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953616.png)
 
+
+
 可以看到每个元素的地址都是相差4个字节，即一个整形的大小，很显然虽说逻辑结构叫二维数组，但是其的物理结构仍然是线性的。
 
 ![image-20220412095346808](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120953883.png)

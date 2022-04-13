@@ -98,7 +98,6 @@ int main()
 
 ![image-20220412093816592](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938628.png)
 
-
 这似乎与我们想要的不太一样，我们来看看少了哪些东西。
 
 **思考**：这里红色框框内就是没有打印出来分别的是<font color=purple>'\\'和'\t'</font>,这似乎两者都带着一个 =='\\ '== 字符，那这究竟是什么呢？
@@ -141,12 +140,16 @@ int main()
 可以看到已经报错了这里已经报错了，错误如下图：
 
 ![image-20220412093831048](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938081.png)
+
 既然这样不行，我们结合一下上面的转义字符表再来尝试
 
 ![image-20220412093841884](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938929.png)
+
 接着我们修改一下代码，如下：
 
 ![image-20220412093857995](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938037.png)
+
+
 
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
 
@@ -161,6 +164,7 @@ int main()
 **分析**：根据上面的表格
 
 ![image-20220412093918642](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939689.png)
+
 我们可以看到这里的<font color=purple> '\\t' 和 '\\\\' </font>都是转义字符'\'，因此我们如果想要在屏幕上打印出<font color=purple> '\\t' 和 '\\\' </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>'\\'</font>.
 
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
