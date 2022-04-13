@@ -60,6 +60,7 @@ int main()
 
 **思考**：**出现这种情况的原因是什么呢？**
 我们来调试一下代码，如下：
+
 ![image-20220412093802712](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938753.png)
 
 
@@ -141,11 +142,14 @@ int main()
 
 ![image-20220412093831048](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938081.png)
 既然这样不行，我们结合一下上面的转义字符表再来尝试
+
 ![image-20220412093841884](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938929.png)
 接着我们修改一下代码，如下：
+
 ![image-20220412093857995](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938037.png)
 
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
+
 ![image-20220412093906112](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939143.png)
 
 成功在屏幕上打印出了 ==\'和 \"==。
@@ -161,6 +165,7 @@ int main()
 
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
 如下图：
+
 ![image-20220412093932796](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939850.png)
 
 
@@ -196,6 +201,7 @@ int main()
 
 
 **思考：'\768'是不是转义字符呢？**
+
 ![image-20220412093951874](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939908.png)
 
 >注意，这里的8不是八进制数字，所以'\768'不是一个转义字符
@@ -206,6 +212,7 @@ int main()
 分析结束后，我们就可以开始数字符个数啦！
 
 运行结果：
+
 ![image-20220412094003273](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940306.png)
 
 >答案是15

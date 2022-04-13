@@ -1,4 +1,4 @@
-﻿#  2021-10-29-
+﻿﻿#  2021-10-29-
 
 ### 摘要
 
@@ -95,6 +95,7 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093220153](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120932186.png)
 在屏幕上输出了10个1. 
 
@@ -173,6 +174,8 @@ int main()
   让静态的全局变量只能在自己的源文件内使用，而无法在源文件外部使用。
   全局变量作用域是整个工程，被static修饰后作用域就知识源文件内部了。
 
+
+
 ![image-20220412093318521](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933552.png)
 	上图是==global.c==源文件创建的全局变量。
 
@@ -193,6 +196,7 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093327897](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933931.png)
 可见全局变量n已经无法使用。
 
@@ -202,6 +206,7 @@ int main()
 作用：改变了函数的外部链接属性。
 普通函数具有外部链接属性，而静态函数没有外部连接属性。
 也就是static修饰的函数也只能在所在的源文件内部使用。
+
 ![image-20220412093336959](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933000.png)
 上图为static修饰的外部函数。
 
@@ -221,6 +226,7 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093400840](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934874.png)
 可以看到这里是已经报错了。
 
@@ -245,6 +251,7 @@ int main()
 ```
 
 一个细节：
+
 ![image-20220412093410447](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934476.png)
 
 注意：这里与函数的使用方式类似，注意区分。
@@ -256,6 +263,8 @@ int main()
 >内存是电脑上特别重要的存储器，计算机中程序的运行都是在内存中进行的 。
 >所以为了有效的使用内存，就把内存划分成一个个小的内存单元，每个内存单元的大小是1个<font color=purple>字节</font>。
 >为了能够有效的访问到内存的每个单元，就给内存单元进行了编号，这些编号被称为该<font color=purple>内存单元的地址。
+>
+>
 
 ![image-20220412093420247](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934288.png)
 变量是储存在内存中的（在内存中分配空间)，每个内存单元都有地址，所以变量也有地址。
@@ -273,12 +282,14 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093433356](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934387.png)
 
 
 
 <font color=purple>注意：这里的 i 占四个字节，每个字节都有地址，取出的第一个字节的地址(较小的地址)。</font>
 如下：
+
 ![image-20220412093444735](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934783.png)
 
 #### 指针变量
@@ -319,6 +330,7 @@ int main()
 ![image-20220412093454807](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934840.png)
 
 **p和num在内存中的分布：**
+
 ![image-20220412093503524](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935565.png)
 以整型为例子，拓展在其他类型：
 代码：
@@ -337,6 +349,7 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093515351](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935386.png)
 <font color=indigo>**小结：指针指向什么类型的变量，就定义什么类型的指针去接受该变量的地址**。
 
@@ -438,6 +451,7 @@ int main()
 ```
 
 运行结果：
+
 ![image-20220412093543010](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935044.png)
 
 

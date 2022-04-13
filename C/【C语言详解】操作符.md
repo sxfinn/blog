@@ -386,6 +386,8 @@ int main()
 }
 ```
 
+
+
 ![image-20220412094944345](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949386.png)
 
 
@@ -412,6 +414,8 @@ int main()
 }
 ```
 
+
+
 ![image-20220412094952553](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949593.png)
 
 
@@ -425,6 +429,8 @@ int main()
 	return 0;
 }
 ```
+
+
 
 ![image-20220412094958923](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949976.png)
 
@@ -509,6 +515,8 @@ int main()
 }
 ```
 
+
+
 ![image-20220412095017792](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950834.png)
 
 怎么数组名作为实参传递至函数大小就不同了呢？
@@ -560,6 +568,8 @@ int main()
 	return 0;
 }
 ```
+
+
 
 ![image-20220412095026213](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950255.png)
 

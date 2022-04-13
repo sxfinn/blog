@@ -94,6 +94,8 @@ int main()
 }
 ```
 
+
+
 ![image-20220412094742129](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947165.png)
 
 
@@ -216,6 +218,8 @@ int main()
 }
 ```
 
+
+
 ![image-20220412094755093](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947130.png)
 
 两者的值是一样的，难道就一样吗？
@@ -233,6 +237,8 @@ int main()
 	return 0;
 }
 ```
+
+
 
 ![image-20220412094803043](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948081.png)
 
@@ -546,6 +552,8 @@ int main()
     return 0;
 }
 ```
+
+
 
 ![image-20220412094823905](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948948.png)
 

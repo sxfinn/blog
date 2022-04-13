@@ -44,6 +44,7 @@
 ### 详解编译+链接
 
 #### 翻译环境
+
 ![image-20220412094026313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940392.png)
 
 * 组成一个程序的每个源文件通过编译过程分别转换成目标代码（object code）。
