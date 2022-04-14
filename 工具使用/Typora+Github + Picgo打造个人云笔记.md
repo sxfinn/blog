@@ -105,13 +105,48 @@
 
 ---
 
-CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。——百度百科
+如果默认不适用自定义域名，那么我们**本地typora的图片链接**和**GitHub远端存储**的链接是一样的，通常是：`https://raw.githubusercontent.com/sxfinn/Pic/master/img/202204120923663.png`。
 
-放在Github的资源在国内加载速度比较慢，因此需要使用CDN加速来优化网站打开速度，jsDelivr + Github便是免费且好用的CDN，非常适合博客网站使用。
+但是这个链接我们在国内是无法访问的，因此需求是给自己个人博客搭建图床的同学就会出现图片无法访问的问题。
+
+**解决方法：**
+
+**CDN**的全称是**Content Delivery Network**，即内容分发网络。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的**负载均衡**、**内容分发**、**调度等功能模块**，使用户就近获取所需内容，降低网络拥塞，**提高用户访问响应速度和命中率**。CDN的关键技术主要有**内容存储和分发技术**。——百度百科
+
+**放在Github的资源在国内加载速度比较慢**，因此需要使用CDN加速来优化网站打开速度，**jsDelivr + Github**便是免费且好用的CDN，非常适合博客网站使用。
+
+自定义域名格式可以是你的 用户名/仓库名 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是到 **raw.githubusercontent 前缀**的链接，而这个域名在国内是无法访问的。
 
 
 
-自定义域名格式可以是你的 用户名/仓库名 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是到 raw.githubusercontent 前缀的链接，而这个域名在国内是无法访问的。
+使用CND加速后，Typora文档的图片的链接会变成我们设置的自定义域名 ：`https://cdn.jsdelivr.net/gh/用户名/仓库名/2022xxxxxx.png`，而如果我们将文档上传到GitHub服务器上,链接则通常如下：
+
+`https://camo.githubusercontent.com/e27aa2f17225d131bfa13f46412a4cee2ec4796a29f62fca34cebc2421bc2efe/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f737866696e6e2f5069632f696d672f3230323230343132303935393338322e706e67`
+
+例如：我写下这篇文章时的同一张图片
+
+* GitHub上远端的链接
+
+![image-20220414220257020](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204142202219.png)
+
+
+
+* 本地typora的图片链接
+
+![image-20220414220353421](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204142203542.png)
+
+**GitHub**给出如下解释：为托管您的图像，**GitHub** 使用 开源项目 **Camo**。 **Camo** 为每幅图像生成开头为 [https://camo.githubuserconten...](https://link.segmentfault.com/?enc=FVfTQdJcnfN8CKb5g%2BCXBQ%3D%3D.6G%2F0HTMeWyqzLrQ35QGorFMAu8rUW8wz%2BI2As6eE5zgPtIZzA4oV9OfANMP%2F4b0u) 的**匿名 URL 代理**，将会对其他用户隐藏您的浏览器详细信息和相关信息。
+
+参考链接：[Github image without camo - Stack Overflow](https://stackoverflow.com/questions/57857193/github-image-without-camo)
+
+
+
+由于**raw.githubusercontent.com** 国内域名无法访问，
+
+如果我们想要在个人博客中插入图片这两种前缀的链接都可以使用：
+
+1. camo.githubusercontent.com ...
+2. cdn.jsdelivr.net/gh ...
 
 
 
@@ -163,5 +198,4 @@ CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建�
 
 
 **大功告成。**
-
 
