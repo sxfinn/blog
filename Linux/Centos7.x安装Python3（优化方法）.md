@@ -1,4 +1,4 @@
-### Centos7.6安装python3.9
+### Centos7.6安装python3
 
 ---
 
@@ -20,7 +20,7 @@ yum install yum-utils
 #### 2.下载安装包
 
 ```shell
-wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tar.xz
+wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
 ```
 
 #### 3.解压
@@ -38,8 +38,8 @@ mkdir /usr/local/python3
 #### 5.安装
 
 ```shell
-cd Python-3.9.12
-./configure --prefix=/usr/local/python3。9 --enable-optimizations
+cd Python-3.7.2
+./configure --prefix=/usr/local/python3 --enable-optimizations --with-ssl
 #第一个指定安装的路径,不指定的话,安装过程中可能软件所需要的文件复制到其他不同目录,删除软件很不方便,复制软件也不方便.
 #第二个可以提高python10%-20%代码运行速度.
 make && make install
@@ -57,9 +57,9 @@ make && make install
 相当于windows环境变量，如下写不会默认还是Python2.7，不需要修改yum配置。
 
 ```shell
-ln -sf /usr/local/python3/bin/python3.9 /usr/local/bin/python3
+ln -sf /usr/local/python3/bin/python3.7 /usr/local/bin/python3
 # 软链接至/bin/python3方便写脚本
-ln -s /usr/local/python3/bin/python3.9 /bin/python3
+ln -s /usr/local/python3/bin/python3.7 /bin/python3
 ln -sf /usr/local/python3/bin/pip3 /usr/local/bin/pip3
 ```
 
@@ -95,8 +95,8 @@ Could not import runpy module
 需要安装依赖
 
 ```shell
-yum install yum-utils
-yum-builddep python
+1. 可以先升级gcc
+2. 不加--enable-optimizations
 ```
 
 **错误2.**
@@ -125,7 +125,7 @@ Could not fetch URL https:*******: There was a problem confirming the ssl certif
 Can't connect to HTTPS URL because the SSL module is not available. - skipping
 ```
 
- **在./configure过程中，如果没有加上–with-ssl参数时，默认安装的软件涉及到ssl的功能不可用，刚好pip3过程需要ssl模块，而由于没有指定，所以该功能不可用。解决办法是重新对python3.6进行编译安装，用一下过程来实现编译安装:**
+ **在./configure过程中，如果没有加上–with-ssl参数时，默认安装的软件涉及到ssl的功能不可用，刚好pip3过程需要ssl模块，而由于没有指定，所以该功能不可用。解决办法是重新对python3进行编译安装，用一下过程来实现编译安装:**
 
 ```shell
 cd Python-3.7.2

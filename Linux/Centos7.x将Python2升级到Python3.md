@@ -18,7 +18,7 @@ yum update
 
 ```shell
 yum install yum-utils
-yum-builddep python
+yum-builddep python3
 ```
 
 #### 4、下载python
