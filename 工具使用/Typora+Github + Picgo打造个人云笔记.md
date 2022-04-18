@@ -89,6 +89,17 @@
 
 8. 点击生成。
 
+### Picgo配置
+
+---
+
+- 点击左边图床设置，**选择GitHub图床**，具体配置如下
+- 设定仓库名，填写：**GitHub名/库名**
+- 分支，**默认填master**
+- 设定Token，**刚才保存的token令牌**
+- 指定存储路径，**默认填img/**
+- 点击确定和设为**默认图床**
+
 一定保存好，这个Token只能查看一次。
 
 ![image-20220414211813274](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204142118405.png)
@@ -137,7 +148,7 @@
 
 ![image-20220414220353421](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204142203542.png)
 
-**GitHub**给出如下解释：为托管您的图像，**GitHub** 使用 开源项目 **Camo**。 **Camo** 为每幅图像生成开头为 [https://camo.githubuserconten...](https://link.segmentfault.com/?enc=FVfTQdJcnfN8CKb5g%2BCXBQ%3D%3D.6G%2F0HTMeWyqzLrQ35QGorFMAu8rUW8wz%2BI2As6eE5zgPtIZzA4oV9OfANMP%2F4b0u) 的**匿名 URL 代理**，将会对其他用户隐藏您的浏览器详细信息和相关信息。
+**GitHub**给出如下解释：为托管您的图像，**GitHub** 使用 开源项目 **Camo**。**Camo** 为每幅图像生成开头为 [https://camo.githubuserconten...](https://link.segmentfault.com/?enc=FVfTQdJcnfN8CKb5g%2BCXBQ%3D%3D.6G%2F0HTMeWyqzLrQ35QGorFMAu8rUW8wz%2BI2As6eE5zgPtIZzA4oV9OfANMP%2F4b0u) 的**匿名 URL 代理**，将会对其他用户隐藏您的浏览器详细信息和相关信息。
 
 参考链接：[Github image without camo - Stack Overflow](https://stackoverflow.com/questions/57857193/github-image-without-camo)
 
@@ -155,15 +166,6 @@
 ### Typora设置
 
 ---
-
-- 点击左边图床设计，**选择GitHub图床**，具体配置如下
-- 设定仓库名，填写：**GitHub名/库名**
-- 分支，**默认填master**
-- 设定Token，**刚才保存的token令牌**
-- 指定存储路径，**默认填img/**
-- 点击确定和设为**默认图床**
-
-
 
 * **进入typora偏好设置**
 
