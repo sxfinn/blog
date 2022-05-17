@@ -160,6 +160,72 @@ int main()
 
 总体来说，如果除去开辟栈帧的花销，**内联函数和普通函数的所执行的指令数、时间几乎是相同的**，重点在于如何把控执行一个函数时，**它开辟的栈帧的消耗占整个函数调用的比重**，如何把控这个比重，决定了我们是否建议一个函数为内联。
 
+我们来写个程序验证一下，并从指令的角度来看：
+
+```c++
+inline void func()
+{
+	cout << "func" << endl;
+}
+
+int main()
+{	
+	func();
+	func();
+	func();
+	func();
+	return 0;
+}
+```
+
+来看看内联函数的汇编指令：
+
+```
+	func();
+00007FF6AA4D1522  lea         rdx,[string "func" (07FF6AA4DAE64h)]  
+00007FF6AA4D1529  mov         rcx,qword ptr [__imp_std::cout (07FF6AA4E0198h)]  
+00007FF6AA4D1530  call        std::operator<<<std::char_traits<char> > (07FF6AA4D1046h)  
+00007FF6AA4D1535  lea         rdx,[std::endl<char,std::char_traits<char> > (07FF6AA4D1014h)]  
+00007FF6AA4D153C  mov         rcx,rax  
+00007FF6AA4D153F  call        qword ptr [__imp_std::basic_ostream<char,std::char_traits<char> >::operator<< (07FF6AA4E01B0h)]  
+	func();
+00007FF6AA4D1545  lea         rdx,[string "func" (07FF6AA4DAE64h)]  
+00007FF6AA4D154C  mov         rcx,qword ptr [__imp_std::cout (07FF6AA4E0198h)]  
+00007FF6AA4D1553  call        std::operator<<<std::char_traits<char> > (07FF6AA4D1046h)  
+00007FF6AA4D1558  lea         rdx,[std::endl<char,std::char_traits<char> > (07FF6AA4D1014h)]  
+00007FF6AA4D155F  mov         rcx,rax  
+00007FF6AA4D1562  call        qword ptr [__imp_std::basic_ostream<char,std::char_traits<char> >::operator<< (07FF6AA4E01B0h)]  
+	func();
+00007FF6AA4D1568  lea         rdx,[string "func" (07FF6AA4DAE64h)]  
+00007FF6AA4D156F  mov         rcx,qword ptr [__imp_std::cout (07FF6AA4E0198h)]  
+00007FF6AA4D1576  call        std::operator<<<std::char_traits<char> > (07FF6AA4D1046h)  
+00007FF6AA4D157B  lea         rdx,[std::endl<char,std::char_traits<char> > (07FF6AA4D1014h)]  
+00007FF6AA4D1582  mov         rcx,rax  
+00007FF6AA4D1585  call        qword ptr [__imp_std::basic_ostream<char,std::char_traits<char> >::operator<< (07FF6AA4E01B0h)]  
+	func();
+00007FF6AA4D158B  lea         rdx,[string "func" (07FF6AA4DAE64h)]  
+00007FF6AA4D1592  mov         rcx,qword ptr [__imp_std::cout (07FF6AA4E0198h)]  
+00007FF6AA4D1599  call        std::operator<<<std::char_traits<char> > (07FF6AA4D1046h)  
+00007FF6AA4D159E  lea         rdx,[std::endl<char,std::char_traits<char> > (07FF6AA4D1014h)]  
+00007FF6AA4D15A5  mov         rcx,rax  
+00007FF6AA4D15A8  call        qword ptr [__imp_std::basic_ostream<char,std::char_traits<char> >::operator<< (07FF6AA4E01B0h)]  
+```
+
+接着我们取消内联再来看看：
+
+```
+	func();
+00007FF679261572  call        func (07FF679261285h)  
+	func();
+00007FF679261577  call        func (07FF679261285h)  
+	func();
+00007FF67926157C  call        func (07FF679261285h)  
+	func();
+00007FF679261581  call        func (07FF679261285h)  
+```
+
+差别还是蛮大的，这些指令都会在运行时载入内存，造成代码膨胀。
+
 ### 一些其他不足
 
 - 通常，编译器比程序设计者更清楚对于一个特定的函数是否合适进行内联扩展；一些情况下，对于程序员指定的某些内联函数，编译器可能更倾向于不使用内联甚至根本无法完成内联。
@@ -174,9 +240,263 @@ int main()
 
 
 
+## auto关键字
+
+auto为自动的意思，C语言中貌似也有提到过（自动变量什么的，记不清了几乎没使用过），那么在C++中auto有什么作用、应用于哪些场景呢？
+
+### auto简介
+
+---
+
+> 在早期C/C++中auto的含义是：使用**auto修饰的变量，是具有自动存储器的局部变量**，但遗憾的是一直没有
+> 人去使用它，大家可思考下为什么？
+> C++11中，标准委员会赋予了auto全新的含义即：**auto不再是一个存储类型指示符，而是作为一个新的类型**
+> **指示符来指示编译器，auto声明的变量必须由编译器在编译时期推导而得。**
+
+```c++
+int main()
+{
+	auto a = 1;
+	auto b = 2.0;
+	auto c = 2.0f;
+	auto d = 'w';
+	cout << typeid(a).name() << endl;
+	cout << typeid(b).name() << endl;
+	cout << typeid(c).name() << endl;
+	cout << typeid(d).name() << endl;
+	return 0;
+}
+//auto e;无法通过编译。
+```
+
+既然是编译期间自动推导类型，那么就说明一定得初始化咯。
+
+**使用auto定义变量时必须对其进行初始化**，在编译阶段编译器需要根据初始化表达式来推导auto的实际类
+型。因此auto并非是一种“类型”的声明，而是一个**类型声明时的“占位符”**，编译器在编译期会将auto替换为
+变量实际的类型。
+
+### 详细使用规则
+
+---
+
+既然是占位符则说明auto可以是任何类型，而不一定是对其进行初始化数据的类型。
+
+1. **auto和指针结合起来使用**
+
+​		用auto声明指针类型时，用auto和auto*没有任何区别，但是auto对于引用的声明必须加上&；
+
+```c++
+int main()
+{
+	int a = 10;
+	auto p1 = &a;//auto在编译时会被替换为int*
+	auto* p2 = &a;//auto在编译时会被替换为int
+	int& ref = a;
+	auto ref1 = ref;//ref是a的别名，因此推导出是int类型
+	ref1 = 12;//a并不会改变
+	cout << a << endl;
+	cout << typeid(a).name() << endl;
+	cout << typeid(ref).name() << endl;
+	cout << typeid(p1).name() << endl;
+	cout << typeid(p2).name() << endl;
+	cout << typeid(ref1).name() << endl;
+	return 0;
+}
+```
+
+2. **同一行定义多个变量**
+
+​		**在同一行定义多个变量时，这些变量的类型必须相同，否则编译器会报错，因为编译器实际只对第一个类		型进行推导，然后替换为auto，并用该类型定义其他变量。**
+
+```c++
+int main()
+{
+	auto a = 1, b = 1.0;
+	return 0;
+}
+```
+
+> 在声明符列表中，“auto”必须始终推导为同一类型
+
+这样看auto好像还挺万能的，那么auto能适用于所以场景吗？
+
+### auto不能推导类型的场景
+
+---
+
+* 不能作为函数的形参
+
+```c++
+// 此处代码编译失败，auto不能作为形参类型，因为编译器无法对a和b的实际类型进行推导
+int Add(auto a, auto b)
+{
+	return a + b;
+}
+```
+
+> error C3533: 参数不能为包含“auto”的类型
+
+这种显然是不可行的，如果可以直接使用auto推导，那么就没后面的模板什么事了。
+
+**注：返回值是可以用auto的。**
+
+* 不能用来直接声明数组
+
+```c++
+int main()
+{
+	auto arr[] = { 1,2,3,4,5 };
+	return 0;
+}
+```
+
+> error C3318: “auto []”: 数组不能具有其中包含“auto”的元素类型
+>
+> error C3535: 无法推导“auto []”的类型(依据“initializer list”)
+
+* 为了避免与C++98中的auto发生混淆，C++11只保留了auto作为类型指示符的用法
+* auto为了在实际中最常见的优势用法就是跟以后会讲到的C++11提供的新式for循环，还有lambda表达式等
+  进行配合使用
 
 
 
+## 基于范围的for循环
 
+for循环是我们非常熟悉的，用法也比较单一，通常在知道循环次数的情况下使用，那么什么是范围for呢？
 
+### 范围for的语法
+
+---
+
+C++98中如果我们要遍历一个数组通常是下面这种方式：
+
+```c++
+void TestFor()
+{
+	int array[] = { 1, 2, 3, 4, 5 };
+	for (int i = 0; i < sizeof(array) / sizeof(array[0]); ++i)
+		array[i] *= 2;
+	for (int* p = array; p < array + sizeof(array) / sizeof(array[0]); ++p)
+		cout << *p << endl;
+}
+```
+
+对于一个**范围已知**的集合而言，由我们来说明循环的范围显然是多余的，有时候不注意还会出错。因此C++11中引入了基于范围的for循环。**for循环后的括号由冒号“：”分为两部分：第一部分是范围内用于迭代的变量，第二部分则表示被迭代的范围。**
+
+```c++
+void TestFor()
+{
+	int array[] = { 1, 2, 3, 4, 5 };
+	for (auto& e : array)
+		e *= 2;
+	for (auto e : array)
+		cout << e << " ";
+}
+```
+
+循环体内就和普通的循环一样了，我们可以使用**break跳出循环**，也可以使用**continue结束本次循环**，只不过是编译器帮助我们确定迭代的范围而已。
+
+### 范围for的使用条件
+
+---
+
+1. **for循环迭代的范围是确定的**
+
+ 	对于数组而言，迭代的范围就是从第一个元素到最后一个元素；对于类而言，应该提供begin以及end的方法，	循环的范围就是从begin到end；
+
+也就是说我么给for的应该是一组集合，例如数组，链表等等
+
+看看一下代码是否有问题：
+
+```c++
+void TestFor(int array[])
+{
+	for (auto& e : array)
+		cout << e << endl;
+}
+```
+
+> “begin”: 未找到匹配的重载函数
+
+显然是有问题的，数组名作为形参，其本质上是一个指针，指针是一组数据的集合吗？？显然不是。
+
+2. **迭代的对象的迭代器要实现++和==的操作。(关于迭代器这个问题，以后会讲，现在大家了解一下就可以了)**
+
+​		可以先简单说说迭代器，迭代器就是一个封装后的指针，通过这个封装后的指针我们可以通过地址找到数据		的存储位置。为什么要封装呢？因为对于原生指针我们执行++操作，它是在相邻的位置移动，这样对于链表		等数据结构是无法正确访问的，可如果我们对++操作符进行重载，就可以让它根据他的存储特性去移动指针		了！
+
+### 新的指针空值nullptr C++11
+
+---
+
+从学习C语言之初，我们就说要养成一个好习惯——声明一个变量时给一个合适的初值，否则可能会出现不可预料的错误，比如未初始化的指针。如果当前指针没有明确的指向，那么可以给其赋值为空；
+
+```c++
+int main()
+{
+	int* p = NULL;
+	int* p1 = 0;
+	return 0;
+}
+```
+
+这两者其实是一样的，NULL其实是一个宏，即是0值；
+
+在传统C头文件里(stddef.h)中，可以看到如下代码：
+
+```c++
+#ifndef NULL
+#ifdef __cplusplus
+#define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+#endif
+```
+
+可以看到，NULL可能被定义为字面常量0，或者被定义为无类型指针(void*)的常量。不论采取何种定义，在
+使用空值的指针时，都不可避免的会遇到一些麻烦，比如：
+
+```c++
+void func(int)
+{
+	cout << "f(int)" << endl;
+}
+void func(int*)
+{
+	cout << "f(int*)" << endl;
+}
+int main()
+{
+	func(0);
+	func(NULL);
+	func((int*)NULL);
+	return 0;
+}
+```
+
+我们的本意是让`func(NULL)`去调用`void func(int*)`的，但却出现了问题，由于NULL被定义成0，而0默认被当做一个整型，因此与程序的初衷相悖。
+
+> 在C++98中，字面常量0既可以是一个整形数字，也可以是无类型的指针(void*)常量，但是编译器默认情况下
+> 将其看成是一个整形常量，如果要将其按照指针方式来使用，必须对其进行强转(void *)0。
+
+因此在C++程序中我们更倾向使用nullptr而不是NULL，来看看nullptr是什么。
+
+```c++
+int main()
+{
+	int* p = NULL;
+	int* p1 = 0;
+	cout << " " << typeid(NULL).name() << endl;
+	cout << " " << typeid(nullptr).name() << endl;
+	return 0;
+}
+```
+
+![image-20220517214735380](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205172147430.png)
+
+**注意：**
+1. **在使用nullptr表示指针空值时，不需要包含头文件，因为nullptr是C++11作为新关键字引入的。**
+
+2. **在C++11中，sizeof(nullptr) 与 sizeof((void*)0)所占的字节数相同。**
+3. **为了提高代码的健壮性（适用于更多场景），在后续表示指针空值时建议最好使用nullptr。**
 
