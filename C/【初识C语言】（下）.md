@@ -1,4 +1,4 @@
-﻿﻿﻿#  2021-10-29-
+﻿﻿﻿﻿﻿#  2021-10-29-
 
 ### 摘要
 
@@ -96,7 +96,7 @@ int main()
 
 运行结果：
 
-![image-20220412093220153](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120932186.png)
+![image-20220518223255717](https://pic.xinsong.xyz/img/202205182232750.png)
 
 在屏幕上输出了10个1. 
 
@@ -123,7 +123,7 @@ int main()
 
 运行结果：
 
-![image-20220412093233880](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120932915.png)
+![image-20220518223304083](https://pic.xinsong.xyz/img/202205182233117.png)
 
 输出了从1~10的数字。
 对比代码1和代码2的效果理解static修饰局部变量的意义。
@@ -160,7 +160,7 @@ int main()
 }
 ```
 
-![image-20220412093307790](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933879.png)
+![image-20220518223314707](https://pic.xinsong.xyz/img/202205182233794.png)
 
 有意思的是，通过调试我们可以看到：
 
@@ -178,7 +178,7 @@ int main()
 
 
 
-![image-20220412093318521](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933552.png)
+![image-20220518223322070](https://pic.xinsong.xyz/img/202205182233131.png)
 	
 
 上图是==global.c==源文件创建的全局变量。
@@ -201,7 +201,7 @@ int main()
 
 运行结果：
 
-![image-20220412093327897](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933931.png)
+![image-20220518223328525](https://pic.xinsong.xyz/img/202205182233562.png)
 
 可见全局变量n已经无法使用。
 
@@ -212,7 +212,7 @@ int main()
 普通函数具有外部链接属性，而静态函数没有外部连接属性。
 也就是static修饰的函数也只能在所在的源文件内部使用。
 
-![image-20220412093336959](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120933000.png)
+![image-20220518223333871](https://pic.xinsong.xyz/img/202205182233932.png)
 
 上图为static修饰的外部函数。
 
@@ -233,7 +233,7 @@ int main()
 
 运行结果：
 
-![image-20220412093400840](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934874.png)
+![image-20220518223350717](https://pic.xinsong.xyz/img/202205182233751.png)
 
 可以看到这里是已经报错了。
 
@@ -259,7 +259,7 @@ int main()
 
 一个细节：
 
-![image-20220412093410447](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934476.png)
+![image-20220518223357197](https://pic.xinsong.xyz/img/202205182233229.png)
 
 注意：这里与函数的使用方式类似，注意区分。
 
@@ -273,7 +273,7 @@ int main()
 >
 >
 
-![image-20220412093420247](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934288.png)
+![image-20220518223405232](https://pic.xinsong.xyz/img/202205182234276.png)
 
 变量是储存在内存中的（在内存中分配空间)，每个内存单元都有地址，所以变量也有地址。
 取出变量地址如下：
@@ -291,14 +291,14 @@ int main()
 
 运行结果：
 
-![image-20220412093433356](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934387.png)
+![image-20220518223411717](https://pic.xinsong.xyz/img/202205182234749.png)
 
 
 
 <font color=purple>注意：这里的 i 占四个字节，每个字节都有地址，取出的第一个字节的地址(较小的地址)。</font>
 如下：
 
-![image-20220412093444735](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934783.png)
+![image-20220518223417648](https://pic.xinsong.xyz/img/202205182234705.png)
 
 #### 指针变量
 
@@ -335,11 +335,11 @@ int main()
 运行结果：
 
 
-![image-20220412093454807](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120934840.png)
+![image-20220518223424504](https://pic.xinsong.xyz/img/202205182234541.png)
 
 **p和num在内存中的分布：**
 
-![image-20220412093503524](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935565.png)
+![image-20220518223430895](https://pic.xinsong.xyz/img/202205182234939.png)
 
 以整型为例子，拓展在其他类型：
 代码：
@@ -359,9 +359,9 @@ int main()
 
 运行结果：
 
-![image-20220412093515351](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935386.png)
+![image-20220518223436876](https://pic.xinsong.xyz/img/202205182234912.png)
 
-<font color=indigo>**小结：指针指向什么类型的变量，就定义什么类型的指针去接受该变量的地址**。
+**小结：指针指向什么类型的变量，就定义什么类型的指针去接受该变量的地址**。
 
 **指针变量的大小**
 
@@ -400,7 +400,7 @@ int main()
 如下：
 
 
-![image-20220412093531006](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935045.png)
+![image-20220518223451092](https://pic.xinsong.xyz/img/202205182234141.png)
 
 
 
@@ -414,7 +414,7 @@ int main()
 
 >*c[0] = 'x' // 与上面的操作一致
 
-<font color=red>注意：指针常量和常量指针是不同概念。
+注意：指针常量和常量指针是不同概念。
 
 **常量指针**
 <font color=purple>常量</font>是形容词，<font color=midnightblue>指针</font>是名词，以指针为中心的一个偏正结构短语。这样看，常量指针本质是指针，<font color=purple>常量</font>修饰它，表示这个<font color=midnightblue>指针</font>乃是一个指向<font color=purple>常量</font>的指针（变量）。
@@ -463,7 +463,7 @@ int main()
 
 运行结果：
 
-![image-20220412093543010](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120935044.png)
+![image-20220518223504204](https://pic.xinsong.xyz/img/202205182235239.png)
 
 
 

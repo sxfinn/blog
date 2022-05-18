@@ -150,11 +150,11 @@ int main()
 
 
 
-![image-20220412094353277](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943400.png)
+![image-20220518224131313](https://pic.xinsong.xyz/img/202205182241396.png)
 
 通过内存窗口看到这里四十个字节的16进制全部都成为了0，那么free又会发生什么？
 
-![image-20220412094402710](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120944749.png)
+![image-20220518224138372](https://pic.xinsong.xyz/img/202205182241420.png)
 
 free后这里的数据又都变成了随机值。
 
@@ -189,7 +189,7 @@ void* realloc (void* ptr, size_t size);
 
 
 
-![image-20220412094412618](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120944700.png)
+![image-20220518224145267](https://pic.xinsong.xyz/img/202205182241355.png)
 
 **情况1**
 当是情况1 的时候，要扩展内存就直接原有内存之后直接追加空间，原来空间的数据不发生变化。
@@ -316,7 +316,7 @@ int main()
 
 ### C/C++程序的内存开辟
 
-![image-20220412094426992](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120944054.png)
+![image-20220518224158827](https://pic.xinsong.xyz/img/202205182241891.png)
 
 **C/C++程序内存分配的几个区域：**
 

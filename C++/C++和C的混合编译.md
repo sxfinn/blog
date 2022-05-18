@@ -91,13 +91,13 @@ extern是C/C++语言中表明**函数**和**全局变量**作用范围（可见�
 
 使用objdump -S 命令查看gcc生成的可执行文件：
 
-![image-20220429152842002](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204301337368.png)
+![image-20220518225738183](https://pic.xinsong.xyz/img/202205182257252.png)
 
 * **使用C++编译器（g++）编译后结果**
 
 使用objdump -S 命令查看g++生成的可执行文件：
 
-![image-20220429151513659](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204301337103.png)
+![image-20220518225745296](https://pic.xinsong.xyz/img/202205182257367.png)
 
 **linux：**修饰后的函数名= _Z + 函数名长度 + 形参类型首字母，Windows下也是相似的，细节上会有所不同，本质上都是通过函数参数信息去修饰函数名。
 
@@ -150,7 +150,7 @@ extern void Add(int a, int b);
 
 
 
-![image-20220429203205849](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292032907.png)
+![image-20220518225753095](https://pic.xinsong.xyz/img/202205182257145.png)
 
 
 
@@ -182,37 +182,37 @@ C程序调用C的库，C++程序调用C++的库，这是理所应当的，因此
 
 * **首先新建项目Stack_C**
 
-![image-20220429205844560](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292058706.png)
+![image-20220518225759900](https://pic.xinsong.xyz/img/202205182258059.png)
 
 * **新建源文件和头文件**
 
-![image-20220429210051688](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292100776.png)
+![image-20220518225807539](https://pic.xinsong.xyz/img/202205182258635.png)
 
 * **写好栈的代码**
 
 注意一定是C程序，即源文件后缀为c
 
-![image-20220429210511609](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292105694.png)
+![image-20220518225814328](https://pic.xinsong.xyz/img/202205182258422.png)
 
 * **更改输出文件类型**
 
 右键项目名称—>属性
 
-![image-20220429210500021](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292105149.png)
+![image-20220518225821196](https://pic.xinsong.xyz/img/202205182258313.png)
 
 * **更改为配置类型为静态库**
 
-![image-20220429210751799](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292107905.png)
+![image-20220518225828078](https://pic.xinsong.xyz/img/202205182258187.png)
 
 * 生成静态库
 
-![image-20220429211127497](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292111582.png)
+![image-20220518225835992](https://pic.xinsong.xyz/img/202205182258077.png)
 
 * **查看是否生成成功**
 
 VS一般在项目路径下的x64\Debug路径下：
 
-![image-20220429211856097](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292118158.png)
+![image-20220518225845182](https://pic.xinsong.xyz/img/202205182258246.png)
 
 至此，静态库已经可以成功建立了。
 
@@ -220,7 +220,7 @@ VS一般在项目路径下的x64\Debug路径下：
 
 不过对于VS我们的静态库是默认不去使用的，因此我们需要将静态库的路径和库的名称分别添加到库目录和依赖项，才能让程序能去调用该静态库。
 
-![image-20220429211253085](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292112216.png)
+![image-20220518225851175](https://pic.xinsong.xyz/img/202205182258310.png)
 
 * **更改链接器配置**
 
@@ -230,7 +230,7 @@ VS一般在项目路径下的x64\Debug路径下：
 
 增加库目录（路径为我们刚刚生成的静态库所在的Debug文件夹）
 
-![image-20220429211555691](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292115798.png)
+![image-20220518225858234](https://pic.xinsong.xyz/img/202205182258344.png)
 
 * **增加附加依赖项**
 
@@ -238,7 +238,7 @@ VS一般在项目路径下的x64\Debug路径下：
 
 “属性面板”—>”配置属性”—> “链接器”—>”输入”，附加依赖库中输入静态库名StaticLibrary.lib。
 
-![image-20220429212050400](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292120501.png)
+![image-20220518225905839](https://pic.xinsong.xyz/img/202205182259960.png)
 
 
 
@@ -248,7 +248,7 @@ VS一般在项目路径下的x64\Debug路径下：
 2. 包含上Stack_C项目（静态库项目）的头文件；
 3. 点击生成解决方案；
 
-![image-20220429212826759](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292128914.png)
+![image-20220518225913686](https://pic.xinsong.xyz/img/202205182259870.png)
 
 成功生成，说明成功调用。
 
@@ -262,7 +262,7 @@ VS一般在项目路径下的x64\Debug路径下：
 
 结果报错了：
 
-![image-20220429213034447](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204292130632.png)
+![image-20220518225924430](https://pic.xinsong.xyz/img/202205182259657.png)
 
 这说明在链接的过程中出现了问题，也就是在我们的程序找不到静态库中函数的地址，原因是我们的静态库是C语言的，没有对函数进行修饰，但在我们的调用方是C++程序，在链接过程中找的是修饰过的函数名，因此无法找到函数的地址。
 
@@ -425,7 +425,7 @@ C++的库就失去了函数重载的特性，如果库中有同名函数，那�
 
 因此C++库中哪个接口需要暴露给C，我们就用extern“C”修饰哪个接口。
 
-![image-20220430160659245](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204301606364.png)
+![image-20220518225938546](https://pic.xinsong.xyz/img/202205182259688.png)
 
 **总之，C的库可以给C程序和C++程序调用，而C++库也可以被C程序和C++程序调用**
 

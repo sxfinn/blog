@@ -30,11 +30,11 @@
 
 指针就是地址，指向某一块内存空间。
 
-![image-20220412095438814](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954854.png)
+![image-20220518225213164](https://pic.xinsong.xyz/img/202205182252203.png)
 
 
 
-![image-20220412095446570](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954618.png)
+![image-20220518225220643](https://pic.xinsong.xyz/img/202205182252688.png)
 
 
 
@@ -180,7 +180,7 @@ int main()
 
 输出：
 
-![image-20220412095458829](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120954860.png)
+![image-20220518225230690](https://pic.xinsong.xyz/img/202205182252724.png)
 
 可以看到指针决定了指针加一或者减一时跳过几个字节。
 
@@ -200,17 +200,17 @@ int main()
 
 
 
-![image-20220412095519707](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955737.png)
+![image-20220518225240905](https://pic.xinsong.xyz/img/202205182252951.png)
 
-![image-20220412095506518](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955552.png)
+![image-20220518225249369](https://pic.xinsong.xyz/img/202205182252401.png)
 
 上图为(1)被执行
 
 (2)被执行：
 
-![image-20220412095527804](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955832.png)
+![image-20220518225257294](https://pic.xinsong.xyz/img/202205182252325.png)
 
-![image-20220412095536496](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955525.png)
+![image-20220518225304232](https://pic.xinsong.xyz/img/202205182253266.png)
 
 指针的类型决定了，对指针解引用的时候有多大的权限（能操作几个字节）。
 比如： char* 的指针解引用就只能访问一个字节，而 int* 的指针的解引用就能访问四个字节。
@@ -322,11 +322,11 @@ int arr[10] = {1,2,3,4,5,6,7,8,9,0};
 }
 ```
 
-![image-20220412095546828](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955860.png)
+![image-20220518225314458](https://pic.xinsong.xyz/img/202205182253492.png)
 
 数组名和数组首元素的地址是一样的
 
-![image-20220412095553551](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120955595.png)
+![image-20220518225320933](https://pic.xinsong.xyz/img/202205182253982.png)
 
 但是注意类型是不同的，在数值上相等。
 
@@ -350,7 +350,7 @@ int main()
 
 输出：
 
-![image-20220412095600479](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956527.png)
+![image-20220518225327076](https://pic.xinsong.xyz/img/202205182253131.png)
 
 可以看到&arr[i] == (arr +i)。
 
@@ -442,15 +442,15 @@ int* arr[10];
 
 **整形数组在内存中的存储**
 
-![image-20220412095614434](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956471.png)
+![image-20220518225336391](https://pic.xinsong.xyz/img/202205182253432.png)
 
-![image-20220412095623390](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956429.png)
+![image-20220518225342798](https://pic.xinsong.xyz/img/202205182253839.png)
 
 
 
 指针数组呢？
 
-![image-20220412095634615](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120956671.png)
+![image-20220518225349700](https://pic.xinsong.xyz/img/202205182253759.png)
 
 可以看到，每个元素都是一个指针，指向一块特定的内存空间。
 

@@ -63,7 +63,7 @@
 
 规则：高位舍去，低位补零。
 
-![image-20220412094928520](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949671.png)
+![image-20220518224626323](https://pic.xinsong.xyz/img/202205182246402.png)
 
 > 拓展
 
@@ -248,7 +248,6 @@ void swap(int* n1, int* n2)
 	*n2 = *n1 ^ *n2;
 	*n1 = *n1 ^ *n2;
 }
-
 ```
 
 拿a和b来举例：
@@ -388,7 +387,7 @@ int main()
 
 
 
-![image-20220412094944345](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949386.png)
+![image-20220518224653566](https://pic.xinsong.xyz/img/202205182246610.png)
 
 
 
@@ -416,7 +415,7 @@ int main()
 
 
 
-![image-20220412094952553](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949593.png)
+![image-20220518224706074](https://pic.xinsong.xyz/img/202205182247118.png)
 
 
 
@@ -432,7 +431,7 @@ int main()
 
 
 
-![image-20220412094958923](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949976.png)
+![image-20220518224713707](https://pic.xinsong.xyz/img/202205182247766.png)
 
 可以看到，这里验证了上面所说的情况。
 
@@ -455,7 +454,7 @@ int main()
 
 输出：
 
-![image-20220412095010343](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950384.png)
+![image-20220518224719786](https://pic.xinsong.xyz/img/202205182247832.png)
 
 输出结果是40，显然不是我们预想的。
 
@@ -517,7 +516,7 @@ int main()
 
 
 
-![image-20220412095017792](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950834.png)
+![image-20220518224727197](https://pic.xinsong.xyz/img/202205182247240.png)
 
 怎么数组名作为实参传递至函数大小就不同了呢？
 
@@ -571,7 +570,7 @@ int main()
 
 
 
-![image-20220412095026213](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950255.png)
+![image-20220518224735932](https://pic.xinsong.xyz/img/202205182247980.png)
 
 两组测试c的值并不同，实际上是因为在（1）中，a++的值为假，就不在继续执行后续表达式。
 

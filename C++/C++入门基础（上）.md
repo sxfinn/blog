@@ -508,7 +508,7 @@ int main()
 
 输出：
 
-![image-20220427132225707](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204271322761.png)
+![image-20220518230000150](https://pic.xinsong.xyz/img/202205182300228.png)
 
 相同的函数名传入不同类型的参数调用的函数实体不同。
 
@@ -537,13 +537,13 @@ C语言是不支持**函数重载**的，但是C++却引入了这个特性，那
 
 程序的编译过程：
 
-![image-20220412094026313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204291421222.png)
+![image-20220518230007544](https://pic.xinsong.xyz/img/202205182300703.png)
 
-![image-20220429143715137](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204291437229.png)
+![image-20220518230014172](https://pic.xinsong.xyz/img/202205182300272.png)
 
 **符号表的合并**
 
-![image-20220429145619818](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204291456908.png)
+![image-20220518230020676](https://pic.xinsong.xyz/img/202205182300788.png)
 
 > 1. 实际我们的项目通常是由多个头文件和多个源文件构成，而通过我们C语言阶段学习的编译链接，我们
 >    可以知道，【当前a.cpp中调用了b.cpp中定义的Add函数时】，编译后链接前，a.o的目标文件中没有
@@ -572,13 +572,13 @@ C语言是不支持**函数重载**的，但是C++却引入了这个特性，那
 
 使用objdump -S 命令查看gcc生成的可执行文件：
 
-![image-20220429152842002](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204291528084.png)
+![image-20220518230028168](https://pic.xinsong.xyz/img/202205182300279.png)
 
 * **使用C++编译器（g++）编译后结果**
 
 使用objdump -S 命令查看g++生成的可执行文件：
 
-![image-20220429151513659](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204291515740.png)
+![image-20220518230034081](https://pic.xinsong.xyz/img/202205182300195.png)
 
 **linux下：修饰后的函数名= _Z + 函数名长度 + 形参类型首字母**
 
@@ -726,7 +726,7 @@ int main()
 
 我们进入调试窗口：
 
-![image-20220430182803520](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204301828645.png)
+![image-20220518230046095](https://pic.xinsong.xyz/img/202205182300209.png)
 
 通过调试可以看到，a和quote的地址是一样的，并且quote的类型就为`int&`，所以quote的改变一定会影响a。
 
@@ -926,7 +926,7 @@ int main()
 
 运行结果如下：
 
-![image-20220515191031565](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205151910727.png)
+![image-20220518230055452](https://pic.xinsong.xyz/img/202205182300518.png)
 
 
 
@@ -981,7 +981,7 @@ int main()
 
 运行结果：
 
-![image-20220515192020988](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205151920062.png)
+![image-20220518230102548](https://pic.xinsong.xyz/img/202205182301616.png)
 
 可以看到无论是作为参数还是作为返回值，引用和值的时间的开销差异还是比较大的。
 
@@ -1028,7 +1028,7 @@ int main()
 
 我们来看看汇编：
 
-![image-20220515193802776](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205151938861.png)
+![image-20220518231238489](https://pic.xinsong.xyz/img/202205182312599.png)
 
 汇编指令大致都是相同的，也就是说它和指针实际上是同根同源的。
 
@@ -1162,7 +1162,7 @@ int main()
 
 关系如图：
 
-![image-20220515201602030](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205152016103.png)
+![image-20220518230113331](https://pic.xinsong.xyz/img/202205182301465.png)
 
 **这里的关系文字描述为d是double类型， tmp是d的引用（int&），而a又是tmp的引用（int&），可以直接认为a是d的引用，只不过引用的类型为 const int;**
 
@@ -1174,7 +1174,7 @@ int main()
 
 关系如图：
 
-![image-20220515201838713](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205152018787.png)
+![image-20220518230120469](https://pic.xinsong.xyz/img/202205182301549.png)
 
 **这里的关系文字描述为d是double类型，而tmp是一个临时的int类型，a是tmp的引用；**
 
@@ -1184,7 +1184,7 @@ int main()
 
 代码1：
 
-![image-20220515202235753](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205152022818.png)
+![image-20220518230127426](https://pic.xinsong.xyz/img/202205182301533.png)
 
 可以看到他d和a的地址是一样的，说明a是d的引用（指向d的地址），但只是引用的类型和d的类型不同。
 
@@ -1192,7 +1192,7 @@ int main()
 
 代码2：
 
-![image-20220515202605969](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202205152026030.png)
+![image-20220518230133326](https://pic.xinsong.xyz/img/202205182301432.png)
 
 a的地址和d不同，这是因为a是隐式类型转换所产生的临时变量的引用，而此临时变量是一个int类型，而非引用，具有自己独立的内存空间，而a指向这块临时变量的空间，因此地址不同。
 

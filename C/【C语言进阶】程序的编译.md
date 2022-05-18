@@ -45,7 +45,7 @@
 
 #### 翻译环境
 
-![image-20220412094026313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940392.png)
+![image-20220518223859150](https://pic.xinsong.xyz/img/202205182238236.png)
 
 * 组成一个程序的每个源文件通过编译过程分别转换成目标代码（object code）。
 * 每个目标文件由链接器（linker）捆绑在一起，形成一个单一而完整的可执行程序。
@@ -80,7 +80,7 @@ int main()
 
 
 
-![image-20220412094041380](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940489.png)
+![image-20220518223907079](https://pic.xinsong.xyz/img/202205182239191.png)
 
 函数只有声明的时候，在test.c中是没有给 _ sum函数分配地址的，在_sum函数中定义的sum.c中才记录有 _ sum 函数的地址，在链接时，会有符号表的合并和符号表的重定位，这也为什么即使我们没有声明函数直接调用定义在另一个源文件中的函数，也仍能够跑起来，并且只是弹出警告的原因。
 
@@ -90,25 +90,25 @@ int main()
 
 **预处理**
 
-![image-20220412094053164](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940204.png)
+![image-20220518223914530](https://pic.xinsong.xyz/img/202205182239575.png)
 
 运行如上简单程序。
 
-![image-20220412094102484](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941523.png)
+![image-20220518223920420](https://pic.xinsong.xyz/img/202205182239458.png)
 
 
 
 可以看到当前目录下只有`test.c`文件
 
-![image-20220412094110010](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941050.png)
+![image-20220518223926268](https://pic.xinsong.xyz/img/202205182239308.png)
 
 使用`gcc -E test.c -o test.i`预处理命令
 
 并将产生的的结果放在`test.i`中，可以看到我们本目录下多了一个`test.i`文件，我们来看看其中的内容。
 
-![image-20220412094121461](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941613.png)
+![image-20220518223935360](https://pic.xinsong.xyz/img/202205182239518.png)
 
-![image-20220412094132433](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941565.png)
+![image-20220518223943043](https://pic.xinsong.xyz/img/202205182239182.png)
 
 文件内容略长，我们仅仅看开头和结尾，开头是头文件的包含内容，包括链接库的路径等等。
 
@@ -116,7 +116,7 @@ int main()
 
 **编译**
 
-![image-20220412094144021](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941069.png)
+![image-20220518223951614](https://pic.xinsong.xyz/img/202205182239665.png)
 
 
 
@@ -126,7 +126,7 @@ int main()
 
 接下来看看这个文件是什么？
 
-![image-20220412094155675](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120941812.png)
+![image-20220518224001601](https://pic.xinsong.xyz/img/202205182240744.png)
 
 嗯~这里已经没有那么多的文件内容了，不懂没关系，大致能看出来这是汇编指令了。
 
@@ -136,7 +136,7 @@ int main()
 
 **汇编**
 
-![image-20220412094208313](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942353.png)
+![image-20220518224013427](https://pic.xinsong.xyz/img/202205182240470.png)
 
 同样的执行`gcc -c test.s -o test.o`汇编指令
 
@@ -144,17 +144,17 @@ int main()
 
 继续进入`test.o`中查看：
 
-![image-20220412094217448](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942596.png)
+![image-20220518224021058](https://pic.xinsong.xyz/img/202205182240225.png)
 
 这下谁也看不懂了，因为汇编会将汇编语言编程机器二进制语言，而我们使用的是文本编辑器，所以都是乱码。
 
 那么这个`test.o`可以直接运行吗，试一下：
 
-![image-20220412094229678](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942715.png)
+![image-20220518224028057](https://pic.xinsong.xyz/img/202205182240094.png)
 
 没有权限，并且这被当作是一个普通文件，并不是可执行文件。
 
-![image-20220412094239745](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942781.png)
+![image-20220518224035232](https://pic.xinsong.xyz/img/202205182240275.png)
 
 
 
@@ -162,7 +162,7 @@ int main()
 
 执行结果：
 
-![image-20220412094251989](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120942027.png)
+![image-20220518224045653](https://pic.xinsong.xyz/img/202205182240710.png)
 
 
 
@@ -205,7 +205,7 @@ __STDC__   //如果编译器遵循ANSI C，其值为1，否则未定义
 printf("file:%s line:%d\n", __FILE__, __LINE__);
 ```
 
-![image-20220412094306605](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943641.png)
+![image-20220518224054329](https://pic.xinsong.xyz/img/202205182240370.png)
 
 所在的文件，以及文件当前的行号就被打印出来了。
 
@@ -744,7 +744,7 @@ int main()
 如果找不到就提示编译错误。
 **Linux环境的标准头文件的路径：**
 
-![image-20220412094326518](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943627.png)
+![image-20220518224108875](https://pic.xinsong.xyz/img/202205182241990.png)
 
 **VS环境的标准头文件的路径：**
 
@@ -767,7 +767,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include
 
 如果出现这样的场景：
 
-![image-20220412094336429](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120943503.png)
+![image-20220518224115729](https://pic.xinsong.xyz/img/202205182241813.png)
 
 `comm.h`和`comm.c`是公共模块。
 `add.h`和`add.c`使用了公共模块。

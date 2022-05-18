@@ -82,7 +82,7 @@ int main()
 }
 ```
 
-![image-20220412094448131](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120944161.png)
+![image-20220518224217686](https://pic.xinsong.xyz/img/202205182242719.png)
 
 0x010FFC88是a在内存中的地址，在这里我们可以看到:
 
@@ -133,7 +133,7 @@ int main()
 
 再来看这张图：
 
-![image-20220412094528698](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945752.png)
+![image-20220518224228328](https://pic.xinsong.xyz/img/202205182242383.png)
 
 a == 10
 
@@ -191,7 +191,7 @@ int main()
 }
 ```
 
-![image-20220412094538731](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945763.png)
+![image-20220518224239246](https://pic.xinsong.xyz/img/202205182242278.png)
 
 同样的数据同样的字节数，为什么打印出来却不同呢？
 
@@ -218,11 +218,11 @@ S = 0，M = 1.01，E= 2。
 
 ​	IEEE 754规定：
 
-![image-20220412094547624](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945679.png)
+![image-20220518224246096](https://pic.xinsong.xyz/img/202205182242157.png)
 
 对于32位的浮点数，最高位的是符号位S，紧接着的8个位是指数E，剩下的23位存放的是数字的有效位。
 
-![image-20220412094555327](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120945393.png)
+![image-20220518224251377](https://pic.xinsong.xyz/img/202205182242452.png)
 
 而对于64位的浮点数，最高位仍然是符号位，不过指数位和有效数字位都所有增加，分别是11位和52位。
 
@@ -306,7 +306,7 @@ int main()
 
 ​	
 
-![image-20220412094606340](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120946386.png)
+![image-20220518224259901](https://pic.xinsong.xyz/img/202205182242937.png)
 
 
 

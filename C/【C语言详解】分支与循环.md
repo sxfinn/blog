@@ -70,7 +70,7 @@ else
 
 如下图：
 
-![image-20220412095048749](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120950791.png)
+![image-20220518224805384](https://pic.xinsong.xyz/img/202205182248425.png)
 
 由图可知：
 
@@ -148,7 +148,7 @@ int main()
 
 输出结果：
 
-![image-20220412101317371](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121013415.png)
+![image-20220518224814341](https://pic.xinsong.xyz/img/202205182248379.png)
 
 所以可以断定else是与第二个if匹配的。
 
@@ -568,7 +568,7 @@ while(condition)
 
 while循环流程图：
 
-![image-20220412095110834](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951882.png)
+![image-20220518224832915](https://pic.xinsong.xyz/img/202205182248985.png)
 
 > 如何在屏幕上打印出1~10的数字？
 
@@ -743,7 +743,7 @@ int main()
 
 查阅ASCII码可以看到
 
-![image-20220412095122492](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951571.png)
+![image-20220518224842613](https://pic.xinsong.xyz/img/202205182248698.png)
 
 10所对应的是换行符，也就是说getchar读到的是我们输入结束时敲入的回车。
 
@@ -839,7 +839,7 @@ int main()
 
 for循环流程图
 
-![image-20220412095136664](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951721.png)
+![image-20220518224851683](https://pic.xinsong.xyz/img/202205182248745.png)
 
 **break和continue在for循环中**
 
@@ -1050,7 +1050,7 @@ do
 
 执行流程：
 
-![image-20220412095149536](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120951592.png)
+![image-20220518224906721](https://pic.xinsong.xyz/img/202205182249781.png)
 
 **do while语句的特点**
 
@@ -1155,7 +1155,7 @@ int main()
 
 运行结果：
 
-![image-20220412095200028](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952102.png)
+![image-20220518224916736](https://pic.xinsong.xyz/img/202205182249799.png)
 
 拥有了循环和判断，我们还可以实现一个猜数小游戏：
 
@@ -1223,7 +1223,7 @@ int main()
 
 运行：
 
-![image-20220412095213612](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952692.png)
+![image-20220518224923187](https://pic.xinsong.xyz/img/202205182249265.png)
 
 
 
@@ -1235,7 +1235,7 @@ C语言中提供了可以随意滥用的 goto语句和标记跳转的标号。
 
 流程图：
 
-![image-20220412095229102](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120952185.png)
+![image-20220518224930321](https://pic.xinsong.xyz/img/202205182249401.png)
 
 >  例如：一次跳出两层或多层循环。 多层循环这种情况使用break是达不到目的的。它只能从最内层循环退出到上一层的循环。 goto语言真正适合的场景如下：
 

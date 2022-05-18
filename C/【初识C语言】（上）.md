@@ -1,4 +1,4 @@
-﻿﻿﻿﻿# 2021-10-25-
+﻿﻿﻿﻿﻿﻿# 2021-10-25-
 
 ### 摘要
 
@@ -57,7 +57,7 @@ int main()
 
 接着我们来做出我们的选择吧！
 
-![image-20220412092456573](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120924625.png)
+![image-20220518223129630](https://pic.xinsong.xyz/img/202205182231677.png)
 这里可以看到我选择了1.Study hard,这里就在屏幕上打印出了：
 
   **成为大牛，走向人生巅峰！**
@@ -77,7 +77,7 @@ else
 
 有些事必须一直做，比如我们日复一日地干饭。
 
-![image-20220412092550394](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120925444.png)
+![image-20220518223136233](https://pic.xinsong.xyz/img/202205182231282.png)
 
 
 
@@ -151,7 +151,7 @@ int main()
 
 
 
-![image-20220412092607117](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120926190.png)
+![image-20220518223145055](https://pic.xinsong.xyz/img/202205182231092.png)
 
 
 
@@ -203,7 +203,7 @@ int main()
 
 运行结果：
 
-![image-20220412093021565](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120930603.png)
+![image-20220518223152659](https://pic.xinsong.xyz/img/202205182231694.png)
 
 利用循环，数组的每个元素就被打印在屏幕上了。
 
@@ -241,14 +241,14 @@ int main()
 
 运行结果：
 
-![image-20220412092652695](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120926729.png)
+![image-20220518223200441](https://pic.xinsong.xyz/img/202205182232474.png)
 
 结果为2，我们来分析分析：
 
    >00000001    //这是1的二进制
 
  左移1位后：
-![image-20220412092716404](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120927433.png)
+![image-20220518223211804](https://pic.xinsong.xyz/img/202205182232836.png)
 最右边空出来一位补0
 如下：
 
@@ -281,7 +281,7 @@ int main()
 
 运行结果：
 
-![image-20220412092725738](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120927775.png)
+![image-20220518223222459](https://pic.xinsong.xyz/img/202205182232494.png)
 
 c=1
 这是为什么呢？
@@ -363,9 +363,8 @@ int main()
 | <=             |              |
 | !=             | 判断是否相等 |
 | ==             |              |
-|                |              |
-| ### 逻辑操作符 |              |
-| **逻辑运算**   |              |
+| **逻辑操作符** |              |
+| 逻辑运算       |              |
 | 运算符         | 解释         |
 | --             | --           |
 | &&             | 逻辑与       |
@@ -394,7 +393,7 @@ int main()
 
 运行结果：
 
-![image-20220412092737251](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120927285.png)
+![image-20220518223233668](https://pic.xinsong.xyz/img/202205182232703.png)
 
 与我们所想的完全一致！
 
@@ -458,7 +457,7 @@ int main()
 
 运行结果：
 
-![image-20220412093121452](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120931511.png)
+![image-20220518223241530](https://pic.xinsong.xyz/img/202205182232576.png)
 
 这里就简单介绍了两种访问方式，他们之间还是有一定差异，但最终的效果时一样的。
 

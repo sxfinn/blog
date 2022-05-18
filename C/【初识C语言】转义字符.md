@@ -52,7 +52,7 @@ int main()
 
  输出结果如下：
 
-![image-20220412093745451](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120937502.png)
+![image-20220518223526698](https://pic.xinsong.xyz/img/202205182235742.png)
 
 
 
@@ -61,7 +61,7 @@ int main()
 **思考**：**出现这种情况的原因是什么呢？**
 我们来调试一下代码，如下：
 
-![image-20220412093802712](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938753.png)
+![image-20220518223534478](https://pic.xinsong.xyz/img/202205182235527.png)
 
 
 
@@ -96,7 +96,7 @@ int main()
 
 接下来看看运行结果：
 
-![image-20220412093816592](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938628.png)
+![image-20220518223542045](https://pic.xinsong.xyz/img/202205182235078.png)
 
 这似乎与我们想要的不太一样，我们来看看少了哪些东西。
 
@@ -105,23 +105,23 @@ int main()
 
 
 
-| 转义字符                   | 释义                                                         |
-| -------------------------- | :----------------------------------------------------------- |
-| \\?                        | 在书写连续多个问号时，防止他们被解析成三字母词               |
-| \\'                        | 用于表示字符常量 ’                                           |
-| \\"                        | 用于表示一个字符串内部的双引号（将”的含义从双引号的一半”—>单纯的<font color=red> “ </font>符号） |
-| \\\                        | 用于表示一个反斜杠，防止它被解释为一个转义字符               |
-| \\a                        | 警告字符，蜂鸣                                               |
-| \\b                        | 退格符                                                       |
-| \\f                        | 进纸符                                                       |
-| \\n                        | 换行                                                         |
-| \\r                        | 回车                                                         |
-| \\t                        | 制表符                                                       |
-| \\v                        | 垂直制表符                                                   |
-| \\ddd                      | ddd表示3个八进制的数字                                       |
-| \\xdd                      | dd表示两个十六进制的数字                                     |
-|                            |                                                              |
-| 接下来我们来解决两个问题： |                                                              |
+| 转义字符 | 释义                                                         |
+| -------- | :----------------------------------------------------------- |
+| \\?      | 在书写连续多个问号时，防止他们被解析成三字母词               |
+| \\'      | 用于表示字符常量 ’                                           |
+| \\"      | 用于表示一个字符串内部的双引号（将”的含义从双引号的一半”—>单纯的<font color=red> “ </font>符号） |
+| \\\      | 用于表示一个反斜杠，防止它被解释为一个转义字符               |
+| \\a      | 警告字符，蜂鸣                                               |
+| \\b      | 退格符                                                       |
+| \\f      | 进纸符                                                       |
+| \\n      | 换行                                                         |
+| \\r      | 回车                                                         |
+| \\t      | 制表符                                                       |
+| \\v      | 垂直制表符                                                   |
+| \\ddd    | ddd表示3个八进制的数字                                       |
+| \\xdd    | dd表示两个十六进制的数字                                     |
+
+接下来解决两个问题：
 
 >问题一：如何在屏幕上打印<font color =purple>一个单引号 '</font>
 >问题二：如何在屏幕上打印一个字符串，字符串内容是<font color =purple>一个双引号 "</font>
@@ -139,21 +139,21 @@ int main()
 
 可以看到已经报错了这里已经报错了，错误如下图：
 
-![image-20220412093831048](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938081.png)
+![image-20220518223742657](https://pic.xinsong.xyz/img/202205182237696.png)
 
 既然这样不行，我们结合一下上面的转义字符表再来尝试
 
-![image-20220412093841884](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938929.png)
+![image-20220518223749655](https://pic.xinsong.xyz/img/202205182237699.png)
 
 接着我们修改一下代码，如下：
 
-![image-20220412093857995](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120938037.png)
+![image-20220518223755531](https://pic.xinsong.xyz/img/202205182237572.png)
 
 
 
 可以看到VS报的错误已经没有了，那我们来试试是否可以编译呢？
 
-![image-20220412093906112](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939143.png)
+![image-20220518223801309](https://pic.xinsong.xyz/img/202205182238342.png)
 
 成功在屏幕上打印出了 ==\'和 \"==。
 
@@ -163,14 +163,14 @@ int main()
 
 **分析**：根据上面的表格
 
-![image-20220412093918642](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939689.png)
+![image-20220518223808304](https://pic.xinsong.xyz/img/202205182238349.png)
 
 我们可以看到这里的<font color=purple> '\\t' 和 '\\\\' </font>都是转义字符'\'，因此我们如果想要在屏幕上打印出<font color=purple> '\\t' 和 '\\\' </font>就必须防止<font color=purple>‘\’</font>被解释为转义字符前面的那个<font color=red>'\\'</font>.
 
 因此，我们利用 '\\\\' 这个转义字符的作用，在'\t'和'\\'前再加一个'\\'。
 如下图：
 
-![image-20220412093932796](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939850.png)
+![image-20220518223813712](https://pic.xinsong.xyz/img/202205182238749.png)
 
 
 
@@ -193,11 +193,11 @@ int main()
 先让我们来分析分析，除了转义字符外，其他字符都是单独存在的。
 <font color=blue>"c\768code-c++\test" </font>这个字符串中有两个<font color=purple> '\\' </font>，我们来重点看看这两个地方：
 
-![image-20220412100649808](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121006851.png)
+![image-20220518223826986](https://pic.xinsong.xyz/img/202205182238016.png)
 
 >结合转义字符表：
 
-![image-20220412093942510](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939564.png)
+![image-20220518223834139](https://pic.xinsong.xyz/img/202205182238188.png)
 这样一对比是不是觉得很清晰了呢？
 显然，我们可以看到 =='\t' 和'\76'== 是两个转义字符。
 到了这里又有一个新的疑问：
@@ -206,7 +206,7 @@ int main()
 
 **思考：'\768'是不是转义字符呢？**
 
-![image-20220412093951874](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120939908.png)
+![image-20220518223840572](https://pic.xinsong.xyz/img/202205182238611.png)
 
 >注意，这里的8不是八进制数字，所以'\768'不是一个转义字符
 
@@ -217,7 +217,7 @@ int main()
 
 运行结果：
 
-![image-20220412094003273](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120940306.png)
+![image-20220518223846551](https://pic.xinsong.xyz/img/202205182238590.png)
 
 >答案是15
 >

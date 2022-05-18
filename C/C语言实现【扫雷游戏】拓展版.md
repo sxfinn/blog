@@ -25,7 +25,7 @@
 
 探索排雷位的周围八个区域。
 
-![image-20220412095956346](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120959382.png)
+![image-20220518225507625](https://pic.xinsong.xyz/img/202205182255662.png)
 
 总归情况就分三类，可探索的区域为8个，5个，3个。但这样分类实在麻烦，所以我们可以选择在创建雷盘的时候，将二维数组的维度扩大一些，使其不用考虑多种情况，而只用考虑探索周围八个雷区。
 
@@ -37,7 +37,7 @@
 
 展开周围的非雷区
 
-![image-20220412100008355](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121000391.png)
+![image-20220518225514104](https://pic.xinsong.xyz/img/202205182255159.png)
 
 **递归过程**：如果（x，y）位置周围八区的雷数为0，则从八个区域展开，展开的位置的 x坐标是从x-1到x+1，而 y 的位置是从y-1到y+1的范围中，因此嵌套两重循环。
 
@@ -103,7 +103,7 @@ void expand(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y)//扩展�
 
 **使用效果：**
 
-![image-20220412100016060](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121000115.png)
+![image-20220518225521802](https://pic.xinsong.xyz/img/202205182255859.png)
 
 
 
@@ -435,7 +435,7 @@ void expand(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y)//扩展�
 
 ### 一点拓展
 
-***计时\***
+**计时**
 运用clock函数,该函数需要的头文件为 `“time.h”`
 函数原型：`clock_t clock(void);`
 功能：**程序从启动到函数调用占用CPU的时间**

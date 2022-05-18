@@ -459,13 +459,13 @@ int main()
 
 如图：
 
-![image-20220412101010920](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204121010964.png)
+![image-20220518224551451](https://pic.xinsong.xyz/img/202205182245502.png)
 
 
 
 
 
-![image-20220412094858464](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948525.png)
+![image-20220518224557842](https://pic.xinsong.xyz/img/202205182245911.png)
 
 
 
@@ -482,7 +482,7 @@ int main()
 
 #### 位段的应用
 
-![image-20220412094907555](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949614.png)
+![image-20220518224603844](https://pic.xinsong.xyz/img/202205182246905.png)
 
 
 
@@ -625,7 +625,7 @@ printf("%x\n", un.i);
 
 输出：
 
-![image-20220412094916101](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120949140.png)
+![image-20220518224613259](https://pic.xinsong.xyz/img/202205182246298.png)
 
 i 和 c的地址是一样的，那就意味成它们的首地址是一样的。
 

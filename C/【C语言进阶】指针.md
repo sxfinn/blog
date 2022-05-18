@@ -68,7 +68,7 @@ int main()
 
 实际pstr与常量字符串的关系
 
-![image-20220412094732925](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947967.png)
+![image-20220518224444202](https://pic.xinsong.xyz/img/202205182244248.png)
 
 看一道例题：
 
@@ -96,7 +96,7 @@ int main()
 
 
 
-![image-20220412094742129](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947165.png)
+![image-20220518224450707](https://pic.xinsong.xyz/img/202205182244742.png)
 
 
 
@@ -220,7 +220,7 @@ int main()
 
 
 
-![image-20220412094755093](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120947130.png)
+![image-20220518224459852](https://pic.xinsong.xyz/img/202205182244892.png)
 
 两者的值是一样的，难道就一样吗？
 
@@ -240,7 +240,7 @@ int main()
 
 
 
-![image-20220412094803043](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948081.png)
+![image-20220518224506217](https://pic.xinsong.xyz/img/202205182245256.png)
 
 都执行 + 1操作后就不同了，那么说明它们指向的类型长度是有差异的。
 
@@ -555,7 +555,7 @@ int main()
 
 
 
-![image-20220412094823905](https://cdn.jsdelivr.net/gh/sxfinn/Pic/img/202204120948948.png)
+![image-20220518224519126](https://pic.xinsong.xyz/img/202205182245172.png)
 
 输出的是两个地址，这两个地址是 test 函数的地址。
 
