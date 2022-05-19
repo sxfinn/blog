@@ -133,7 +133,7 @@ extern "C"指令非常有用，因为C和C++的近亲关系。**注意：extern 
 
 对于下面的代码它们之间是有区别的
 
-```c++
+```c
 extern "C" void Add(int a, int b);
 //指定Add函数应该根据C的编译和连接规约来链接
 extern void Add(int a, int b);

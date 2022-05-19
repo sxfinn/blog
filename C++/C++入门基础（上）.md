@@ -710,7 +710,7 @@ int main()
 
 > 引用实体类型 & 引用变量名 = 引用实体
 
-```c++
+```c
 #include<iostream>
 using namespace std;
 int main()
@@ -741,7 +741,7 @@ int main()
 
 例如：
 
-```c++
+```c
 #include <iostream>
 
 using namespace std;
@@ -780,7 +780,7 @@ int main()
 
 例如：
 
-```c++
+```c
 //权限的缩小
 int main()
 {
@@ -813,7 +813,7 @@ int main()
 
 ​	对于需要在函数内部修改函数外部实参的函数，让形参为实参的引用，就可以在函数内部修改外部变量，并且	还可以减少形参拷贝实参的开销。
 
-```c++
+```c
 void swap(int& num1, int& num2)
 {
 	int tmp = num1;
@@ -849,7 +849,7 @@ int& count()
 
 ​	否则会非法访问内存（访问不属于程序的内存）
 
-```c++
+```c
 int& Add(int a, int b)
 {
 	int c = a + b;
@@ -876,7 +876,7 @@ int main()
 
 **可以使用如下代码测试多次调用函数时传值调用和传引用调用的时间差异**
 
-```c++
+```c
 #include<iostream>
 #include<time.h>
 using namespace std;
@@ -932,7 +932,7 @@ int main()
 
 **值和引用的作为返回值类型的性能比较**
 
-```c++
+```c
 struct A
 {
 	A()
@@ -997,7 +997,7 @@ int main()
 
 引用在**语法层面**上就是一个别名，别名是不单独享有内存空间的，它和被引用的实体共用同一块内存空间。
 
-```c++
+```c
 int main()
 {
 	int a = 9;
@@ -1012,7 +1012,7 @@ int main()
 
 实际上在底层实现上引用还是有空间的，因为引用本质还是指针的方式来实现的。
 
-```c++
+```c
 int main()
 {
 	int a = 9;
@@ -1053,7 +1053,7 @@ int main()
 
 看如下代码：
 
-```c++
+```c
 int main()
 {
 	double d = 9.9;
@@ -1069,7 +1069,7 @@ int main()
 
 改动如下即可正常编译：
 
-```c++
+```c
 int main()
 {
 	double d = 9.9;
@@ -1116,7 +1116,7 @@ int main()
 
 如下两段代码有何差异？
 
-```c++
+```c
 //代码1
 int main()
 {
