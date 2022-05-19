@@ -407,8 +407,8 @@ a + 1.1实际上会进行算数转换，a会产生一个类型为double临时拷
 int main()
 {
 	int a = 10;
-	printf("%d\n", sizeof(a += 1.1));
-	printf("%d", a);
+	printf("字节数：%d\n", sizeof(a += 1.1));
+	printf("a:%d", a);
 	return 0;
 }
 ```

@@ -59,7 +59,7 @@ int main()
 	int *p = &a;//这里我们对变量a，取出它的地址，可以使用&操作符。
   	//a变量占用4个字节的空间，这里是将a的4个字节的第一个字节的地址存放在p变量
 	//中，p就是一个之指针变量。
-return 0;
+	return 0;
 }
 ```
 
@@ -174,7 +174,7 @@ int main()
 	printf("%p\n", pc+1);
 	printf("%p\n", pi);
 	printf("%p\n", pi+1);
-	return  0;
+	return 0;
 }
 ```
 

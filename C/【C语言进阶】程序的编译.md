@@ -323,13 +323,13 @@ int main()
 可以看到，该表达式执行的运算的优先级与我们想的并不同，解决这个问题，在宏定义上加上两个括号就行。
 
 ```c
-#define SQUARE(X) (x) * (x)
+#define SQUARE(X) (X) * (X)
 ```
 
 这样在预处理替换后，代码就如下：
 
 ```c
-#define SQUARE(X) X * X
+#define SQUARE(X) (X) * (X)
 
 int main()
 {

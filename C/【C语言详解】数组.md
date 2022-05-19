@@ -89,15 +89,15 @@ int main()
   int sz = sizeof(arr)/sizeof(arr[0]);
 	//对数组内容赋值,数组是使用下标来访问的，下标从0开始。所以：
 	int i = 0;//做下标
-for(i=0; i<10; i++)//这里写10，好不好？
-{
-	arr[i] = i;
-}
-//输出数组的内容
-for(i=0; i<10; ++i)
-{
-	printf("%d ", arr[i]);
-}
+	for(i=0; i<10; i++)//这里写10，好不好？
+	{
+		arr[i] = i;
+	}
+	//输出数组的内容
+	for(i=0; i<10; ++i)
+	{
+		printf("%d ", arr[i]);
+	}
 	return 0;
 }
 ```
@@ -226,14 +226,14 @@ int main()
 {
 	int arr[3][4];
 	int i = 0;
-for(i=0; i<3; i++)
-{
-	int j = 0;
-	for(j=0; j<4; j++)
+	for(i=0; i<3; i++)
 	{
-		printf("&arr[%d][%d] = %p\n", i, j,&arr[i][j]);
+		int j = 0;
+		for(j=0; j<4; j++)
+		{
+			printf("&arr[%d][%d] = %p\n", i, j,&arr[i][j]);
+		}
 	}
-}
 	return 0;
 }
 ```
