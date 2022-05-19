@@ -736,7 +736,7 @@ int main()
 
 > 1. 引用在定义时必须初始化
 > 2. 一个变量可以有多个引用
-> 3. 引用一旦引用一个实体，引用的对象就不会再改变
+> 3. 引用一旦引用一个实体，引用指向的对象就不会再改变
 > 4. 引用的实体可以是另一个引用
 
 例如：
@@ -1058,7 +1058,7 @@ int main()
 {
 	double d = 9.9;
 	int& a = d;
-    cout << a << endl;
+   	cout << a << endl;
 	return 0;
 }
 ```
@@ -1074,7 +1074,7 @@ int main()
 {
 	double d = 9.9;
 	const int& a = d;
-    cout << a << endl;
+   	cout << a << endl;
 	return 0;
 }
 ```
