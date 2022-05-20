@@ -8,7 +8,7 @@
 
 为什么标准头文件都有类似以下的结构？
 
-```c++
+```cpp
 //head.h
 #ifndef HEAD_H
 #define HEAD_H
@@ -33,7 +33,7 @@ extern "C" {
 
 为了解决这个问题，上面代码中的
 
-```c
+```cpp
 #ifndef HEAD_H
 #define  HEAD_H
 /*……………………………*/
@@ -44,7 +44,7 @@ extern "C" {
 
 那么下面这段代码的作用又是什么呢？
 
-```c
+```cpp
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -133,7 +133,7 @@ extern "C"指令非常有用，因为C和C++的近亲关系。**注意：extern 
 
 对于下面的代码它们之间是有区别的
 
-```c
+```cpp
 extern "C" void Add(int a, int b);
 //指定Add函数应该根据C的编译和连接规约来链接
 extern void Add(int a, int b);
@@ -281,7 +281,7 @@ VS一般在项目路径下的x64\Debug路径下：
 
 在源文件`test.cpp`使用extern “C”，去改变包含的头文件中的函数的链接规则
 
-```c
+```cpp
 //调用库的的模块的头文件包含
 extern "C"
 {
@@ -300,7 +300,7 @@ extern "C"
 * 调用方是C程序，不做处理；
 * 调用方是C++程序，需要使用extern“C”将程序改为C的链接规则；
 
-```c
+```cpp
 //调用库的的模块的头文件包含
 #ifdef __cplusplus//如果是c++程序，就执行extern “C”，使用C的链接方式，去找未经修饰的函数名
 extern "C"{
@@ -315,7 +315,7 @@ extern "C"{
 
 但是这样的处理不太好，我们作为调用方自然是想可以直接通过头文件包含的方式去使用库里的函数，因此采用下列方法，更改库的头文件函数声明为：
 
-```c
+```cpp
 #ifdef __cplusplus//如果定义了宏__cplusplus就执行#ifdef 到 #endif之间的语句
 extern "C"
 {
@@ -355,7 +355,7 @@ bool StackEmpty(struct Stack* s);
 
 对库的头文件中的函数做如下处理：
 
-```c
+```cpp
 //用C的规则去搞库的编译和链接方式
 extern "C"
 {
@@ -394,7 +394,7 @@ extern "C"
 
 因此我们做如下处理，将库的头文件中的函数声明加上：
 
-```c
+```cpp
 #ifdef __cplusplus//如果定义了宏__cplusplus就执行#ifdef 到 #endif之间的语句
 extern "C"
 {

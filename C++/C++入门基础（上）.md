@@ -67,7 +67,7 @@ C++关键字全集(参考 C++ Primer ):
 
 **一般的命名空间定义方式**
 
-```c
+```cpp
 namespace sx
 {
 	int a;
@@ -88,7 +88,7 @@ namespace sx
 
 **命名空间的嵌套定义**
 
-```c
+```cpp
 namespace sx
 {
 	int a;
@@ -119,7 +119,7 @@ namespace sx
 
 **同一个工程中允许存在多个相同名称的命名空间,编译器最后会合成同一个命名空间中**
 
-```c
+```cpp
 namespace n1
 {
 	int a;
@@ -165,7 +165,7 @@ namespace n1
 
 比如：
 
-```c
+```cpp
 namespace sx
 {
 	int a;
@@ -197,7 +197,7 @@ int main()
 
 * 加命名空间名称及作用域限定符
 
-```c
+```cpp
 int main()
 {
 	cout << sx::a << endl;//指定使用在sx这个命名空间中的a
@@ -209,7 +209,7 @@ int main()
 
 * 使用using将命名空间中成员引入至全局域
 
-```c
+```cpp
 using sx::a;//指定地将sx中的a引入
 
 int main()
@@ -224,7 +224,7 @@ int main()
 
 * 使用using namespace 将命名空间中的成员引入至全局域
 
-```c
+```cpp
 using namespace sx;
 
 int main()
@@ -239,7 +239,7 @@ int main()
 
 如何证明命名空间是被引入至全局域的呢？
 
-```c
+```cpp
 int a = 1;
 using namespace sx;
 
@@ -273,7 +273,7 @@ int main()
 
 ---
 
-```c
+```cpp
 namespace sx
 {
 	int a;
@@ -298,7 +298,7 @@ int main()
 
 命名空间是有一些比较坑的地方的，例如：
 
-```c
+```cpp
 //代码1
 int a = 1;
 namespace sx
@@ -349,7 +349,7 @@ int main()
 
 **向世界打个招呼！**
 
-```c
+```cpp
 #include<iostream>
 using std::cout;
 
@@ -369,7 +369,7 @@ int main()
 
 例如：
 
-```c
+```cpp
 #include<iostream>
 //using namespace std;
 using std::cout;
@@ -393,7 +393,7 @@ int main()
 
 缺省参数是**声明或定义函数时**为函数的参数**指定一个默认值**，在调用该函数时，如果没有指定实参则采用该默认值，否则使用指定的实参。
 
-```c
+```cpp
 void testfunc(int t = 10)
 {
 	cout << t << endl;
@@ -415,7 +415,7 @@ int main()
 
 ​	即所有参数都有自己的默认值，传参时可以全部省略。
 
-```c
+```cpp
 void FAll(int x = 1, int y = 2, int z = 3)
 {
 	cout << x << y << z << endl;
@@ -434,7 +434,7 @@ int main()
 
 ​	即只有部分参数都有自己的默认值，传参时一定需要传参。
 
-```c
+```cpp
 void FHalf(int x, int y = 10, int z = 30)
 {
 	cout << x << y << z << endl;
@@ -442,7 +442,7 @@ void FHalf(int x, int y = 10, int z = 30)
 int main()
 {
 	FHalf(5);//半缺省
-	return 0;
+	return 0;p
 }
 ```
 
@@ -451,7 +451,7 @@ int main()
 1. 半缺省参数只能依次从右到左且连续，因为形参是从左往右依次传给实参，所以必须保证没有默认值的实参一定能有形参传值给它。
 2. 缺省参数不能在定义和声明中同时出现，以免给的默认值不同产生歧义。
 
-```c
+```cpp
 void Test(int a = 10);
 
 void Test(int a = 20)//报错
@@ -490,7 +490,7 @@ void Test(int a = 20)//报错
 
 例如：
 
-```c
+```cpp
 int Add(int a, int b)
 {
 	cout << "int Add(int a, int b)" << endl;
@@ -526,7 +526,7 @@ int main()
 
 例如：
 
-```c
+```cpp
 short Add(short left, short right)
 {
 	return left + right;
@@ -621,7 +621,7 @@ print(int)函数，使用g++编译时函数名会被修饰为 _Z5printi，而使
 
 来看看下面这种情况：
 
-```c
+```cpp
 void test(int a = 1, int b = 2)
 {
 	cout << "testab" << endl;
@@ -664,7 +664,7 @@ int main()
 
 源文件A（cpp）:
 
-```c
+```cpp
 int Add(int num1, int num2)
 {
 	return num1 + num2;
@@ -673,7 +673,7 @@ int Add(int num1, int num2)
 
 源文件B（cpp）:
 
-```c
+```cpp
 extern "C" int Add(int num1, int num2);
 int main()
 {
@@ -720,7 +720,7 @@ int main()
 
 > 引用实体类型 & 引用变量名 = 引用实体
 
-```c
+```cpp
 #include<iostream>
 using namespace std;
 int main()
@@ -751,7 +751,7 @@ int main()
 
 例如：
 
-```c
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -790,7 +790,7 @@ int main()
 
 例如：
 
-```c
+```cpp
 //权限的缩小
 int main()
 {
@@ -823,7 +823,7 @@ int main()
 
 ​	对于需要在函数内部修改函数外部实参的函数，让形参为实参的引用，就可以在函数内部修改外部变量，并且	还可以减少形参拷贝实参的开销。
 
-```c
+```cpp
 void swap(int& num1, int& num2)
 {
 	int tmp = num1;
@@ -845,7 +845,7 @@ int main()
 
 如果返回的变量在函数调用结束后不会被销毁，则可以返回该变量的引用，减少返回值拷贝的开销
 
-```c
+```cpp
 int& count()
 {
 	static int n = 1;
@@ -859,7 +859,7 @@ int& count()
 
 ​	否则会非法访问内存（访问不属于程序的内存）
 
-```c
+```cpp
 int& Add(int a, int b)
 {
 	int c = a + b;
@@ -886,7 +886,7 @@ int main()
 
 **可以使用如下代码测试多次调用函数时传值调用和传引用调用的时间差异**
 
-```c
+```cpp
 #include<iostream>
 #include<time.h>
 using namespace std;
@@ -942,7 +942,7 @@ int main()
 
 **值和引用的作为返回值类型的性能比较**
 
-```c
+```cpp
 struct A
 {
 	A()
@@ -1007,7 +1007,7 @@ int main()
 
 引用在**语法层面**上就是一个别名，别名是不单独享有内存空间的，它和被引用的实体共用同一块内存空间。
 
-```c
+```cpp
 int main()
 {
 	int a = 9;
@@ -1022,7 +1022,7 @@ int main()
 
 实际上在底层实现上引用还是有空间的，因为引用本质还是指针的方式来实现的。
 
-```c
+```cpp
 int main()
 {
 	int a = 9;
@@ -1063,7 +1063,7 @@ int main()
 
 看如下代码：
 
-```c
+```cpp
 int main()
 {
 	double d = 9.9;
@@ -1079,7 +1079,7 @@ int main()
 
 改动如下即可正常编译：
 
-```c
+```cpp
 int main()
 {
 	double d = 9.9;
@@ -1126,7 +1126,7 @@ int main()
 
 如下两段代码有何差异？
 
-```c
+```cpp
 //代码1
 int main()
 {
@@ -1143,7 +1143,7 @@ int main()
 > d = 9.9
 > a = -858993459
 
-```c
+```cpp
 //代码2
 int main()
 {

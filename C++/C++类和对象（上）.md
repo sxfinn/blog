@@ -40,7 +40,7 @@
 
 C语言中，结构体内只能定义变量，而在C++中结构体内不仅可以定义变量，还可以定义函数。
 
-```c
+```cpp
 struct Student
 {
 	void SetStudentInfo(const char* name, const char* gender, int age)
@@ -70,7 +70,7 @@ int main()
 
 ## 类的定义
 
-```c
+```cpp
 class classname
 {
 	//函数
@@ -143,7 +143,7 @@ C++需要**兼容C语言**，所以C++中struct可以当成结构体去使用。
 
 类新定义了一个作用域，类的所以成员都在类的作用域中。在类外定义成员，需要使用::作用域解析符来指明成员属于哪个类。
 
-```c
+```cpp
 class Person
 {
 public:
@@ -187,7 +187,7 @@ void Person::PrintPersonInfo()
 
 ---
 
-```c
+```cpp
 class Person
 {
 public:
@@ -234,7 +234,7 @@ int main()
 
 依然使用刚刚的代码，简单变形一下
 
-```c
+```cpp
 //即有成员变量又有成员函数
 class Person1
 {
@@ -294,7 +294,7 @@ int main()
 
 ---
 
-```c
+```cpp
 class Date
 {
 public:
@@ -332,7 +332,7 @@ int main()
 
 因此程序还可以这样写：
 
-```c
+```cpp
 class Date
 {
 public:
@@ -387,7 +387,7 @@ int main()
 
 **this指针可以为空指针吗？**
 
-```c
+```cpp
 class A
 {
 public:
