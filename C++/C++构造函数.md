@@ -1,31 +1,3 @@
-# 2022-05-20-
-
-### 摘要
-> 类的6个默认成员函数
->
-> 构造函数
->
-> 析构函数
->
-> 拷贝构造函数
->
-> 赋值运算符重载
->
-> 日期类的实现
->
-> const成员
->
-> 取地址以及const取地址操作符重载
-
-### 总结
-> 
-
-目录
----
-[TOC]
-
-------
-
 ## 类的6个默认成员函数
 
 如果我们写了一个类，这个类我们只写了成员变量没有定义成员函数，那么这个类中就没有函数了吗？并不是的，在我们定义类时即使我们没有写任何成员函数，编译器会自动生成下面6个默认成员函数。
@@ -41,6 +13,8 @@ public:
 ![image-20220520200657259](https://pic.xinsong.xyz/img/202205202006307.png)
 
 
+
+那就来详细介绍一下构造函数吧。
 
 ### 构造函数
 
@@ -145,7 +119,7 @@ private:
 };
 int main()
 {
-	Date d1;
+	Date d1;//同样能创建一个对象
 	d1.Display();
 	return 0;
 }
@@ -194,13 +168,13 @@ int main()
 
 #### 编译器生成的默认构造函数
 
-欸好像这货没什么用啊，我使用这个自动生成的，我的对象的初值还是随机值啊，看起来就像这构造函数什么事都没有做。
+欸好像这货没什么用啊，我刚刚使用这个自动生成的，我的对象的初值还是随机值啊，看起来就像这构造函数什么事都没有做。
 
 其实C++把类型分成内置类型(基本类型)和自定义类型。
 
 内置类型就是语法已经定义好的类型：如int/char...，自定义类型就是我们使用class/struct/union自己定义的类型，看看下面的程序，就会发现编译器生成默认的构造函数会对自定类型成员_t调用的它的默认成员函数。
 
-不过这涉及到我们还没学过的知识——初始化列表，其实
+不过这涉及到我们还没学过的知识——初始化列表，后面会讲。
 
 ```cpp
 class Time
@@ -221,6 +195,7 @@ private:
 class Date
 {
 public:
+    //使用编译器默认的构造函数
 	void Display()
 	{
 		cout << _year << "-" << _month << "-" << _day << endl;
@@ -246,7 +221,7 @@ int main()
 > Time(int hour = 0,int minute = 0,int second = 0)
 > -858993460--858993460--858993460
 
-事实上编译器生成的默认构造函数并不是什么都没有做，而是只处理了成员变量中的自定义类型，而没有去初始化内置类型。
+事实上编译器生成的默认构造函数并不是什么都没有做，而是只处理了成员变量中的自定义类型，而没有去初始化内置类型，调用自定义类型成员的构造函数就是在初始化列表做的，下面会详细讲。
 
 #### 成员变量的命名风格
 
@@ -301,7 +276,7 @@ private:
 
 * **默认成员函数**是我们如果不写，编译器会自动生成的函数；
 
-#### 初始化列表
+#### 构造函数的初始化列表
 
 前面说了，在实例化一个类的对象时会自动去调用类的构造函数进行对象的初始化操作，那在C++中一个自定义类型的过程可分为两个过程：
 
@@ -310,9 +285,9 @@ private:
 
 那我们想想如果成员变量是具有常属性的，那么是不是2过程就无法生效了？那么对于那些具有常性的变量我们以前是怎么定义的呢？初始化操作可以完成这个问题。
 
-初始化是什么？变量在定义的同时为它设定一个初值，例如：
+初始化是什么？变量在定义的同时为它设定一个初值，例如：**引用必须初始化**
 
-`int a = 10；`，这就是一个典型的初始化操作，而我们要谈的初始化列表也是与这极为相似的，那么这种初始化操作有什么与众不同的呢？
+`int& a = 10；`，这就是一个典型的初始化操作，而我们要谈的初始化列表也是相似的，那么这种初始化操作有什么与众不同的呢？
 
 答案是：对于那些一旦有初值就不能再被赋值的变量，初始化列表的作用就体现出来了，例如被const修饰的变量，或者是引用，这些都是具有常属性的，因此就需要在它们创建的过程中就给它们一个初值，保证其可以被正常初始化。
 
@@ -326,7 +301,7 @@ public:
 		_j = j;
 	}
 private:
-	const int _i;
+	const int _i;//const修饰i具有常属性
 	int _j;
 };
 int main()
@@ -344,7 +319,7 @@ int main()
 
 即在编译器看来，这个对象包括对象中的成员变量在进入构造函数的函数体后，就都已经初始化完成了，因此const修饰的变量i就无法再被赋值了。
 
-既然初始化列表是在创建变量阶段对变量进行的初始化，那么就可以使用初始化列表处理这样地问题。
+既然初始化列表是在创建变量阶段对变量进行的初始化，因此就可以使用初始化列表处理给那些无法修改的变量。
 
 初始化列表格式如下：
 
@@ -367,39 +342,257 @@ int main()
 }
 ```
 
+> 程序正常运行
+
 同时呢，建议能使用初始化列表就使用，尽量不在构造函数的函数体中为成员变量再赋值，养成好的习惯。
 
+**下面分析编译器生成的默认构造函数到底做了什么事情**
 
+```cpp
+class Time
+{
+public:
+	Time(int hour = 0, int minute = 0, int second = 0)
+		:_hour(hour),
+		_minute(minute),
+		_second(second)
+	{
+		cout << "Time(int hour = 0, int minute = 0, int second = 0)" << endl;
+	}
+	void DisPlay()
+	{
+		cout << _hour << "-" << _minute << "-" << _second << endl;
+	}
+private:
+	int _hour;
+	int _minute;
+	int _second;
+	
+};
+class Date
+{
+public:
+	void Display()
+	{
+		cout << "Date:";
+		cout << _year << "-" << _month << "-" << _day << endl;
+		cout << "Time:";
+		_t.DisPlay();
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+	Time _t;
+};
+int main()
+{
+	Date d1;
+	d1.Display();
+	return 0;
+}
+```
 
+输出：
 
+![image-20220521081818359](https://pic.xinsong.xyz/img/202205210818421.png)
 
+可以看到，Date类中的内置类型都未被初始化，而对于自定义类型是去调用了其**默认构造函数**并且初始化成功了的。
 
+这里要记住一定是调用的**自定义成员的默认构造函数**，因为编译器生成的Date的默认构造函数调用Time的构造时默认是不传参的，毕竟它也不知道传什么嘛。
 
+如果我们把Time构造函数的缺省值去掉，那么Time就没有默认构造函数，那么创建Date对象时就无法调用Time的默认构造函数，就出错了。如下
 
+```cpp
+class Time
+{
+public:
+	Time(int hour, int minute, int second)
+		:_hour(hour),
+		_minute(minute),
+		_second(second)
+	{
+		cout << "Time(int hour = 1, int minute = 1, int second = 1)" << endl;
+	}
+	void DisPlay()
+	{
+		cout << _hour << "-" << _minute << "-" << _second << endl;
+	}
+private:
+	int _hour;
+	int _minute;
+	int _second;
+	
+};
+class Date
+{
+public:
+	void Display()
+	{
+		cout << "Date:";
+		cout << _year << "-" << _month << "-" << _day << endl;
+		cout << "Time:";
+		_t.DisPlay();
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+	Time _t;
+};
+int main()
+{
+	Date d1;
+	d1.Display();
+	return 0;
+}
+```
 
+>  报错：
+>
+> message : “Date::Date(void)”: 由于 数据成员“Date::_t”不具备相应的 默认构造函数
 
+那我们现在已经知道了编译器生成的默认构造函数它能做什么了，接下来我们显式地去定义一个构造函数。
 
+```cpp
+class Time
+{
+public:
+	Time(int hour = 0, int minute = 0, int second = 0)
+		:_hour(hour),
+		_minute(minute),
+		_second(second)
+	{
+		cout << "Time(int hour = 0, int minute = 0, int second = 0)" << endl;
+	}
+	void DisPlay()
+	{
+		cout << _hour << "-" << _minute << "-" << _second << endl;
+	}
+private:
+	int _hour;
+	int _minute;
+	int _second;
+	
+};
+class Date
+{
+public:
+	Date()
+		:
+		_year(),//调用了int的默认构造函数，并且会给初始化为0
+		_month(),
+		_day(),
+		_t()//调用了Time的默认构造函数，这里不写也会自动调用
+	{
+		cout << "Date()" << endl;
+	}
+	void Display()
+	{
+		cout << "Date:";
+		cout << _year << "-" << _month << "-" << _day << endl;
+		cout << "Time:";
+		_t.DisPlay();
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+	Time _t;
+};
+int main()
+{
+	Date d1;
+	d1.Display();
+	return 0;
+}
+```
 
+![image-20220521083205497](https://pic.xinsong.xyz/img/202205210832560.png)
 
+我们为Date定义一个无参的默认构造函数，在初始化列表我不止处理了内置类型还处理了自定义类型。
 
+在C++中支持这样一种定义变量的方法：
 
+```cpp
+	int a;//a是随机值
+	int b(1);
+	int();//创建匿名变量，调用默认构造
+```
 
+这和自定义类型的定义是一样的格式，这是为了让内置类型也能按照自定义类型的方式去定义和初始化，看起来是去调用了int的构造函数。
 
+这样，我们在初始化列表中调用了初始化了内置类型和自定义类型，Date的内置类型也都被初始化为0了，这也印证了编译器生成的默认构造函数并没有去调用int的默认构造，而只调用了自定义的默认构造。
 
+**注意**：就算我们显式的定义了构造函数，如果在初始化列表中不显式的调用Time的构造函数，那么编译器也会默认去调用它的默认构造（创建自定义类型成员变量时就一定会调用），而我们一旦显式的去调用了，那么走我们的调用。
 
+C++中有这样一个特性，编译器能帮你做的，就算你不做它会自动帮你完成，而你一旦做了他就会按照你的方式去完成。
 
+具体什么意思呢？看代码：
 
+```cpp
+class Time
+{
+public:
+	Time(int hour = 0, int minute = 0, int second = 0)
+		:_hour(hour),
+		_minute(minute),
+		_second(second)
+	{
+		cout << "Time(int hour = 0, int minute = 0, int second = 0)" << endl;
+	}
+	void DisPlay()
+	{
+		cout << _hour << "-" << _minute << "-" << _second << endl;
+	}
+private:
+	int _hour;
+	int _minute;
+	int _second;
+	
+};
+class Date
+{
+public:
+	Date()
+		:
+	_t()//这里即使不写，编译器会自动去调
+	{
+		cout << "Date()" << endl;
+	}
+	void Display()
+	{
+		cout << "Date:";
+		cout << _year << "-" << _month << "-" << _day << endl;
+		cout << "Time:";
+		_t.DisPlay();
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+	Time _t;
+};
+int main()
+{
+	Date d1;
+	d1.Display();
+	cout << int() << endl;
+	return 0;
+}
+```
 
+其实这个Date类的构造函数的初始化过程可以说就是编译器默认生成的构造相同了。
 
+**总之就是编译器生成的默认构造函数会在初始化列表中调用成员中自定义类型的默认构造，而不会处理内置类型，不论是我们显式定义的还是编译器生成的，编译器都会默认去调用自定义类的构造函数，除非我们在初始化列表中显式的去调用了成员的构造函数。**
 
+再言简意骇，就是**无论什么构造函数**（自动生成，显式定义）编译器都会在**初始化列表调用自定义类型成员的构造函数**，而如果我们自己显式调用了成员的构造，就执行我们所写的。
 
+**可以不写构造函数的情况**
 
+* 如果成员变量都是自定义类型，那么编译器生成的默认构造函数就足以处理这种情况
 
-
-
-
-
-
+其他情况都需要我们自己去定义构造函数。
 
 
 
