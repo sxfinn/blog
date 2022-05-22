@@ -5,7 +5,9 @@
 >
 > Github 创建仓库和获取Token
 >
->  Picgo 设置
+> jsDelivr
+>
+> Picgo 设置
 
 ### 总结
 > 
