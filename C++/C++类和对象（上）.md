@@ -119,6 +119,36 @@ C++实现封装的方式：用类将对象的属性与方法结合在一块，�
 * **访问权限作用域从该访问限定符出现的位置开始直到下一个访问限定符出现时为止**
 * class的默认访问权限为private，struct为public(因为struct要兼容C)
 
+既然被保护的成员不能被外部通过对象所直接访问，那么在成员函数中呢？
+
+```cpp
+class Time
+{
+public:
+	Time(int hour = 0, int minute = 0, int second = 0)
+		:
+		_hour(hour),
+		_minute(minute),
+		_second(second)
+	{}
+	Time(Time& t)
+	{
+		_hour = t._hour;//通过另一个对象名直接访问了私有成员函数
+		_minute = t._minute;
+		_second = t._second;
+	}
+private:
+	int _hour;
+	int _minute;
+	int _second;
+};
+```
+
+有两个解释方法：
+
+1. Time是成员函数属于类，而访问限定符限制的是外部，在类域中可以随意访问。
+2. 相同class的各个对象互为友元。
+
 **注意：访问限定符仅在编译时有用，当数据映射到内存后，没有任何访问限定符上的区别**。
 
 来看看下面这个问题
