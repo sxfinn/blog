@@ -30,7 +30,7 @@
 
 2. **指定仓库名**
 
-![image-20220518215720735](https://pic.xinsong.xyz/img/202205182157916.png)
+![image-20220630083148716](https://pic.xinsong.xyz/img/202206300831903.png)
 
 
 
