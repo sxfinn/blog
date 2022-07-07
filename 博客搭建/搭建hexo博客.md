@@ -10,13 +10,13 @@ Hexo是我们博客的框架，我们需要在我们的电脑里创建一个文�
 
 使用npm命令安装Hexo，命令行窗口输入：
 
-```
+```powershell
 npm install -g hexo-cli
 ```
 
 等待一会儿即可，接着输入命令初始化我们的博客：
 
-```
+```powershell
 hexo init blog
 ```
 
@@ -26,13 +26,13 @@ hexo init blog
 
 输入命令：
 
-```
+```powershell
 cd blog
 ```
 
 接下来我们来检测我们网站的雏形，依次输入以下命令；
 
-```
+```powershell
 hexo new test_my_site
 
 hexo g
@@ -94,7 +94,7 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令
 
 进入git bash
 
-```
+```powershell
 ssh-keygen -t rsa -C "Github的邮箱地址"
 
 # 例如 ssh-keygen -t rsa -C "123123123@gmail.com"
@@ -110,7 +110,7 @@ ssh-keygen -t rsa -C "Github的邮箱地址"
 
 输入后接着按三个回车
 
-```
+```powershell
 [root@localhost ~]# ssh-keygen -t rsa       <== 建立密钥对，-t代表类型，有RSA和DSA两种
 Generating public/private rsa key pair.
 Enter file in which to save the key (/root/.ssh/id_rsa):   <==密钥文件默认存放位置，按Enter即可
@@ -148,7 +148,7 @@ The key's randomart image is:
 
 使用下面的命令测试是否成功：
 
-```
+```powershell
 ssh -T git@github.com
 ```
 
@@ -166,7 +166,7 @@ ssh -T git@github.com
 
 现在我们要做的就是将Hexo与Github关联起来，打开站点的配置文件_config.yml，下拉到最后修改为：
 
-```
+```powershell
 deploy:
   type: git
   repo: 你的地址
@@ -187,7 +187,7 @@ deploy:
 
 安装Git部署插件，输入命令：（仍然是Blog/blog 目录下）
 
-```
+```powershell
 npm install hexo-deployer-git --save
 ```
 
@@ -197,7 +197,7 @@ npm install hexo-deployer-git --save
 
 这时我们输入三条命令：
 
-```
+```powershell
 hexo clean
 
 hexo g
@@ -253,7 +253,7 @@ hexo d
 
 然后再进入blog文件中打卡powershell，依次执行：
 
-```
+```powershell
 hexo clean
 
 hexo g
