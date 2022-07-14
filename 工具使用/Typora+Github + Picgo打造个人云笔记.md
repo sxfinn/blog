@@ -40,14 +40,14 @@
 
 [Releases · Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo/releases)
 
-下载后傻瓜式安装即可。
+下载后一直下一步傻瓜式安装即可。
 
 4. 进入GitHub图床设置
 
 ![image-20220518215729404](https://pic.xinsong.xyz/img/202205182157501.png)
 
-* 仓库名格式如上：用户名 + 仓库名
-* 分支名根据你自己选择来指定
+* 仓库名格式如上：`用户名` + `仓库名`
+* 分支名根据你的远程分支自行指定
 
 
 
@@ -130,7 +130,7 @@
 
 **放在Github的资源在国内加载速度比较慢**，因此需要使用CDN加速来优化网站打开速度，**jsDelivr + Github**便是免费且好用的CDN，非常适合博客网站使用。
 
-自定义域名格式可以是你的 用户名/仓库名 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是到 **raw.githubusercontent 前缀**的链接。
+自定义域名格式可以是你的 **用户名/仓库名** 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是使用如下`raw.githubusercontent` **前缀**的链接。
 
 
 

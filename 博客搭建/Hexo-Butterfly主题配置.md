@@ -14,13 +14,13 @@ git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes
 
 如果想要安装比较新的 dev 分支，可以
 
-```
+```powershell
 git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 ```
 
 > 升级方法：在主题目录下，运行 `git pull`
 
- ### 应用主题
+### 应用主题
 
 修改 Hexo 根目录下的 `_config.yml`，把主题改为`butterfly`
 
@@ -32,7 +32,7 @@ theme: butterfly
 
 如果你没有 pug 以及 stylus 的渲染器，请下载安装：
 
-```yaml
+```powershell
 npm install hexo-renderer-pug hexo-renderer-stylus --save
 ```
 
@@ -132,7 +132,7 @@ menu:
 
 修改 `主题配置文件`
 
-```
+```yaml
 highlight_theme: mac
 ```
 
@@ -156,7 +156,7 @@ highlight_copy: true
 
 修改 `主题配置文件`
 
-```
+```yaml
 highlight_shrink: true #代码框不展开，需点击 '>' 打开
 ```
 
@@ -173,13 +173,13 @@ highlight_shrink: true #代码框不展开，需点击 '>' 打开
 
 修改 `主题配置文件`
 
-```
+```yaml
 code_word_wrap: true
 ```
 
 如果你是使用 highlight 渲染，需要找到你站点的 Hexo 配置文件_config.yml，将line_number改成false:
 
-```
+```yaml
 highlight:
   enable: true
   line_number: false # <- 改这里
@@ -195,7 +195,7 @@ highlight:
 
 可配置代码高度限制，超出的部分会隐藏，并显示展开按钮。
 
-```
+```yaml
 highlight_height_limit: false # unit: px
 ```
 
@@ -213,7 +213,7 @@ Butterfly支持 [font-awesome v6](https://fontawesome.com/icons?from=io)图标.
 
 书写格式 `图标名：url || 描述性文字`
 
-```
+```yaml
 social:
   fab fa-github: https://github.com/sxfinn || Github
   fas fa-envelope: mailto:sxnicoa@gmail.com || Email
@@ -232,7 +232,7 @@ social:
 
 修改 `主题配置文件`
 
-```
+```yaml
 index_post_content:
   method: 3
   length: 500 # if you set method to 2 or 3, the length need to config
@@ -277,7 +277,7 @@ description在front-matter里添加
 
 并不推荐为每个 tag 和每个 category 都配置不同的顶部图，因为配置太多会拖慢生成速度
 
-```
+```yaml
 tag_per_img：
   aplayer: https://xxxxxx.png
   android: ddddddd.png
@@ -300,7 +300,7 @@ category_per_img：
 
 修改 `主题配置文件`
 
-```
+```yaml
 cover:
   # 是否显示文章封面
   index_enable: true
@@ -315,7 +315,7 @@ cover:
 
 当配置多张图片时,会随机选择一张作为cover.此时写法应为
 
-```
+```yaml
 default_cover:
   - https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
   - https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png
@@ -330,7 +330,7 @@ default_cover:
 
 修改 `主题配置文件`
 
-```
+```yaml
 post_meta:
   page:
     date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
@@ -350,9 +350,9 @@ post_meta:
 
 为你的博客文章展示文章版权和许可协议。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 post_copyright:
   enable: true
   decode: false
@@ -365,13 +365,13 @@ post_copyright:
 
 如果有文章（例如：转载文章）不需要显示版权，可以在文章Front-matter单独设置
 
-```
+```yaml
 copyright: false
 ```
 
 从3.0.0开始，支持对单独文章设置版权信息，可以在文章Front-matter单独设置
 
-```
+```yaml
 copyright_author: xxxx
 copyright_author_href: https://xxxxxx.com
 copyright_url: https://xxxxxx.com
@@ -386,9 +386,9 @@ copyright_info: 此文章版权归xxxxx所有，如有转载，请註明来自�
 
 link可以不写，会默认为图片的链接。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 reward:
   enable: true
   QR_code:
@@ -406,7 +406,7 @@ reward:
 
 修改 `主题配置文件`
 
-```
+```yaml
 toc:
   post: true
   page: false
@@ -435,7 +435,7 @@ toc:
 
 修改 `主题配置文件`
 
-```
+```yaml
 related_post:
   enable: true
   limit: 6 # 显示推荐文章数目
@@ -449,7 +449,7 @@ related_post:
 
 修改 `主题配置文件`
 
-```
+```yaml
 # anchor
 # when you scroll in post , the url will update according to header id.
 anchor: true
@@ -459,7 +459,7 @@ anchor: true
 
 可设置是否显示文章过期提醒，以更新时间为基准。
 
-```
+```yaml
 # Displays outdated notice for a post (文章过期提醒)
 noticeOutdate:
   enable: true
@@ -480,7 +480,7 @@ message_next：天数之后的文字
 
 在文章标题旁边显示一个编辑按钮，点击会跳转到对应的链接去。
 
-```
+```yaml
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
@@ -494,7 +494,7 @@ post_edit:
 
 可设置分页的逻辑，也可以关闭分页显示
 
-```
+```yaml
 # post_pagination (分页)
 # value: 1 || 2 || false
 # 1: The 'next post' will link to old post
@@ -511,9 +511,9 @@ post_pagination: false
 
 ### 头像
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 avatar:
   img: /img/avatar.png
   effect: true # 头像会一直转圈
@@ -527,7 +527,7 @@ avatar:
 
 修改 `主题配置文件`
 
-```
+```yaml
 photofigcaption: true
 ```
 
@@ -558,9 +558,9 @@ copy:
 
 since是一个来展示你站点起始时间的选项。它位于页面的最底部。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 footer:
   owner:
     enable: true
@@ -573,13 +573,13 @@ custom_text是一个给你用来在页脚自定义文本的选项。通常你可
 
 修改 主题配置文件
 
-```
+```yaml
 custom_text: Hi, welcome to my <a href="https://butterfly.js.org/">blog</a>!
 ```
 
 对于部分人需要写 ICP 的，也可以写在 custom_text里
 
-```
+```yaml
 custom_text: <a href="icp链接"><img class="icp-icon" src="icp图片"><span>备案号：xxxxxx</span></a>
 ```
 
@@ -591,9 +591,9 @@ custom_text: <a href="icp链接"><img class="icp-icon" src="icp图片"><span>备
 
 右下角会有简繁转换按钮。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 translate:
   enable: true
   # 默认按钮显示文字(网站是简体，应设置为'default: 繁')
@@ -612,9 +612,9 @@ translate:
 
 右下角会有夜间模式按钮
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 # dark mode
 darkmode:
   enable: true
@@ -640,13 +640,13 @@ darkmode:
 
 修改 `主题配置文件`
 
-```
+```yaml
 readmode: true
 ```
 
 #### 按钮排序
 
-```
+```yaml
 # Don't modify the following settings unless you know how they work (非必要请不要修改 )
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
 # Don't repeat 不要重复
@@ -662,9 +662,9 @@ rightside_item_order:
 
 可自行决定哪个项目需要显示，可决定位置，也可以设置不显示侧边栏。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 aside:
   enable: true
   hide: false
@@ -714,9 +714,9 @@ aside:
 
 访问 busuanzi 的官方网站查看更多的介绍。
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 busuanzi:
   site_uv: true
   site_pv: true
@@ -727,9 +727,9 @@ busuanzi:
 
 网页已运行时间
 
-修改 主题配置文件
+修改 `主题配置文件`
 
-```
+```yaml
 runtimeshow:
   enable: true
   publish_date: 6/7/2018 00:00:00  
@@ -748,7 +748,7 @@ runtimeshow:
 
 在侧边栏显示最新评论板块
 
-修改 主题配置文件
+修改 `主题配置文件`
 
 ```js
 # Aside widget - Newest Comments
@@ -781,9 +781,9 @@ newest_comments:
 > 记得运行 hexo clean
 
 1. 你需要安装[wzpan/hexo-generator-search：为 Hexo 生成搜索数据的插件。](https://github.com/wzpan/hexo-generator-search)，根据他的相应文档做相应配置。
-2. 修改主题配置文件
+2. 修改 `主题配置文件`
 
-```
+```yaml
 local_search:
   enable: true
   preload: false

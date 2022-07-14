@@ -1,3 +1,5 @@
+不建议贸然升级，时间是比较久的并且容易出现一系列问题。
+
 本文参考：[升级GCC版本到11.1 - 云+社区 - 腾讯云](https://cloud.tencent.com/developer/article/1894845)
 
 ## 升级GCC版本到11.1

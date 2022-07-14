@@ -46,6 +46,8 @@ LTS为对于大多数用户推荐的版本，一般来说没有特殊需求我�
 
 ### 解决方法
 
+---
+
 （未出现问题可直接跳过这一步）
 
 **npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead报错解决方法。**
@@ -56,7 +58,7 @@ LTS为对于大多数用户推荐的版本，一般来说没有特殊需求我�
 
 1. 在windows中以**管理员身份**打开cmd，然后执行命令
 
-```
+```bash
 npm install -g npm-windows-upgrade
 ```
 
@@ -64,16 +66,19 @@ npm install -g npm-windows-upgrade
    下载Windows Power Shell
    然后以**管理员身份**运行，执行命令
 
-```
+```powershell
 set-ExecutionPolicy RemoteSigned
 ```
 
 ![image-20220706155639229](https://pic.xinsong.xyz/img/202207061606652.png)
+
+输入`Y`
+
 成功更改脚本策略
 
 3. 在Windows Power Shell上运行命令
 
-```
+```powershell
 npm-windows-upgrade
 ```
 
@@ -87,7 +92,11 @@ npm-windows-upgrade
 
 ![image-20220706161330802](https://pic.xinsong.xyz/img/202207061613828.png)
 
+
+
 问题解决！
+
+到这里，nodejs和npm的安装就全部完成了。
 
 其实此问题是由版本号导致
 问题解决链接参照：
@@ -96,4 +105,3 @@ https://blog.csdn.net/weixin_42288182/article/details/106896534
 
 
 
-到这里，nodejs和npm的安装就全部完成了。

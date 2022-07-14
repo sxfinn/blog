@@ -78,9 +78,9 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令
 
 ### 创建Github仓库
 
-进入Github网页创建一个新仓库，点击New repository
+进入Github网页创建一个新仓库，点击**New repository**
 
-仓库名为固定格式： Github用户名.github.io
+仓库名为固定格式： **Github用户名.github.io**
 
 例如我的sxfinn.github.io
 
@@ -105,8 +105,6 @@ ssh-keygen -t rsa -C "Github的邮箱地址"
 -t 指定密钥类型，默认是 rsa ，可以省略。
 -C 设置注释文字，比如邮箱。
 -f 指定密钥文件存储文件名。
-
-
 
 输入后接着按三个回车
 
@@ -158,22 +156,22 @@ ssh -T git@github.com
 
 ### 配置部署信息
 
-在配置之前我们要解释一个概念，在blog根目录里的_config.yml文件称为**站点配置文件**，之后我们对博客配置的修改都是通过此文件来进行的。
+在配置之前我们要解释一个概念，在blog根目录里的`_config.yml`文件称为**站点配置文件**，之后我们对博客配置的修改都是通过此文件来进行的。
 
 如下图：
 
 ![image-20220706171616325](https://pic.xinsong.xyz/img/202207061716433.png)
 
-现在我们要做的就是将Hexo与Github关联起来，打开站点的配置文件_config.yml，下拉到最后修改为：
+现在我们要做的就是将Hexo与Github关联起来，打开站点的配置文件`_config.yml`，下拉到最后修改为：
 
-```powershell
+```yaml
 deploy:
   type: git
   repo: 你的地址
   branch: master
 ```
 
-**注意**：repo一行中“你的地址”，即为你刚刚创建的GitHub仓库的ssh链接。
+**注意**：repo一行中“你的地址”，即为你刚刚创建的**GitHub仓库**的ssh链接。
 
 例如我的：
 
@@ -237,9 +235,7 @@ hexo d
 
 这样就通过我们的个性化域名来访问我们自己的网站了。
 
-但是这样做每次推送到远端时这个Custom domain都会被覆盖，需要重新输入，因此还需要做如下操作：
-
-
+但是这样做每次推送到远端时这个**Custom domain**都会被覆盖，需要重新输入，因此还需要做如下操作：
 
 进入Blog/blog/source目录下，创建一个记事本文件，输入你的域名。建议是带www的域名。
 
@@ -248,8 +244,6 @@ hexo d
 保存即可，命名为**CNAME**，注意保存类型选择**所有文件**而不是**文本文件**。
 
 这样我们每次推送到远端时就可以保证我们始终都能使用此域名进行访问。
-
-
 
 然后再进入blog文件中打卡powershell，依次执行：
 
