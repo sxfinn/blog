@@ -2,9 +2,9 @@
 
 
 
-管理员权限打开cmd，利用mklink来创建目录符号链接
+管理员权限打开cmd，利用mklink来创建目录符号链接。
 
-把C:\Users\{username}\.vscode\extensions(默认插件位置)的extensions文件夹整个剪切到你想换的位置
+把C:\Users\{username}\.vscode\extensions(默认插件位置)的extensions文件夹整个剪切到你想换的位置。
 
 在cmd中输入
 
