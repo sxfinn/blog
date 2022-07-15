@@ -65,6 +65,7 @@ int main()
 **分析**：似乎他们的不同之处也就只有arr1的末尾比arr2多了一个‘\0'，而我们也联想到了另一个函数那就是strlen函数，在使用strlen函数时也出现了这样一个问题，strlen函数在返回arr2这样的数组的字符串长度时，总是返回的随机值。
 
 这里就与printf打印字符串的方式有关了，printf在以%s的形式打印arr2时，不断的向后打印每一个字符在标准输出上，直到遇到'\0'才会停止操作。
+
 这里附上一条详细介绍printf函数的链接。如下：
 
 [**printf函数详解**](http://cplusplus.com/reference/cstdio/printf/?kw=printf)

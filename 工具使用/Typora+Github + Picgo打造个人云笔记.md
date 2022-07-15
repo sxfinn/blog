@@ -128,7 +128,11 @@
 
 **放在Github的资源在国内加载速度比较慢**，因此需要使用CDN加速来优化网站打开速度，**jsDelivr + Github**便是免费且好用的CDN，非常适合博客网站使用。
 
-自定义域名格式可以是你的 **用户名/仓库名** 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是使用如下`raw.githubusercontent` **前缀**的链接。
+### 使用方法
+
+---
+
+**Picgo中设定自定义域名**，自定义域名格式可以是你的 **用户名/仓库名** 前加上`https://cdn.jsdelivr.net/gh`，这样可以加速我们对图片的访问，默认不更改的话图片会是使用如下`raw.githubusercontent` **前缀**的链接。
 
 使用CND加速后，Typora文档的图片的链接会变成我们设置的自定义域名 ：`https://cdn.jsdelivr.net/gh/用户名/仓库名/2022xxxxxx.png`，而如果我们将文档上传到GitHub服务器上,链接则通常如下：
 

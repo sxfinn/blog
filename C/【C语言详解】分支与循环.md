@@ -6,7 +6,7 @@
 
 [TOC]
 
-### 💦什么是语句
+## 💦什么是语句
 
 C语句可分为以下五类：
 
@@ -43,8 +43,6 @@ C语句可分为以下五类：
 
 可以看到二者是不可兼得的，只能选择其中的一个。
 
-
-
 那么对于计算机呢？
 
 if的语法结构：
@@ -52,16 +50,16 @@ if的语法结构：
 ```c
 //一般结构
 if(表达式)
-	语句;
+	语句1;
 if(表达式)
-	语句;
+	语句2;
 //多分支结构
 if(表达式1)
 	语句1;
 else if(表达式2)
 	语句2;
 else
-	语句;
+	语句3;
 ```
 
 
@@ -79,8 +77,6 @@ else
 那么C语言中如何表示真假？
 
 C语言中 0为假，非0为真。
-
-
 
 如果要执行的语句不止一条，那我们还需要将要执行的语句用大括号{}括起来。
 
@@ -161,13 +157,15 @@ int main()
 	int b = 2;
 	if (a == 5)
     	{
-		if (b == 2)
-			printf("true");
+			if (b == 2)
+				printf("true");
+        	else 
+                printf("false");
     	}
 		else
-        	{
+        {
 			printf("false");
-        	}
+        }
 	return 0;
 }
 ```
@@ -179,13 +177,13 @@ int main()
 **if语句的书写形式**
 
 ```c
-	//代码1
-	//函数体
+//代码1
+//函数体
 if (1)
-	{
-		return 1;
-	}
-	return 2;
+{
+	return 1;
+}
+return 2;
 ```
 
 返回值结果：
@@ -197,12 +195,11 @@ if (1)
 我们来换一种写法
 
 ```c
-	//代码2
+//代码2
 	if (1)
 	{
 		return 1;
 	}
-	
 	else
 	{
 		return 2;
@@ -266,7 +263,7 @@ int main()
 
 通常是多分支的，有多种情况可以选择。
 
-例如：我们想输出今天周几
+例如：我们想输出今天周几。
 
 > 输入1，输出周一
 >
@@ -400,25 +397,25 @@ int main()
 	{
 	case 1:
 		printf("工作日");
-            break;
+        break;
 	case 2:
 		printf("工作日");
-             break;
+        break;
 	case 3:
 		printf("工作日");
-             break;
+        break;
 	case 4:
 		printf("工作日");
-             break;
+        break;
 	case 5:
 		printf("工作日");
-             break;
+        break;
 	case 6:
 		printf("休息日");
-             break;
+        break;
 	case 7:
 		printf("休息日");	
-             break;
+        break;
 	}
 	return 0;
 }
@@ -453,9 +450,7 @@ int main()
 
 可以看到这仍然是分支，不过每一个分支的范围似乎不止是一个`case`，而是多个`case`组成的一个分支。
 
-而将语句列表划分为每个分支的就是`break`。
-
-
+而将语句列表划分为每个分支的标志就是`break`。
 
 switch语句一般形式：
 
@@ -471,11 +466,11 @@ switch(type)
 
 需要注意的几点：
 
-- type只能为整数
-- type为多少，就跳入case type分支，按照顺序执行
-- case只决定从哪里进，不决定从哪里出
-- case后面必须是整型常量
-- 如果所有case都不能进入，则默认执行default，每个switch语句只能出现一个default子句
+- type只能为整数；
+- type为多少，就跳入case type分支，按照顺序执行；
+- case只决定从哪里进，不决定从哪里出；
+- case后面必须是整型常量；
+- 如果所有case都不能进入，则默认执行default，每个switch语句只能出现一个default子句；
 
 <strong style="color:#ffc000;"><strong style="color:#00b050;"><strong style="color:#00b0f0;">`default`</strong></strong></strong>：可以出现在switch语句中的任何位置，而且语句流会像贯穿case标签一样贯穿default子句，若想让`default`子句成为一个新的分支，则也需要加`break`。
 
@@ -484,8 +479,6 @@ switch(type)
 * 最后一个`case`加上`break`
 
 * 每个switch语句都放入一个`default`。
-
-
 
 <strong style="color:#c00000;">注意：break只能在switch语句和循环语句中使用，且一个break只能跳出当前的循环或者switch语句</strong>。
 
@@ -581,7 +574,7 @@ int main()
 	while (i <= 10)
 	{
 		printf("%d\n", i);
-			i++;
+		i++;
 	}
 	return 0;
 }
@@ -667,11 +660,9 @@ continue的作用：终止本次循环，直接跳到下一次的循环判断位
 
 <strong style="color:#7030a0;">总结：break永久终止循环。
 </strong><strong style="color:#7030a0;">
-</strong>
-<strong style="color:#7030a0;">			continue终止本次循环，进入下一次循环判断位置。</strong>
+continue终止本次循环，进入下一次循环判断位置。</strong>
 
-<span style="background:#bbffff;">
-</span>
+
 
 **getchar函数**
 
@@ -695,7 +686,6 @@ continue的作用：终止本次循环，直接跳到下一次的循环判断位
 
 ```C
 #include<stdio.h>
-
 int main()
 {	
 	int ch = 1;
@@ -833,7 +823,7 @@ int main()
 
 可以看到代码1的初始化部分、条件判断部分和调整部分在for循环中都可以集成到一起，看起来更加简洁，使用起来更加方便。
 
-for循环流程图
+for循环流程图：
 
 ![image-20220518224851683](https://pic.xinsong.xyz/img/202205182248745.png)
 
@@ -895,7 +885,6 @@ int main()
 
 ```C
 #include<stdio.h>
-
 int main()
 {
 	int i = 0;
@@ -931,6 +920,8 @@ int main()
 运行结果：
 
 > 重复的打印<span style="background:#bbffff;">hehe</span>
+
+
 
 ```C
 //变种1
@@ -1040,8 +1031,7 @@ do while语句的用法
 do
 {
     循环体语句;
-}
-    while(condition)
+}while(condition)
 ```
 
 执行流程：
@@ -1225,7 +1215,7 @@ int main()
 
 ## 💦goto语句
 
-C语言中提供了可以随意滥用的 goto语句和标记跳转的标号。
+C语言中提供了可以随意跳转的 goto语句和标记跳转的标号。
 
 从理论上 goto语句是没有必要的，实践中没有goto语句也可以很容易的写出代码。 但是某些场合下goto语句还是用得着的，最常见的用法就是终止程序在某些深度嵌套的结构的处理过程。
 
@@ -1292,8 +1282,6 @@ int main()
 
 
 **总结：**
-<strong style="color:#002060;">
-</strong>
 
 *  **在明确知道循环的次数时使用for循环**
 
