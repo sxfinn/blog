@@ -597,3 +597,100 @@ int main()
 * 如果成员变量都是自定义类型并且都不需要显式调用构造函数，那么编译器生成的默认构造函数就足以处理这种情况
 
 ​		其他情况都需要我们自己去定义构造函数。
+
+#### 单参数的隐式类型转换
+
+```cpp
+class Widget
+{
+public:
+	Widget(int n = 0)
+		:
+		_n(n)
+	{
+		cout << "Widget()" << endl;
+	}
+	Widget(const Widget& d)
+		:
+		_n(d._n)
+	{
+		cout << "Widget(Widget& d)" << endl;
+	}
+	void print()
+	{
+		cout << "_n = " << _n << endl;
+	}
+private:
+	int _n;
+};
+
+Widget f(Widget u)
+{
+	Widget v(u);
+	Widget w = v;
+	return w;
+}
+
+int main()
+{
+	Widget x = 1;//1会作为构造函数的第一个参数去构造x
+	x.print();
+	return 0;
+}
+```
+
+输出：
+
+> Widget()
+>
+> _n = 1
+
+C++支持第33行这样的写法，实际上这里会发生使用1去构造一个Widget的一个临时对象，再使用这个临时对象去拷贝构造x，不过这里涉及到连续构造编译器的优化，这里可以直接视作使用1作为实参去构造对象x，这里的1会抢占第一个形参。
+
+#### 多参的隐式类型转换
+
+```cpp
+class Widget
+{
+public:
+	Widget(int n , int m = 0)//半缺省
+		:
+		_n(n),
+		_m(m)
+	{
+		cout << "Widget()" << endl;
+	}
+	Widget(const Widget& d)
+		:
+		_n(d._n),
+		_m(d._m)
+	{
+		cout << "Widget(Widget& d)" << endl;
+	}
+	void print()
+	{
+		cout << "_n=" << _n << "_m=" << _m << endl;
+	}
+private:
+	int _n;
+	int _m;
+};
+
+int main() 
+{
+	Widget x = {4,3};//与Widget(4,3);效果相同
+	Widget y = 9;//与Widget(9);效果相同
+	x.print();
+    y.print();
+	return 0;
+}
+```
+
+输出：
+
+> Widget()
+> Widget()
+> _n=4_m=3
+> _n=9_m=0
+
+类的构造函数有多个参数时，可以使用类似于初始化数组的方式构造对象，会依照{}中的顺序依次占用构造函数的形参并传值。

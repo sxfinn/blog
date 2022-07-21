@@ -249,3 +249,182 @@ int main()
 
 可如果是我们**显式定义出的拷贝构造**，它也是有初始化列表的，但是它的初始化列表可不会去调用成员的拷贝构造奥，而是和普通构造函数一样，对于内置类型成员不去初始化值，对于自定义类型成员调用自定义成员的构造函数而不是拷贝构造函数。
 
+
+
+## 编译器关于拷贝构造的优化
+
+下面这段代码共调用了多少次拷贝构造？
+
+```cpp
+class Widget
+{
+public:
+	Widget()
+		:
+		_n()
+	{
+		cout << "Widget()" << endl;
+	}
+	Widget(const Widget& d)
+		:
+		_n(d._n)
+	{
+		cout << "Widget(Widget& d)" << endl;
+	}
+private:
+	int _n;
+};
+
+Widget f(Widget u)
+{
+	Widget v(u);
+	Widget w = v;
+	return w;
+}
+
+int main() 
+{
+	Widget x;
+	Widget y = f(f(x));
+}
+```
+
+我们一个一个数。
+
+首先执行`f(x)`，那么会传参拷贝（第一次）
+
+函数体`Widget v(u);`（第二次）
+
+`Widget w = v;`（第三次）
+
+`return w;`用w拷贝构造一个的临时对象tmp（第四次），临时对象tmp作为实参传值拷贝给形参u（第五次）
+
+函数体`Widget v(u);`（第六次）
+
+`Widget w = v;`（第七次）
+
+`return w;`用w拷贝构造一个的临时对象tmp（第八次），使用临时对象tmp拷贝构造y（第九次）
+
+以上是我们的分析结果，但事实如此吗？
+
+输出结果：
+
+> Widget()
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+
+这里调用了七次拷贝构造，和我们分析出的不太一样。
+
+我们知道不同编译器是有差异的，它们和C++标准是有一些出入的，在一些比较新的编译器通常会做下列优化，让我们的程序更快更节约资源。
+
+在一个表达式中，连续构造会被优化：
+
+* 构造+拷贝构造
+
+```cpp
+class Widget
+{
+public:
+	Widget(int n = 0)
+		:
+		_n(n)
+	{
+		cout << "Widget()" << endl;
+	}
+	Widget(const Widget& d)
+		:
+		_n(d._n)
+	{
+		cout << "Widget(Widget& d)" << endl;
+	}
+private:
+	int _n;
+};
+int main() 
+{
+	Widget x = 1;
+}
+```
+
+> 输出：
+>
+> Widget()
+
+按照以前所讲的，第29行这里会发生隐式类型转换，即会用1去调用Widget的构造函数，并且1会作为构造函数的第一个形参，构造出一个Widget临时对象再使用这个临时对象去调用x的拷贝构造，简言之就是**先构造再拷贝构造**。
+
+但是这里通过输出我们知道`Widget x = 1;`只调用了一次构造函数，也就是说这种**先构造再拷贝构造**会被**编译器优化为直接使用1去构造`x`**，而不是用1构造一个临时对象，再使用临时对象去拷贝构造x。
+
+* 拷贝构造+拷贝构造
+
+```cpp
+class Widget
+{
+public:
+	Widget(int n = 0)
+		:
+		_n(n)
+	{
+		cout << "Widget()" << endl;
+	}
+	Widget(const Widget& d)
+		:
+		_n(d._n)
+	{
+		cout << "Widget(Widget& d)" << endl;
+	}
+private:
+	int _n;
+};
+
+Widget f(Widget u)
+{
+	Widget v(u);
+	Widget w = v;
+	return w;
+}
+
+int main()
+{
+	Widget x;
+	Widget y = f(x);
+	return 0;
+}
+```
+
+输出：
+
+> Widget()
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+
+调用了四次拷贝构造。
+
+倘若我们将30行改为`f(x);`，再来看看输出结果：
+
+> Widget()
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+> Widget(Widget& d)
+
+这两次居然是一样的，可明明`Widget y = f(x);`应该比`f(x);`要多一次拷贝构造啊？？？毕竟多了一步y的拷贝构造。
+
+说明其中有两次拷贝构造被合并为一次拷贝构造了，传参过程和函数体内中是一定不会存在拷贝构造的优化的，只有`return w;`，会先使用w拷贝构造一个临时对象，再用临时对象去拷贝构造`y`这段过程会被优化，**这两次拷贝构造被优化为直接使用w去拷贝构造y**，因此这两段代码调用拷贝构造的次数是相同的。
+
+结论：
+
+1. 构造 + 拷贝构造会被编译器优化为一次构造；
+2. 连续的拷贝构造会被编译器优化为一次拷贝构造；
+
+因此为何第一段代码我们也就理解了，第四次和第五次会合并为一次，第八次和第九次会合并为一次，总共调用了七次拷贝构造。
+
+
+
+关于这里的优化不是C++标准所规定的，了解即可。
