@@ -98,4 +98,3 @@ https://pub-api-1.bianyuan.xyz/sub?target=clash&url=https%3A%2F%2Fcate.com&inser
 只有Clash由于内核更新导致的新旧版无法兼容而有了`Clash New Field`选项，因此其他客户端的链接转换无需考虑是否勾选`Clash New Field`。
 
 其他订阅链接的转换都是按照如上操作只需更换目标客户端即可。
-
