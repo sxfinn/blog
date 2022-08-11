@@ -26,7 +26,7 @@
 
 2. 填写加速域名
 
-   如果您接入的域名为以下情况，则需要进行域名归属权验证，验证步骤请参考下方
+   如果您接入的域名为以下情况，则需要进行域名归属权验证，验证步骤请参考下方：
 
    - 首次接入该域名。
    - 该域名已被其他用户接入。
@@ -212,3 +212,17 @@ https配置指南：https://cloud.tencent.com/document/product/228/41687
 ![image-20220519105752449](https://pic.xinsong.xyz/img/202205191110682.png)
 
 到此就结束了，我们可以使用腾讯云提供的CDN服务了。
+
+
+
+**最新更详细的内容请参考**：
+
+[对象存储 开启自定义 CDN 加速域名-控制台指南-文档中心-腾讯云](https://cloud.tencent.com/document/product/436/36637)
+
+[内容分发网络 CDN 接入域名-快速入门-文档中心-腾讯云](https://cloud.tencent.com/document/product/228/41215)
+
+[内容分发网络 CDN 配置 CNAME-快速入门-文档中心-腾讯云](https://cloud.tencent.com/document/product/228/3121)
+
+[内容分发网络 CDN 配置指南-文档中心-腾讯云](https://cloud.tencent.com/document/product/228/37851)
+
+[内容分发网络 CDN 域名配置-配置指南-文档中心-腾讯云](https://cloud.tencent.com/document/product/228/6283)
