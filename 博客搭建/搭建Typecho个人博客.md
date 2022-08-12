@@ -4,6 +4,8 @@
 
 **Typecho**是一个基于[PHP](https://zh.m.wikipedia.org/wiki/PHP)的开源部落格程序。它使用多种数据库（[MySQL](https://zh.m.wikipedia.org/wiki/MySQL)、[PostgreSQL](https://zh.m.wikipedia.org/wiki/PostgreSQL)、[SQLite](https://zh.m.wikipedia.org/wiki/SQLite)、[MariaDB](https://zh.m.wikipedia.org/wiki/MariaDB)）储存数据，在[GPLv2](https://zh.m.wikipedia.org/wiki/GNU通用公共许可协议)许可证下发行。
 
+
+
 ### 特性
 
 ---
@@ -44,7 +46,7 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 
 **进入面板，安装LNMP，即Nginx、MySQL和PHP，这些环境是运行Typecho程序必不可少的。推荐使用PHP7以上版本，其他保持默认即可。**
 
-看大家网站需要什么环境进行选择。如果是生产环境推荐大家使用编译安装，如果只是测试环境选择极速安装。两者的区别是编译安装慢但稳定，极速安装虽然慢但是没编译安装稳定。耐心等待，可以在左上角查看进度。
+看大家网站需要什么环境进行选择。如果是生产环境推荐大家使用编译安装，如果只是测试环境选择极速安装。两者的区别是编译安装慢但稳定，极速安装虽然快但是没编译安装稳定。耐心等待，可以在左上角查看进度。
 
 ![image-20220811142442722](https://pic.xinsong.xyz/img/202208111424059.png)
 
@@ -65,7 +67,7 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 ![image-20220811143510394](https://pic.xinsong.xyz/img/202208111435483.png)
 
 * **填写域名，多个域名分行填写，没有域名可以用ip地址**
-* **FTP可不选，个人认为面板上传文件就很方便**
+* **FTP文件上传服务可不选，个人认为面板上传文件就很方便**
 * **创建数据库**
 
 ![image-20220811143749802](https://pic.xinsong.xyz/img/202208111437863.png)
@@ -84,7 +86,7 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 
 ![image-20220811162552557](https://pic.xinsong.xyz/img/202208111625649.png)
 
-* **进入网站根目录**
+* **打开宝塔面板，进入网站根目录**
 
 ![image-20220811143956112](https://pic.xinsong.xyz/img/202208111439164.png)
 
@@ -92,15 +94,15 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 
 ![image-20220811144958097](https://pic.xinsong.xyz/img/202208111449216.png)
 
-* **上传typecho.zip文件**
+* **上传typecho.zip文件压缩包**
 
 ![image-20220811145207231](https://pic.xinsong.xyz/img/202208111452381.png)
 
-* **解压typecho.zip**
+* **解压typecho.zip到网站根目录，保证Typecho运行程序在根目录**
 
 ![image-20220811145341434](https://pic.xinsong.xyz/img/202208111453517.png)
 
-* **删除压缩包**
+* **删除typecho.zip压缩包**（可选）
 
 ![image-20220811145441036](https://pic.xinsong.xyz/img/202208111454154.png)
 
@@ -127,11 +129,11 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 
 ![image-20220811145526630](https://pic.xinsong.xyz/img/202208111455717.png)
 
-* **仅填写红框，其他保持默认即可**（使用刚刚保存的数据库名以及密码）
+* **仅填写红框，会自动分配您服务器最适合的选项，因此其他保持默认即可**（使用刚刚保存的数据库名以及密码）
 
 ![image-20220811145845315](https://pic.xinsong.xyz/img/202208111458429.png)
 
-* **设置用户名和登录密码以及邮箱**（用于登录站点）
+* **设置用户名和登录密码以及邮箱**（用于每次登录站点）
 
 ![image-20220811145958034](https://pic.xinsong.xyz/img/202208111459116.png)
 
@@ -144,6 +146,8 @@ Typecho的默认模板和后台，全部采用了[响应式设计](https://zh.m.
 
 
 ![image-20220811150059818](https://pic.xinsong.xyz/img/202208111500977.png)
+
+
 
 ### 设置伪静态和地址重写
 
@@ -201,7 +205,7 @@ Typecho 博客本身不带主题/插件商店，因此主题和插件需要自�
 
 
 
-参考：
+**本文参考**：
 
 [30分钟搭建 Typecho 个人博客教程 - 知乎](https://zhuanlan.zhihu.com/p/34211709)
 
@@ -217,11 +221,4 @@ Typecho 博客本身不带主题/插件商店，因此主题和插件需要自�
 
 
 
-
-
-[宝塔面板安装WordPress（超详细） - 知乎](https://zhuanlan.zhihu.com/p/145116769)
-
-[使用宝塔面板搭建WordPress网站](http://cloud.yundashi168.com/archives/1039#i-8)
-
-[宝塔面板搭建WordPress网站完整教程 - 简书](https://www.jianshu.com/p/293c94adc11d)
 
