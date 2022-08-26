@@ -221,11 +221,13 @@ hexo d
 
 2. 添加解析记录
 
-如果是想用主域名或者www的域名访问站点，需要添加两个解析记录：
 
-**方案一**：
 
-第一个解析记录的记录类型为A，主机记录为@，记录值为ping 你的github用户名.github.io的ip地址，填入为下列 IP 中的一个至少一个
+**方案一（建议）：如果是想用主域名和www的域名访问站点**
+
+需要添加两个解析记录：
+
+第一个解析记录的记录类型为A，主机记录为@，记录值为ping 你的github用户名.github.io的ip地址，填入为下列 IP 中的至少一个
 
 - 185.199.108.153
 - 185.199.109.153
@@ -234,27 +236,61 @@ hexo d
 
 第二个解析记录的记录类型为CNAME，主机记录为www，记录值为你的新建的仓库名——你的github用户名.github.io 
 
-**方案二**：
-
-这里直接添加两个CNAME一个类型为@另一个为www都指向 你的github用户名.github.io 也是可以的
+注意：这里直接添加两个CNAME一个类型为@另一个为www都指向 你的github用户名.github.io 也可以的（但主机记录为@的域名添加CNAME记录值可能会有与其他服务，例如电子邮件的冲突问题，因此不建议）
 
 
 
-如果是想使用除www以外其他二级域名如blog域名访问站点，Custom domain填入相应域名再添加一个解析记录，记录类型为CNAME，指向 你的github用户名.github.io 即可。
+**方案二：如果是想使用单独的一个二级域名（包括www域）如blog域名访问站点**
+
+Custom domain填入相应域名再添加一个解析记录，记录类型为CNAME，指向 你的github用户名.github.io 即可。
 
 
 
-### DNS valid  for primary
+**方案三：如果是单独的只想使用主域名访问站点**
 
-如果只添加了我们填写的Custom domain的解析记录会报错：**DNS valid  for primary**，并且提示我们www域名未正确配置。
+添加解析记录的记录类型为A，主机记录为@，记录值为ping 你的github用户名.github.io的ip地址，填入为下列 IP 中的一个至少一个
+
+- 185.199.108.153
+- 185.199.109.153
+- 185.199.110.153
+- 185.199.111.153
+
+
+
+### Page的自动双重定向
+
+如下图添加了我们填写的Custom domain的解析记录会报错：**DNS valid  for primary**，并且提示我们www域名未正确配置，这是为何？
 
 ![image-20220826182121725](https://pic.xinsong.xyz/img/202208261821888.png)
 
-通常www域名和主域名是访问同一个站点的，都能正确访问网站，但是如上图这样只添加了我们填写的Custom domain的解析记录，www.xinsong.xyz就不能正确访问我们的站点，只能通过xinsong.xyz去访问。而如果这里的Custom domain是www.xinsong.xyz，并且也只添加了www的解析记录，那么这里仍然会报错：xinsong.xyz配置错误，但是通过www.xinsong.xyz和xinsong.xyz（重定向）却都能访问站点，虽然都能访问，但是我有点强迫症，不想看到Page报错，那么按照上面两种方案做就不会报错了。
+带着些历史原因，通常我们的印象中www域名和主域名是访问同一个站点的，大部分网站都这个机制，包括Github Page。
 
-**原因**：如果您使用顶级域作为您的自定义域，我们**建议**您也设置一个`www`子域。如果您通过 DNS 提供商为每种域类型配置正确的记录，GitHub Pages 将自动在域之间创建重定向。例如，如果您`www.example.com`将站点配置为自定义域，并且为顶点和`www`域设置了 GitHub Pages DNS 记录，`example.com`则将**重定向**到`www.example.com`. 请注意，自动重定向仅适用于`www`子域。自动重定向不适用于任何其他子域，例如`blog`. 
+这段时间搞了几种框架的网站建设了，我发现不是域名指向站点的 IP 就能访问站点。
 
-也就是说呢，由于历史原因，github page认为主域名和www域名是必须连结在一起的，即我们使用其中一个来访问站点，那么另一个也必须能访问站点，因此当Custom domain填写的是主域名或者www域名时，它是要求我们两个解析记录都要添加的。
+以typecho搭建的网站为例，即使一个域名指向了我们的 IP ，但如果我们的站点中没有保存这个域名的信息，也就是没有添加此域名作为访问站点的域名，那么这个域名仍然无法访问我们的站点，也就是说访问站点时是有域名认证的~，能解析到我的 IP 和站点还不行，我的站点还必须认证了此域名。
+
+利用GitHub page部署网站也有一个这个问题，那就是page的 IP 就那么4个，是如何能够访问我们的站点而不是其他人的站点呢？实际上GitHub是根据我们提交的CNAME去确定我们的站点的，CNAME的值会去填充Custom domain，而这个Custom domain会和我们的站点形成一种绑定关系，我们只有使用这个Custom domain才能正确访问站点。
+
+既然只能通过这一个Custom domain来访问站点，那么Github Page是怎么实现的www域名和主域名都能访问站点这样的机制呢？
+
+**原因是Github Page提供了双重定向的机制**。
+
+GitHub Page推荐我们通过DNS提供商在配置一个主域名同时配置一个 `www` 子域名，这样主域名和www的域名都可以访问站点
+
+如果您通过 DNS 提供商正确配置一个[顶级域名](https://doc.yonyoucloud.com/doc/wiki/project/github-pages-basics/custom-domains.html)（例如 `example.com` ）和一个匹配的 `www` 子域名（例如 `www.example.com` ），GitHub 服务器会自动地创建双重定向。
+
+正确配置这两个域名后：
+
+- 如果你的 `CNAME` 文件为 `example.com`，那么 `www.example.com` 会定向到 `example.com`。
+- 如果你的 `CNAME` 文件为 `www.example.com`，那么 `example.com` 会定向到 `www.example.com`。
+
+虽然只能填写一个Custom domain，**也只能通过此Custom domain访问站点**，但是通过DNS提供商对www域名和主域名DNS的正确配置GitHub Page会为我们自动创建双重定向，可以让 非Custom domain：**www域 和主域**其中一个 重定向到Custom domain，从而能够达到www域名和主域名都能访问站点的效果。而如果使用其他子域名（非www），则只能使用这一个子域名访问站点。自动重定向仅适用于`www`子域和其主域名之间，不适用于任何其他子域。
+
+例如，如果您将`www.example.com`站点配置为自定义域，并且为主域和`www`域设置了 GitHub Pages DNS 记录，`example.com`则将**重定向**到`www.example.com`,如果您将`example.com`站点配置为自定义域，并且为主域和`www`域设置了 GitHub Pages DNS 记录，`www.example.com`则将**重定向**到`example.com`.
+
+正是由于Page支持这样的机制，GitHub Page在我们Custom domain设置为 主域名或者www域名时，**会主动检测**DNS提供方是否将主域名和www域名都正确配置了（即使我们并不想使用重定向机制），像上图这样只添加了我们填写的Custom domain的这一条`xinsong.xyz`的解析记录，会提示我们：**DNS valid for primary**，www.xinsong.xyz就不能正确访问我们的站点，只能通过xinsong.xyz去访问。而如果这里的Custom domain是www.xinsong.xyz，并且也只添加了www的解析记录，那么这里也会提示：**DNS valid for primary**，并且报错：xinsong.xyz配置错误，也只能通过www.xinsong.xyz访问站点。如果不想看到Page报错和提示或者想使用双重定向机制，那么按照上面的**方案一**做就能正确配置不会报错了。
+
+因此提示 DNS valid for primary 是Github Page主动检查是否满足重定向机制的结果，一旦提示我们DNS valid for primary，说明未能创建双重定向，只有使用当前的Custom domain才能访问我们的站点。
 
 
 
@@ -267,8 +303,6 @@ hexo d
 ![image-20220706190711806](https://pic.xinsong.xyz/img/202207061907861.png)
 
 这样就通过我们的个性化域名来访问我们自己的网站了。
-
-
 
 但是这样做每次推送到远端时这个**Custom domain**都会被覆盖，需要重新输入，因此还需要做如下操作：
 
@@ -294,4 +328,38 @@ hexo g
 hexo d
 ```
 
-这时候我们在浏览器中输入我们的域名，就可以访问我们的网站了。
+这时候无论怎么折腾，我们在浏览器中输入我们的域名，就可以访问我们的网站了。
+
+
+
+## 最终
+
+GitHub Page推荐我们在配置一个主域名的同时配置一个 `www` 子域名。
+
+如果您通过 DNS 提供商正确配置一个[顶级域名](https://doc.yonyoucloud.com/doc/wiki/project/github-pages-basics/custom-domains.html)（例如 `example.com` ）和一个匹配的 `www` 子域名（例如 `www.example.com` ），GitHub 服务器会自动地创建双重定向。
+
+正确配置这两个域名后：
+
+- 如果你的 `CNAME` 文件为 `example.com`，那么 `www.example.com` 会定向到 `example.com`。
+- 如果你的 `CNAME` 文件为 `www.example.com`，那么 `example.com` 会定向到 `www.example.com`。
+
+**警告**：不要在你的 DNS 提供商上为你的自定义主域名创建一个 `CNAME` 记录！这样做可能会导致与其他服务，如电子邮件等，在该域的问题。
+
+
+
+所以根据GitHub Page的**官方说明**，总结下：
+
+* 使用子域名时（非www域），建议在DNS提供商上为该子域名创建一个 `CNAME` 记录，那么只能通过此子域去访问站点
+* 单独使用主域名时（不配置www域），建议在DNS提供商上为该主域名创建一个 `A` 记录（CNAME可行，但不建议），那么只能通过此主域访问站点
+* 使用www/主域名时，建议在DNS提供商上为该主域名创建一个 `A` 记录，在DNS提供商上为该www域名创建一个 `CNAME` 记录即可自动创建双重定向（定向到我们CNAME文件中的地址，无论CNAME文件为 `www.example.com` 还是 `example.com` ），使用www域和主域均可访问站点
+* 单独使用www域时，建议在DNS提供商上为该子域名创建一个 `CNAME` 记录，那么只能通过此www域去访问站点
+
+自动重定向仅适用于`www`子域和其主域名之间，不适用于任何其他子域。
+
+
+
+你可以使用除了 `www` 以外的一个自定义子域名和一个自定义顶端域名来通过域名重定向（有时候也叫“域名转发”）。但是，请注意，这只能用于用户和组织的 Pages，而不是项目的 Pages。
+
+
+
+参考：[在你的 DNS 提供者上配置 A 记录的技巧 - GitHub Pages 指南 - UDN开源文档](https://doc.yonyoucloud.com/doc/wiki/project/github-pages-basics/tip-record.html)
