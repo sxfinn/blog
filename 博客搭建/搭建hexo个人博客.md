@@ -223,17 +223,42 @@ hexo d
 
 如果是想用主域名或者www的域名访问站点，需要添加两个解析记录：
 
+**方案一**：
 
+第一个解析记录的记录类型为A，主机记录为@，记录值为ping 你的github用户名.github.io的ip地址，填入为下列 IP 中的一个至少一个
 
-第一个解析记录的记录类型为A，主机记录为@，记录值为ping你的github用户名.github.io的ip地址，填入进去
+- 185.199.108.153
+- 185.199.109.153
+- 185.199.110.153
+- 185.199.111.153
 
 第二个解析记录的记录类型为CNAME，主机记录为www，记录值为你的新建的仓库名——你的github用户名.github.io 
 
-（这里直接添加两个CNAME指向 你的github用户名.github.io 也是可以的）
+**方案二**：
+
+这里直接添加两个CNAME一个类型为@另一个为www都指向 你的github用户名.github.io 也是可以的
 
 
 
-如果是想使用其他二级域名访问站点，添加一个解析记录，记录类型为CNAME，指向 你的github用户名.github.io 即可。
+如果是想使用除www以外其他二级域名如blog域名访问站点，Custom domain填入相应域名再添加一个解析记录，记录类型为CNAME，指向 你的github用户名.github.io 即可。
+
+
+
+### DNS valid  for primary
+
+如果只添加了我们填写的Custom domain的解析记录会报错：**DNS valid  for primary**，并且提示我们www域名未正确配置。
+
+![image-20220826182121725](https://pic.xinsong.xyz/img/202208261821888.png)
+
+通常www域名和主域名是访问同一个站点的，都能正确访问网站，但是如上图这样只添加了我们填写的Custom domain的解析记录，www.xinsong.xyz就不能正确访问我们的站点，只能通过xinsong.xyz去访问。而如果这里的Custom domain是www.xinsong.xyz，并且也只添加了www的解析记录，那么这里仍然会报错：xinsong.xyz配置错误，但是通过www.xinsong.xyz和xinsong.xyz（重定向）却都能访问站点，虽然都能访问，但是我有点强迫症，不想看到Page报错，那么按照上面两种方案做就不会报错了。
+
+**原因**：如果您使用顶级域作为您的自定义域，我们**建议**您也设置一个`www`子域。如果您通过 DNS 提供商为每种域类型配置正确的记录，GitHub Pages 将自动在域之间创建重定向。例如，如果您`www.example.com`将站点配置为自定义域，并且为顶点和`www`域设置了 GitHub Pages DNS 记录，`example.com`则将**重定向**到`www.example.com`. 请注意，自动重定向仅适用于`www`子域。自动重定向不适用于任何其他子域，例如`blog`. 
+
+也就是说呢，由于历史原因，github page认为主域名和www域名是必须连结在一起的，即我们使用其中一个来访问站点，那么另一个也必须能访问站点，因此当Custom domain填写的是主域名或者www域名时，它是要求我们两个解析记录都要添加的。
+
+
+
+参考：[管理 GitHub Pages 站点的自定义域 - GitHub Docs](https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 
 
 
@@ -243,9 +268,15 @@ hexo d
 
 这样就通过我们的个性化域名来访问我们自己的网站了。
 
+
+
 但是这样做每次推送到远端时这个**Custom domain**都会被覆盖，需要重新输入，因此还需要做如下操作：
 
-进入Blog/blog/source目录下，创建一个记事本文件，输入你的域名。建议是带www的域名。
+进入Blog/blog/source目录下，创建一个记事本文件，输入GitHub Page页面的Custom domain。这里建议是带www的域名。
+
+
+
+
 
 ![image-20220706191228751](https://pic.xinsong.xyz/img/202207061912780.png)
 
