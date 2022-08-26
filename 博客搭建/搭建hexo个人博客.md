@@ -219,13 +219,21 @@ hexo d
 
 ![image-20220706181840964](https://pic.xinsong.xyz/img/202207061818021.png)
 
-2. 添加2个解析记录
+2. 添加解析记录
 
-第一个解析记录的记录类型为A，记录值为ping你的github用户名.github.io的ip地址，填入进去
+如果是想用主域名或者www的域名访问站点，需要添加两个解析记录：
 
 
 
-第二个解析记录的记录类型为CNAME，记录值为你的新建的仓库名——你的github用户名.github.io 
+第一个解析记录的记录类型为A，主机记录为@，记录值为ping你的github用户名.github.io的ip地址，填入进去
+
+第二个解析记录的记录类型为CNAME，主机记录为www，记录值为你的新建的仓库名——你的github用户名.github.io 
+
+（这里直接添加两个CNAME指向 你的github用户名.github.io 也是可以的）
+
+
+
+如果是想使用其他二级域名访问站点，添加一个解析记录，记录类型为CNAME，指向 你的github用户名.github.io 即可。
 
 
 
