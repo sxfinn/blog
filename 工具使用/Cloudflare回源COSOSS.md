@@ -118,6 +118,9 @@ Cloudflare确实良心，我们也可以将其应用在图床上，就可以隐�
 
 
 
+Cloudflare可以和国内CDN结合，达到国内IP走国内CDN，国外IP走Cloudflare，达到全球加速的效果。
 
 
-此方案可以和国内CDN结合，达到国内IP走国内CDN，国外IP走Cloudflare，达到全球加速的效果。
+
+**方案**：一个域名既作为COS源站的CDN加速域名，又作为Cloudflare代理COS源站的自定义域名。
+
