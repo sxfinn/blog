@@ -1,8 +1,28 @@
 ##  Centos升级git版本
 
-本文讲述如何升级 centos 系统的 git 版本。高版本 git 增加了一些好用的功能，比如"git pull 支持指定项目目录"等。本文以 centos7 为例讲解。
+本文讲述如何升级 centos 系统的 git 版本。高版本 git 增加了一些好用的功能，比如"git pull 支持指定项目目录"等。本文以 centos6/7 为例讲解。
 
 > 本文参考了文档[centos 6.x/7.x 使用 yum 升级 git 版本 (opens new window)](https://blog.slogra.com/post-721.html)。
+
+
+
+### 升级centos6/7的git版本
+
+1. 安装 git 仓库
+
+```text
+# 如果是 CentOS 6 系统就安装这个吧
+yum install http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm
+
+# 如果是 CentOS 7 系统就安装下面两个之一吧
+yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm
+# 或者
+yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+```
+
+2. 安装新版本git
+
+​		yum install git
 
 
 
@@ -20,7 +40,7 @@ rpm -ivh http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release
 
 3. 安装 高版本 git 
 
-yum install git -y
+​		yum install git -y
 
 4. 完整安装过程如下
 
