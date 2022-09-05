@@ -88,7 +88,7 @@ pip3 -V
 
 取决于你是否将python3设置为了默认，如果是可以执行下面操作。
 
-因为其要用到python2.x才能执行，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）
+因为yum要用到python2.x，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）
 
 ```shell
 vim /usr/bin/yum 
