@@ -1,18 +1,16 @@
-哈<details>
+kkk
 
-<summary>1</summary>哈哈
+可以说科技是<details>
+
+<summary>答案</summary>第一生产力
 
 </code></pre>
 
 </details>
 
 <pre><code>
-    日密码
+    
 </pre>
-
-
-
-
 
 
 
