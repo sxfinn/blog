@@ -53,3 +53,7 @@ Python以后再写吧
 ### 数据库
 
 未开始
+
+
+
+此仓库已不再更新，已转到notes：[sxfinn/notes](https://github.com/sxfinn/notes)
